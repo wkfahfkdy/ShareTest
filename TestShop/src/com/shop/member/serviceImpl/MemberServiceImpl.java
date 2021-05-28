@@ -169,7 +169,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		// TODO 멤버 삭제
 		
 		String sql = "delete from member where id = ?";
-		
+		// not exist ( select * from inq_board where title = (sdfsdaf)%) 이렇게 뭐 어딘가에 써먹을수도
 		int result = 0;
 		
 		try {

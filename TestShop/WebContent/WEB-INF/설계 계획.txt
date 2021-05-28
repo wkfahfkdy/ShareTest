@@ -38,6 +38,6 @@ DB
 게시글 : bulletin
 	admin/user 만 글 CRUD / 게스트 = 읽기 가능
 	COLUMN : ID(게시글번호), TITLE, CONTENT, WRITER, REG_DATE, HIT
-	
+
 -------------------------------------------------
 
