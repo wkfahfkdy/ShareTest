@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div>
+		<h4>${vo.itemCode }</h4>
+	</div>
 </body>
 </html>

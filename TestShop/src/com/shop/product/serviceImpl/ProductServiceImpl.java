@@ -30,19 +30,26 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	public ProductVO goDesc(String itemCode) {
 		
 		sql = "select * from product where item_code = ?";
-		ProductVO vo;
+		ProductVO vo = new ProductVO();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, itemCode);
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
-				
+				vo.setDivision(rs.getString("division"));
+				vo.setItemCode(rs.getString("item_code"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setItemName(rs.getString("item_name"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setSale(rs.getString("sale"));
+				vo.setSalePrice(rs.getInt("sale_price"));
 			}
 			
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
 			close();
 		}
