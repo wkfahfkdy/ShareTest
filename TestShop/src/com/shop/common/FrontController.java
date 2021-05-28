@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.member.web.MemberJoinForm;
+
 public class FrontController extends HttpServlet {
 	
 	private HashMap<String, DbCommand> map = new HashMap<>();
@@ -19,6 +21,7 @@ public class FrontController extends HttpServlet {
 		
 		// MEMBER
 		map.put("/memberJoin.do", new MemberJoin());
+		map.put("/memberJoinForm.do", new MemberJoinForm());
 	}
 	
 	@Override

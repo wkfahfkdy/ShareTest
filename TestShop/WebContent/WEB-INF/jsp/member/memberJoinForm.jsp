@@ -112,6 +112,10 @@
 						<td width="330"><input type="text" id="memberPhone" name="memberPhone">
 					</tr>
 					<tr>
+						<th width="150">이메일 : </th>
+						<td width="330"><input type="text" id="memberMail" name="memberMail">
+					</tr>
+					<tr>
 						<th width="150">주소 : </th>
 						<td width="330"><input type="text" id="memberAddr" name="memberAddr">
 					</tr>

@@ -46,6 +46,11 @@
 				<button type="button" onclick="formcheck()">로그인</button>
 			</div>
 		</form>
+		<form id = "frm2" action="memberJoinForm.do" method="post">
+			<div>
+				<button type="button">회원 가입</button>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
