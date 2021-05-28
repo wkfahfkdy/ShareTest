@@ -18,39 +18,46 @@
 			return false;
 		}
 		if(frm.memberPwd.value == "") {
-			alert("비밀번호를 입려하시오");
+			alert("비밀번호를 입력하시오");
 			frm.memberPwd.focus;
-			retrun false;
+			return false;
 		}
 		
 		frm.submit();
 	}
 </script>
+<style>
+	th {
+		color: white;
+	}
+</style>
 </head>
 <body>
-	<div align="center">
-		<form id = "frm" action="memberLogin.do" method="post">
-			<div>
-				<table>
-					<tr>
-						<th>ID</th>
-						<td><input type="text" id="memberId" name="memberId"></td>
-					</tr>
-					<tr>
-						<th>PW</th>
-						<td><input type="password" id="memberPwd" name="memberPwd"></td>
-					</tr>
-				</table>
-			</div>
-			<div>
-				<button type="button" onclick="formcheck()">로그인</button>
-			</div>
-		</form>
-		<form id = "frm2" action="memberJoinForm.do" method="post">
-			<div>
-				<button type="button">회원 가입</button>
-			</div>
-		</form>
+	<div class="bg-dark py-5">
+		<div align="center">
+			<form id = "frm" action="memberLogin.do" method="post">
+				<div>
+					<table>
+						<tr>
+							<th>ID </th>
+							<td><input type="text" id="memberId" name="memberId"></td>
+						</tr>
+						<tr>
+							<th>PW </th>
+							<td><input type="password" id="memberPwd" name="memberPwd"></td>
+						</tr>
+					</table>
+				</div>
+				<div>
+					<button type="button" onclick="formcheck()">로그인</button>
+				</div>
+			</form>
+			<form id = "frm2" action="memberJoinForm.do" method="post">
+				<div>
+					<button type="submit">회원 가입</button>
+				</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

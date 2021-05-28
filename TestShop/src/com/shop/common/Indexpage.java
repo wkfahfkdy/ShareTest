@@ -14,7 +14,7 @@ public class Indexpage implements DbCommand {
 		
 		request.setAttribute("id", id);
 		
-		return "main/main.tiles";
+		return "member/memberLoginForm.tiles";
 	}
 
 }
