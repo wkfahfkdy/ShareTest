@@ -2,19 +2,21 @@
 
 -------------------------------------------------
 menu
- - 전체 카테고리 ( 빵 / 쿠키 / 즉석  /  / ? )
+ - 전체 카테고리 ( 빵 / 쿠키 / 간편식 / 음료 / ? )
  - 전체 보기
  - 인기 상품
- - 게시판(고객들 리뷰? / 상담?as?????)
+ - 게시판(후기? 리뷰? / 상담?as?????)
  - 로그인/로그아웃
 
- - 카트?
+ - 장바구니
 
 head
- - ??
+ - 나중에 해도 상관x. 아이디어 생기면 변경
 
 body
  - 게시판, 상품 등 보일 곳
+ - 상품 클릭시 상세 보기 page로 이동
+ - 관련 상품 아래쪽에 보이게? (같은 분류에 묶어서?)
 
 foot
  - Copyrigt safsfa~~~
@@ -26,7 +28,7 @@ DB
 	column : ID, NAME, PASSWD, PHONE, MAIL, ADDRESS
 상품 : product
 	>> 나중에 생각 : 게스트가 누르면 비회원 장바구니 or 로그인을 하시오
-	column : ITEM_CODE, ITEM_NAME, ITEM_IMAGE, PRICE, ITEM_DESC, PRICE, LIKE_IT, SALE, SALE_PRICE, DIVISION
+	column : ITEM_CODE, ITEM_NAME, ITEM_IMAGE, PRICE, ITEM_DESC, PRICE, LIKE_IT, SALE, SALE_PRICE, DIVISION(분류)
 장바구니 : cart
 	user 만 보이게 및 사용 가능
 	COLUMN : USER_ID, ITEM_CODE, ITEM_QTY  >> PRODUCT 조인해서 나머지 가져오기
@@ -36,3 +38,6 @@ DB
 게시글 : bulletin
 	admin/user 만 글 CRUD / 게스트 = 읽기 가능
 	COLUMN : ID(게시글번호), TITLE, CONTENT, WRITER, REG_DATE, HIT
+	
+-------------------------------------------------
+
