@@ -16,6 +16,28 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	ResultSet rs;
 	String sql;
 	
+	public boolean idCheck(String id) {
+		boolean check = false;
+		
+		sql = "select id from member where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				check = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return check;
+	}
+	
 	public void close() {
 		
 		try {

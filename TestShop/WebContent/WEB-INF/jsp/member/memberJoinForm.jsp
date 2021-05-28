@@ -31,7 +31,7 @@
 		
 		// ID 중복 체크
 		$.ajax({
-			url: 'MemberIdCheck',
+			url: 'memberIdCheck',
 			data: {id: $('#memberId').val()},
 			type: 'post',
 			success: function(data){
@@ -41,11 +41,35 @@
 					$('memberId').focus();
 				} else {
 					alert('사용 가능한 아이디입니다');
+					$('#idCheck').val('checked')
 					$('#memberPwd').focus();
 				}
+			},
+			error: function(err) {
+				console.log(err);
 			}
 		});
 	});
+	
+	function forCheck() {
+		
+		if(frm.memberId.value == "") {
+			alert("아이디를 입력하시오");
+			frm.memberId.focuse();
+			return false;
+		}
+		if(frm.idCheck.value == "unChecked"){
+			alert("아이디 중복 체크를 하시오");
+			return false;
+		}
+		if(frm.memberPwd.value == "") {
+			alert("비밀번호를 입력하시오");
+			frm.memberPwd.focuse();
+			return false;
+		}
+		if(frm.)
+			
+	}
 </script>
 </head>
 <body>
@@ -59,7 +83,7 @@
 					<tr>
 						<th width="150">아이디 : </th>
 						<td width="330"><input type="text" id="memberId" name="memberId">
-						<button type="button" id="idCheck">중복 체크</button>
+						<button type="button" id="idCheck" value="unChecked">중복 체크</button>
 					</tr>
 					<tr>
 						<th width="150">이름 : </th>
@@ -72,7 +96,7 @@
 					<tr>
 						<th width="150">비밀번호 재확인 : </th>
 						<td width="330"><input type="password" id="memberPwd2" name="memberPwd2">
-						<button type="button" id="pwdCheck">확인</button>
+						<button type="button" id="pwdCheck" value="">확인</button>
 					</tr>
 					<tr>
 						<th width="150">연락처 : </th>
