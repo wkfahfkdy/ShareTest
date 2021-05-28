@@ -42,6 +42,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		} finally {
 			close();
 		}
+		return rvo;
 	}
 	
 	public boolean idCheck(String id) {

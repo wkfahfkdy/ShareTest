@@ -14,12 +14,12 @@
 	function formcheck() {
 		if(frm.memberId.value == "") {
 			alert("아이디를 입력하시오");
-			frm.memberId.focus;
+			frm.memberId.focus();
 			return false;
 		}
 		if(frm.memberPwd.value == "") {
 			alert("비밀번호를 입력하시오");
-			frm.memberPwd.focus;
+			frm.memberPwd.focus();
 			return false;
 		}
 		
@@ -35,7 +35,7 @@
 <body>
 	<div class="bg-dark py-5">
 		<div align="center">
-			<form id = "frm" action="memberLogin.do" method="post">
+			<form id="frm" action="memberLogin.do" method="post">
 				<div>
 					<table>
 						<tr>

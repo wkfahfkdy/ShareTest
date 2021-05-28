@@ -14,7 +14,12 @@ public class Indexpage implements DbCommand {
 		
 		request.setAttribute("id", id);
 		
-		return "member/memberLoginForm.tiles";
+		if(id == null) {
+			return "member/memberLoginForm.tiles";
+		} else {
+			return "member/memberLoginSuccess.tiles";
+		}
+		
 	}
 
 }
