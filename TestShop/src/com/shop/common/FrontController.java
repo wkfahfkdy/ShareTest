@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.inqBoard.web.InqBoardList;
 import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
 import com.shop.member.web.MemberLogout;
 import com.shop.product.web.ProductList;
+import com.shop.revBoard.web.revBoardList;
 
 public class FrontController extends HttpServlet {
 	
@@ -31,6 +33,12 @@ public class FrontController extends HttpServlet {
 		
 		// PRODUCT
 		map.put("/productList.do", new ProductList());
+		
+		// REVIEW
+		map.put("/revBoardList.do", new revBoardList());
+		
+		// INQUIRE
+		map.put("/inqBoardList.do", new InqBoardList());
 	}
 	
 	@Override

@@ -2,14 +2,14 @@ package com.shop.inqBoard.service;
 
 import java.util.List;
 
-import com.shop.revBoard.vo.RevBoardVO;
+import com.shop.inqBoard.vo.InqBoardVO;
 
 
 public interface InqBoardService {
 
-	List<RevBoardVO> selectNoticeList();
-	RevBoardVO selectNotice();
-	public int insertNotice(RevBoardVO vo);
-	public int updateNotice(RevBoardVO vo);
-	public int deleteNotice(RevBoardVO vo);
+	List<InqBoardVO> selectInqBoardList();
+	InqBoardVO selectInqBoard();
+	public int insertInqBoard(InqBoardVO vo);
+	public int updateInqBoard(InqBoardVO vo);
+	public int deleteInqBoard(InqBoardVO vo);
 }
