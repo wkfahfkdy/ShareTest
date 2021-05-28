@@ -97,7 +97,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	public int insertMember(MemberVO vo) {
 		// TODO 멤버 입력
 		
-		String sql = "insert into member(id, passwd, name, phone, mail, address) values (?, ?, ?, ?, ?, ?)";
+		sql = "insert into member(id, passwd, name, phone, mail, address) values (?, ?, ?, ?, ?, ?)";
 		
 		int result = 0;
 		
@@ -133,7 +133,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		// TODO 멤버 정보 수정
 		// 회원 정보 수정하는 거면 아이디뿐 아니라 비밀번호도 일치해야 하는 sql문을 짜야 하지 않을까...?
 		
-		String sql = "update member set passwd = ?, name = ?, phone = ?, mail = ?, address = ? where id = ?";
+		sql = "update member set passwd = ?, name = ?, phone = ?, mail = ?, address = ? where id = ?";
 		
 		int result = 0;
 		
@@ -168,7 +168,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	public int deleteMember(MemberVO vo) {
 		// TODO 멤버 삭제
 		
-		String sql = "delete from member where id = ?";
+		sql = "delete from member where id = ?";
 		// not exist ( select * from inq_board where title = (sdfsdaf)%) 이렇게 뭐 어딘가에 써먹을수도
 		int result = 0;
 		
