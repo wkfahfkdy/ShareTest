@@ -17,7 +17,7 @@ public class MemberIdCheck extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
-		System.out.println(id);
+		
 		MemberServiceImpl service = new MemberServiceImpl();
 		
 		int cnt = 0;

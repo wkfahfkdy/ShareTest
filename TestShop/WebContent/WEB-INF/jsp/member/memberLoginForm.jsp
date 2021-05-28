@@ -24,6 +24,8 @@
 		}
 		
 		frm.submit();
+		
+		// 로그인 실패시 문구 띄우기는 보류
 	}
 </script>
 <style>

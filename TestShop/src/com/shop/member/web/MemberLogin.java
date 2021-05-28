@@ -17,7 +17,6 @@ public class MemberLogin implements DbCommand {
 		
 		String id = request.getParameter("memberId");
 		String pwd = request.getParameter("memberPwd");
-		System.out.println(id);
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
@@ -27,6 +26,7 @@ public class MemberLogin implements DbCommand {
 		MemberVO rvo = service.loginCheck(vo);
 		
 		if(rvo == null) {
+			session.setAttribute("id", "");
 			return "index.do";
 		} else {
 			session.setAttribute("id", rvo.getId());
