@@ -96,7 +96,7 @@
 					<tr>
 						<th width="150">비밀번호 재확인 : </th>
 						<td width="330"><input type="password" id="memberPwd2" name="memberPwd2">
-						<button type="button" id="pwdCheck" value="">확인</button>
+						<button type="button" id="pwdCheck" value="nonChecked">확인</button>
 					</tr>
 					<tr>
 						<th width="150">연락처 : </th>
