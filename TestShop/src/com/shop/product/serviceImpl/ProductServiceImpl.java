@@ -1,0 +1,176 @@
+package com.shop.product.serviceImpl;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.shop.common.DAO;
+import com.shop.product.service.ProductService;
+import com.shop.product.vo.ProductVO;
+
+public class ProductServiceImpl extends DAO implements ProductService {
+
+	PreparedStatement psmt;
+	ResultSet rs;
+	String sql;
+	
+	public void close() {
+		
+		try {
+			if (rs != null) rs.close();
+			if (psmt != null) psmt.close();
+			if (conn != null) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public List<ProductVO> selectProductList() {
+		// 상품 전체 조회
+		
+		sql = "select * from product order by 1";
+		List<ProductVO> list = new ArrayList<>();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO vo = new ProductVO();
+				vo.setDivision(rs.getString("division"));
+				vo.setItemCode(rs.getString("item_code"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setItemName(rs.getString("item_name"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setSale(rs.getString("sale"));
+				vo.setSalePrice(rs.getInt("sale_price"));
+				
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public ProductVO selectProduct(String id) {
+		// 상품 분류 지정 조회
+		return null;
+	}
+
+	@Override
+	public int insertProduct(ProductVO vo) {
+		// 상품 입력
+		
+		int result = 0;
+		sql = "insert into product values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, vo.getItemCode());
+			psmt.setString(2, vo.getItemName());
+			psmt.setString(3, vo.getItemImage());
+			psmt.setInt(4, vo.getPrice());
+			psmt.setString(5, vo.getItemDesc());
+			psmt.setInt(6, vo.getLikeIt());
+			psmt.setString(7, vo.getSale());
+			psmt.setInt(8, vo.getSalePrice());
+			psmt.setString(9, vo.getDivision());
+			
+			result = psmt.executeUpdate();
+			
+			if(result != 0) {
+				System.out.println(result + "건 입력");
+			} else {
+				System.out.println("입력 ㄴㄴ");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int updateProduct(ProductVO vo) {
+		// 상품 정보 수정
+		
+		int result = 0;
+		sql = "update product set "
+				+ "item_name = ?, item_image = ?, price = ?, like_it = ?, "
+				+ "sale = ?, sale_price = ?, division = ?"
+				+ "where item_code = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, vo.getItemName());
+			psmt.setString(2, vo.getItemImage());
+			psmt.setInt(3, vo.getPrice());
+			psmt.setString(4, vo.getItemDesc());
+			psmt.setInt(5, vo.getLikeIt());
+			psmt.setString(6, vo.getSale());
+			psmt.setInt(7, vo.getSalePrice());
+			psmt.setString(8, vo.getDivision());
+			psmt.setString(9, vo.getItemCode());
+			
+			result = psmt.executeUpdate();
+			
+			if(result != 0) {
+				System.out.println(result + "건 수정");
+			} else {
+				System.out.println("수정 ㄴㄴ");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int deleteProduct(ProductVO vo) {
+		// 상품 삭제
+		
+		int result = 0;
+		sql = "delete from product where item_code = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, vo.getItemCode());
+			
+			result = psmt.executeUpdate();
+			
+			if(result != 0) {
+				System.out.println(result + "건 삭제");
+			} else {
+				System.out.println("삭제 ㄴㄴ");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return result;
+	}
+
+}
