@@ -1,9 +1,10 @@
-package com.shop.common;
+package com.shop.member.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.shop.common.DbCommand;
 import com.shop.member.service.MemberService;
 import com.shop.member.serviceImpl.MemberServiceImpl;
 import com.shop.member.vo.MemberVO;
