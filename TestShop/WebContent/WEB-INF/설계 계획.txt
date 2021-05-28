@@ -5,7 +5,7 @@ menu
  - 전체 카테고리 ( 빵 / 쿠키 / 간편식 / 음료 / ? )
  - 전체 보기
  - 인기 상품
- - 게시판(후기? 리뷰? / 상담?as?????)
+ - 게시판(후기? 리뷰? 게시판 / 문의 게시판)
  - 로그인/로그아웃
 
  - 장바구니
@@ -28,7 +28,7 @@ DB
 	column : ID, NAME, PASSWD, PHONE, MAIL, ADDRESS
 상품 : product
 	>> 나중에 생각 : 게스트가 누르면 비회원 장바구니 or 로그인을 하시오
-	column : ITEM_CODE, ITEM_NAME, ITEM_IMAGE, PRICE, ITEM_DESC, PRICE, LIKE_IT, SALE, SALE_PRICE, DIVISION(분류)
+	column : ITEM_CODE, ITEM_NAME, ITEM_IMAGE, PRICE, ITEM_DESC, LIKE_IT, SALE, SALE_PRICE, DIVISION(분류)
 장바구니 : cart
 	user 만 보이게 및 사용 가능
 	COLUMN : USER_ID, ITEM_CODE, ITEM_QTY  >> PRODUCT 조인해서 나머지 가져오기
