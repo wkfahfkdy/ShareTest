@@ -5,14 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shop.common.DbCommand;
 
-public class ProductListDesc implements DbCommand {
+public class goDesc implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		
 		
-		return "product/productListDesc.tiles";
+		return null;
 	}
 
 }

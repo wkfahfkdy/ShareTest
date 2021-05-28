@@ -27,6 +27,30 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		}
 	}
 	
+	public ProductVO goDesc(String itemCode) {
+		
+		sql = "select * from product where item_code = ?";
+		ProductVO vo;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, itemCode);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		} finally {
+			close();
+		}
+		
+		return vo;
+	}
+	
+	
 	@Override
 	public List<ProductVO> selectProductList() {
 		// 상품 전체 조회

@@ -2,6 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script>
+	function goDesc(itemCode) {
+		$.ajax({
+			url: 'goDesc.do',
+			data: {itemCode: itemCode},
+			success: function(result){
+				location.href="productListDesc.do"
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}
+</script>
+
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">
 		<div
@@ -41,8 +56,10 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="productListDesc.do">View
-									options</a>
+								<!-- <a class="btn btn-outline-dark mt-auto" href="productListDesc.do"> -->
+								<a class="btn btn-outline-dark mt-auto" onclick="goDesc('${vo.itemCode }')">
+									View options
+								</a>
 							</div>
 						</div>
 						<!-- Product actions-->
