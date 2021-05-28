@@ -38,7 +38,7 @@
 								</c:if>
 								
                             	<c:if test="${not empty id }">
-									<li class="nav-item"><a class="nav-link" href="memberLoginOut.do">로그아웃</a></li>
+									<li class="nav-item"><a class="nav-link" href="memberLogOut.do">로그아웃</a></li>
 								</c:if>
 
 								<c:if test="${empty id }">

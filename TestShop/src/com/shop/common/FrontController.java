@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
+import com.shop.member.web.MemberLogout;
 import com.shop.product.web.ProductList;
 
 public class FrontController extends HttpServlet {
@@ -26,6 +27,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberLogin.do", new MemberLogin());
+		map.put("/memberLogOut.do", new MemberLogout());
 		
 		// PRODUCT
 		map.put("/productList.do", new ProductList());
