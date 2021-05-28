@@ -24,6 +24,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberLogin.do", new MemberLogin());
+		
+		// PRODUCT
+		map.put("/productList.do", new ProductList());
 	}
 	
 	@Override

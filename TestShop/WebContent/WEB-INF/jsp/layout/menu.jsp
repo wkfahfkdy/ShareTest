@@ -8,8 +8,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.tiles">홈</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">전 품목</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.do">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" href="productList.do">전 품목</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="productList.do">전체 상품</a></li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">카테고리 별</a>
@@ -21,6 +21,8 @@
                                 <li><a class="dropdown-item" href="#!">대분류4</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="#!">후기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
                     </ul>
                     <form class="d-flex" action = "cartList.do"><!-- id로 장바구니 조회 ~> cartList.do -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -40,7 +42,7 @@
 								</c:if>
 
 								<c:if test="${empty id }">
-									<li class="nav-item"><a class="nav-link" href="memberLoginForm.do">로그인</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.do">로그인</a></li>
 									<li class="nav-item"><a class="nav-link" href="memberJoinForm.do">회원가입</a></li>
 								</c:if>
                             </ul>
