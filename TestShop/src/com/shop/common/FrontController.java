@@ -15,6 +15,7 @@ import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
 import com.shop.member.web.MemberLogout;
 import com.shop.product.web.ProductList;
+import com.shop.product.web.ProductListDesc;
 import com.shop.revBoard.web.revBoardList;
 
 public class FrontController extends HttpServlet {
@@ -33,6 +34,7 @@ public class FrontController extends HttpServlet {
 		
 		// PRODUCT
 		map.put("/productList.do", new ProductList());
+		map.put("/productListDesc.do", new ProductListDesc());
 		
 		// REVIEW
 		map.put("/revBoardList.do", new revBoardList());
