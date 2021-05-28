@@ -31,7 +31,7 @@
 					} else {
 						alert('사용 가능한 아이디입니다');
 						$('#idCheck').val('checked')
-						$('#memberPwd').focus();
+						$('#memberId').focus();
 					}
 				},
 				error: function(err) {
