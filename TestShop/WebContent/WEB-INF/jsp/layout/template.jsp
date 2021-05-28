@@ -10,10 +10,13 @@
 </title> 
 <!-- 컨트롤 통해서만 가능하게 WEB-INF 내부에 만듬 -->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/bootstrap/css/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath }/bootstrap/js/scripts.js"></script>
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     .fakeimg {
       height: 200px;
@@ -27,12 +30,14 @@
 	<tiles:insertAttribute name="menu">
 	</tiles:insertAttribute>
 	
-	<hr>
+	
+	<tiles:insertAttribute name="head">
+	</tiles:insertAttribute>
+	
 	
 	<tiles:insertAttribute name="body">
 	</tiles:insertAttribute>	
 	
-	<hr>
 	
 	<tiles:insertAttribute name="foot">
 	</tiles:insertAttribute>
