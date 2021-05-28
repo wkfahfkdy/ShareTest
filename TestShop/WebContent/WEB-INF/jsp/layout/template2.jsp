@@ -25,7 +25,11 @@
 <body>
 	
 	<tiles:insertAttribute name="menu">
+<<<<<<< HEAD
 	</tiles:insertAttribute> sfdasfdasfdaㄴㄹㅇㅁㄴㄹㅇㅁㄴㄹㅇㅁsfdasfdㄴㄹㅇㅁ
+=======
+	</tiles:insertAttribute>ty tfyujftj7
+>>>>>>> branch 'main' of https://github.com/wkfahfkdy/ShareTest.git
 	
 	<hr>
 	
