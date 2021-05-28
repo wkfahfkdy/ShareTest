@@ -18,6 +18,7 @@ public class FrontController extends HttpServlet {
 		map.put("/index.do", new Indexpage());
 		
 		// MEMBER
+		map.put("/memberJoin.do", new MemberJoin());
 	}
 	
 	@Override

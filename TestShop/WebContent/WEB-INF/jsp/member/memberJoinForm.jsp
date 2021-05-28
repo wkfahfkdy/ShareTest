@@ -51,7 +51,18 @@
 		});
 	});
 	
-	function forCheck() {
+	$(function() {
+		
+		$('#pwdCheck').click(function (){
+			if($('memberPwd').val() != $('memberPwd2').val() ){
+				alert('비밀번호가 일치하지않습니다');
+				$('memberPwd').focus();
+				return;
+			}
+		}
+	});
+	
+	function formCheck() {
 		
 		if(frm.memberId.value == "") {
 			alert("아이디를 입력하시오");
@@ -67,8 +78,8 @@
 			frm.memberPwd.focuse();
 			return false;
 		}
-		if(frm.)
-			
+		
+		frm.submit();
 	}
 </script>
 </head>
@@ -91,9 +102,7 @@
 					</tr>
 					<tr>
 						<th width="150">비밀번호 : </th>
-						<td width="330"><input type="password" id="memberPwd" name="memberPwd">
-					</tr>
-					<tr>
+						<td width="330"><input type="password" id="memberPwd" name="memberPwd"><br>
 						<th width="150">비밀번호 재확인 : </th>
 						<td width="330"><input type="password" id="memberPwd2" name="memberPwd2">
 						<button type="button" id="pwdCheck" value="nonChecked">확인</button>
