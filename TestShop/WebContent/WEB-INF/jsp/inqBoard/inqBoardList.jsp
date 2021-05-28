@@ -8,16 +8,16 @@
 <title>게시글 리스트</title>
 <script>
 	// 게시글 ID로 조회
-	function formSubmit(revBoardId){
+	function formSubmit(inqBoardId){
 		
-		frm.id.value = revBoardId;
+		frm.id.value = inqBoardId;
 		frm.submit();
 	}
 </script>
 </head>
 <body>
 	<h3>게시판 리스트</h3>
-	<form id="frm" action="revBoardList.do" method="POST">
+	<form id="frm" action="inqBoardList.do" method="POST">
 		<input type="hidden" id="id" name="id">
 	</form>
 	<div align="center">
@@ -30,7 +30,7 @@
 					<th width="150">작성일자</th>
 					<th width="100">조회수</th>
 				</tr>
-				<c:forEach items="${revBoardList }" var="vo">
+				<c:forEach items="${inqBoardList }" var="vo">
 					<tr>
 						<td>${vo.id }</td>
 						<td onclick="formSubmit(${vo.id})">${vo.title }</td>
