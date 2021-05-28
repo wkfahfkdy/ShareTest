@@ -12,7 +12,7 @@ public class Indexpage implements DbCommand {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
-		
+		request.setAttribute("id", id);
 		
 		return "main/main.tiles";
 	}
