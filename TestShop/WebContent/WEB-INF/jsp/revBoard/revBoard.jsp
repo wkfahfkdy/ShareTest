@@ -16,7 +16,7 @@
 	function revDelete(){
 		
 		console.log(${revBoard.id});
-		let id = document.getElementsByName("id")[0].value;
+		let id = document.getElementsByName("id")[1].value;
 		console.log(id);
 		
 		$.ajax({

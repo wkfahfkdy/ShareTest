@@ -206,8 +206,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getTitle());
-			psmt.setInt(2, vo.getId());
+			psmt.setInt(1, vo.getId());
 			
 			result = psmt.executeUpdate();
 			
