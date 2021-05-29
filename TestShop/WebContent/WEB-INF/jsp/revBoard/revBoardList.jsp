@@ -13,6 +13,10 @@
 		frm.id.value = revBoardID;
 		frm.submit();
 	}
+	
+	function goPage(page){
+		location.href = "revBoardList.do?page=" + page;
+	}
 </script>
 <style>
 .pagination {
@@ -29,11 +33,11 @@
 </head>
 <body>
 	<h3>후기</h3>
-	<form id="frm" action="revBoard.do" method="POST">
+	<form id="frm" action="revBoardSelect.do" method="POST">
 		<input type="hidden" id="id" name="id">
 	</form>
 	<div align="center">
-		<div style="width: 60%">
+		<div style="width: 80%">
 			<table class="table" border="1">
 				<tr>
 					<th width="100">순번</th>

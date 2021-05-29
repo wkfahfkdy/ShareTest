@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shop.common.DbCommand;
 import com.shop.common.Paging;
-import com.shop.inqBoard.service.InqBoardService;
 import com.shop.inqBoard.serviceImpl.InqBoardServiceImpl;
 import com.shop.inqBoard.vo.InqBoardVO;
 
@@ -15,14 +14,15 @@ public class InqBoardList implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// 전체 문의 리스트 출력 ( 페이징 )
+		// 전체 문의 리스트 출력 ( + 페이징 )
 		
 		String page = request.getParameter("page");
 		if (page == null) page = "1";
 		
 		int pageCnt = Integer.parseInt(page);
 		
-		InqBoardService serv = new InqBoardServiceImpl();
+		InqBoardServiceImpl serv = new InqBoardServiceImpl();
+		List<InqBoardVO> whole = serv.selectInqBoardList();
 		
 		serv = new InqBoardServiceImpl();
 		List<InqBoardVO> list = serv.inqBoardListPaging(pageCnt);
@@ -30,7 +30,7 @@ public class InqBoardList implements DbCommand {
 		Paging paging = new Paging();
 		paging.setPageNo(pageCnt);
 		paging.setPageSize(10);
-		paging.setTotalCount(list.size());
+		paging.setTotalCount(whole.size());
 		
 		request.setAttribute("inqBoardList", list);
 		request.setAttribute("paging", paging);

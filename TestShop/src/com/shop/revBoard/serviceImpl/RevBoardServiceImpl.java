@@ -72,37 +72,37 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 		return list;
 	}
 	
-//	@Override
-//	public List<RevBoardVO> selectRevBoardList() {
-//		// 전체 리뷰 조회
-//		
-//		sql = "select * from rev_board order by 1";
-//		List<RevBoardVO> list = new ArrayList<>();
-//		
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			rs = psmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				RevBoardVO vo = new RevBoardVO();
-//				vo.setContent(rs.getString("content"));
-//				vo.setHit(rs.getInt("hit"));
-//				vo.setId(rs.getInt("id"));
-//				vo.setLikeIt(rs.getInt("like_it"));
-//				vo.setRegDate(rs.getDate("reg_date"));
-//				vo.setTitle(rs.getString("title"));
-//				vo.setWriter(rs.getString("writer"));
-//				
-//				list.add(vo);
-//				
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return list;
-//	}
+	@Override
+	public List<RevBoardVO> selectRevBoardList() {
+		// 전체 리뷰 조회
+		
+		sql = "select * from rev_board order by 1";
+		List<RevBoardVO> list = new ArrayList<>();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				RevBoardVO vo = new RevBoardVO();
+				vo.setContent(rs.getString("content"));
+				vo.setHit(rs.getInt("hit"));
+				vo.setId(rs.getInt("id"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setRegDate(rs.getDate("reg_date"));
+				vo.setTitle(rs.getString("title"));
+				vo.setWriter(rs.getString("writer"));
+				
+				list.add(vo);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
 
 	@Override
 	public RevBoardVO selectRevBoard() {

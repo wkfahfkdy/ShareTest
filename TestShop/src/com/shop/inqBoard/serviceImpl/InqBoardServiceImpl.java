@@ -71,37 +71,37 @@ public class InqBoardServiceImpl extends DAO implements InqBoardService {
 		return list;
 	}
 	
-//	@Override 페이징 업뎃으로 인해 불필요. 폐기 처분.
-//	public List<InqBoardVO> selectInqBoardList() {
-//		// 전체 문의 출력
-//		
-//		sql = "select * from inq_board order by 1";
-//		List<InqBoardVO> list = new ArrayList<>();
-//		
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			rs = psmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				InqBoardVO vo = new InqBoardVO();
-//				vo.setContent(rs.getString("content"));
-//				vo.setHit(rs.getInt("hit"));
-//				vo.setId(rs.getInt("id"));
-//				vo.setLikeIt(rs.getInt("like_it"));
-//				vo.setRegDate(rs.getDate("reg_date"));
-//				vo.setTitle(rs.getString("title"));
-//				vo.setWriter(rs.getString("writer"));
-//				
-//				list.add(vo);
-//				
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return list;
-//	}
+	@Override
+	public List<InqBoardVO> selectInqBoardList() {
+		// 전체 문의 출력
+		
+		sql = "select * from inq_board order by 1";
+		List<InqBoardVO> list = new ArrayList<>();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				InqBoardVO vo = new InqBoardVO();
+				vo.setContent(rs.getString("content"));
+				vo.setHit(rs.getInt("hit"));
+				vo.setId(rs.getInt("id"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setRegDate(rs.getDate("reg_date"));
+				vo.setTitle(rs.getString("title"));
+				vo.setWriter(rs.getString("writer"));
+				
+				list.add(vo);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
 
 	@Override
 	public InqBoardVO selectInqBoard() {

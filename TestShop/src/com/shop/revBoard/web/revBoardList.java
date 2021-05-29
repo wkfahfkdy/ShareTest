@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shop.common.DbCommand;
 import com.shop.common.Paging;
-import com.shop.revBoard.service.RevBoardService;
 import com.shop.revBoard.serviceImpl.RevBoardServiceImpl;
 import com.shop.revBoard.vo.RevBoardVO;
 
@@ -21,8 +20,8 @@ public class revBoardList implements DbCommand {
 		if (page == null) page = "1";
 		int pageCnt = Integer.parseInt(page);
 		
-		RevBoardService serv = new RevBoardServiceImpl();
-//		List<RevBoardVO> whole = serv.selectRevBoardList();
+		RevBoardServiceImpl serv = new RevBoardServiceImpl();
+		List<RevBoardVO> whole = serv.selectRevBoardList();
 		
 		serv = new RevBoardServiceImpl();
 		List<RevBoardVO> list = serv.revBoardListPaging(pageCnt);
@@ -30,7 +29,7 @@ public class revBoardList implements DbCommand {
 		Paging paging = new Paging();
 		paging.setPageNo(pageCnt);
 		paging.setPageSize(10);
-		paging.setTotalCount(list.size());
+		paging.setTotalCount(whole.size());
 		
 		request.setAttribute("revBoardList", list);
 		request.setAttribute("paging", paging);
