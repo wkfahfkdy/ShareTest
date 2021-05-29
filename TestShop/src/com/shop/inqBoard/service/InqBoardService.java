@@ -7,7 +7,7 @@ import com.shop.inqBoard.vo.InqBoardVO;
 
 public interface InqBoardService {
 
-	List<InqBoardVO> selectInqBoardList();
+	List<InqBoardVO> inqBoardListPaging(int page);
 	InqBoardVO selectInqBoard();
 	public int insertInqBoard(InqBoardVO vo);
 	public int updateInqBoard(InqBoardVO vo);

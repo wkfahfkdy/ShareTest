@@ -26,37 +26,82 @@ public class InqBoardServiceImpl extends DAO implements InqBoardService {
 		}
 	}
 
-	@Override
-	public List<InqBoardVO> selectInqBoardList() {
-		// 전체 문의 출력
+	// 페이징
+	public List<InqBoardVO> inqBoardListPaging(int page){
 		
-		sql = "select * from inq_board order by 1";
+		sql = "select i.* from "
+				+ "(select rownum rn, a.* "
+				+ "from (select * from inq_board order by id) a) i "
+				+ "where i.rn between ? and ?";
+		
 		List<InqBoardVO> list = new ArrayList<>();
+		
+		int firstCnt = 0, lastCnt = 0;
+		firstCnt = (page -1) * 10 + 1;
+		lastCnt = (page * 10);
 		
 		try {
 			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1, firstCnt);
+			psmt.setInt(2, lastCnt);
+			
 			rs = psmt.executeQuery();
 			
-			while(rs.next()) {
+			while (rs.next()) {
+				
 				InqBoardVO vo = new InqBoardVO();
+				
 				vo.setContent(rs.getString("content"));
 				vo.setHit(rs.getInt("hit"));
 				vo.setId(rs.getInt("id"));
-				vo.setLikeIt(rs.getInt("like_it"));
 				vo.setRegDate(rs.getDate("reg_date"));
 				vo.setTitle(rs.getString("title"));
 				vo.setWriter(rs.getString("writer"));
 				
 				list.add(vo);
-				
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
+		
 		return list;
 	}
+	
+//	@Override 페이징 업뎃으로 인해 불필요. 폐기 처분.
+//	public List<InqBoardVO> selectInqBoardList() {
+//		// 전체 문의 출력
+//		
+//		sql = "select * from inq_board order by 1";
+//		List<InqBoardVO> list = new ArrayList<>();
+//		
+//		try {
+//			psmt = conn.prepareStatement(sql);
+//			rs = psmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				InqBoardVO vo = new InqBoardVO();
+//				vo.setContent(rs.getString("content"));
+//				vo.setHit(rs.getInt("hit"));
+//				vo.setId(rs.getInt("id"));
+//				vo.setLikeIt(rs.getInt("like_it"));
+//				vo.setRegDate(rs.getDate("reg_date"));
+//				vo.setTitle(rs.getString("title"));
+//				vo.setWriter(rs.getString("writer"));
+//				
+//				list.add(vo);
+//				
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return list;
+//	}
 
 	@Override
 	public InqBoardVO selectInqBoard() {

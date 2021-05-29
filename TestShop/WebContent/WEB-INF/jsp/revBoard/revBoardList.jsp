@@ -5,19 +5,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 리스트</title>
+<title>후기</title>
 <script>
 	// 게시글 ID로 조회
-	function formSubmit(revBoardId){
+	function formSubmit(revBoardID){
 		
-		frm.id.value = revBoardId;
+		frm.id.value = revBoardID;
 		frm.submit();
 	}
 </script>
+<style>
+.pagination {
+	display : inline-block;
+}
+
+.pagination a {
+	color : black;
+	float : left;
+	padding : 8px 16px;
+	text-decoration : none;
+}
+</style>
 </head>
 <body>
-	<h3>게시판 리스트</h3>
-	<form id="frm" action="revBoardList.do" method="POST">
+	<h3>후기</h3>
+	<form id="frm" action="revBoard.do" method="POST">
 		<input type="hidden" id="id" name="id">
 	</form>
 	<div align="center">
@@ -41,11 +53,20 @@
 				</c:forEach>
 			</table>
 			<div>
-				<button type="button" onclick="location.href = '#'">홈</button>
+				<button type="button" onclick="location.href = 'index.do'">홈</button>
 				<c:if test="${!empty id }">
 					<button type="button" onclick="location.href = '#'">등록</button>
 				</c:if>
 			</div>
+			<jsp:include page = "../common/paging.jsp" flush = "true">
+				<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
+				<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
+				<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
+				<jsp:param value="${paging.pageNo }" name="pageNo"/>
+				<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
+				<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
+				<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
+			</jsp:include>
 		</div>
 	</div>
 </body>

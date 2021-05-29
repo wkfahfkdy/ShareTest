@@ -27,37 +27,82 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 		}
 	}
 
-	@Override
-	public List<RevBoardVO> selectRevBoardList() {
-		// 전체 리뷰 조회
+	// 페이징
+	public List<RevBoardVO> revBoardListPaging(int page){
+	
+		sql = "select r.* from "
+				+ "(select rownum rn, a.* "
+				+ "from (select * from rev_board order by id) a) r "
+				+ "where r.rn between ? and ?";
 		
-		sql = "select * from rev_board order by 1";
 		List<RevBoardVO> list = new ArrayList<>();
+		
+		int firstCnt = 0, lastCnt = 0;
+		firstCnt = (page - 1) * 10 + 1;
+		lastCnt = (page * 10);
 		
 		try {
 			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1, firstCnt);
+			psmt.setInt(2, lastCnt);
+			
 			rs = psmt.executeQuery();
 			
-			while(rs.next()) {
+			while (rs.next()) {
+				
 				RevBoardVO vo = new RevBoardVO();
+				
 				vo.setContent(rs.getString("content"));
 				vo.setHit(rs.getInt("hit"));
 				vo.setId(rs.getInt("id"));
-				vo.setLikeIt(rs.getInt("like_it"));
 				vo.setRegDate(rs.getDate("reg_date"));
 				vo.setTitle(rs.getString("title"));
 				vo.setWriter(rs.getString("writer"));
 				
 				list.add(vo);
-				
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
+		
 		return list;
 	}
+	
+//	@Override
+//	public List<RevBoardVO> selectRevBoardList() {
+//		// 전체 리뷰 조회
+//		
+//		sql = "select * from rev_board order by 1";
+//		List<RevBoardVO> list = new ArrayList<>();
+//		
+//		try {
+//			psmt = conn.prepareStatement(sql);
+//			rs = psmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				RevBoardVO vo = new RevBoardVO();
+//				vo.setContent(rs.getString("content"));
+//				vo.setHit(rs.getInt("hit"));
+//				vo.setId(rs.getInt("id"));
+//				vo.setLikeIt(rs.getInt("like_it"));
+//				vo.setRegDate(rs.getDate("reg_date"));
+//				vo.setTitle(rs.getString("title"));
+//				vo.setWriter(rs.getString("writer"));
+//				
+//				list.add(vo);
+//				
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return list;
+//	}
 
 	@Override
 	public RevBoardVO selectRevBoard() {
