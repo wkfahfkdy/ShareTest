@@ -17,7 +17,12 @@ import com.shop.member.web.MemberLogout;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.goDesc;
+import com.shop.revBoard.web.revBoardDelete;
+import com.shop.revBoard.web.revBoardForm;
+import com.shop.revBoard.web.revBoardInsert;
 import com.shop.revBoard.web.revBoardList;
+import com.shop.revBoard.web.revBoardSelect;
+import com.shop.revBoard.web.revBoardUpdate;
 
 public class FrontController extends HttpServlet {
 	
@@ -40,6 +45,11 @@ public class FrontController extends HttpServlet {
 		
 		// REVIEW
 		map.put("/revBoardList.do", new revBoardList());
+		map.put("/revBoardSelect.do", new revBoardSelect());
+		map.put("/revBoardForm.do", new revBoardForm());
+		map.put("/revBoardInsert.do", new revBoardInsert());
+		map.put("/revBoardUpdate.do", new revBoardUpdate());
+		map.put("/revBoardDelete.do", new revBoardDelete());
 		
 		// INQUIRE
 		map.put("/inqBoardList.do", new InqBoardList());

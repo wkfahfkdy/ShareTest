@@ -32,7 +32,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 	
 		sql = "select r.* from "
 				+ "(select rownum rn, a.* "
-				+ "from (select * from rev_board order by id) a) r "
+				+ "from (select * from rev_board where title not like '%(deadcode:1234)%' order by 1) a) r "
 				+ "where r.rn between ? and ?";
 		
 		List<RevBoardVO> list = new ArrayList<>();
@@ -76,7 +76,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 	public List<RevBoardVO> selectRevBoardList() {
 		// 전체 리뷰 조회
 		
-		sql = "select * from rev_board order by 1";
+		sql = "select * from rev_board where title not like '%(deadcode:1234)%' order by 1";
 		List<RevBoardVO> list = new ArrayList<>();
 		
 		try {
@@ -104,28 +104,142 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 		return list;
 	}
 
+
 	@Override
-	public RevBoardVO selectRevBoard() {
-		// TODO Auto-generated method stub
-		return null;
+	public RevBoardVO selectRevBoard(RevBoardVO vo) {
+		// 하나 조회
+		
+		sql = "select * from rev_board where id = ?";
+		
+		 try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getId());
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				hitCount(vo.getId());
+				vo.setContent(rs.getString("content"));
+				vo.setHit(rs.getInt("hit"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setRegDate(rs.getDate("reg_date"));
+				vo.setTitle(rs.getString("title"));
+				vo.setWriter(rs.getString("writer"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return vo;
 	}
 
 	@Override
 	public int insertRevBoard(RevBoardVO vo) {
-		// TODO Auto-generated method stub
+		// 입력
+		
+		int result = 0;
+		sql = "insert into rev_board values(rev_board_seq.nextval, ?, ?, ?, ?, sysdate, 0)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContent());
+			psmt.setString(3, vo.getWriter());
+			psmt.setInt(4, vo.getLikeIt());
+			
+			result = psmt.executeUpdate();
+			
+			if (result != 0) {
+				System.out.println(result + "건 입력");
+			} else {
+				System.out.println("입력 ㄴㄴ");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
 		return 0;
 	}
 
 	@Override
 	public int updateRevBoard(RevBoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 수정
+		
+		int result = 0;
+		sql = "update rev_board set title = ?, content = ?, like_it = ? where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContent());
+			psmt.setInt(3, vo.getLikeIt());
+			psmt.setInt(4, vo.getId());
+			
+			result = psmt.executeUpdate();
+			
+			if (result != 0) {
+				System.out.println(result + "건 수정");
+			} else {
+				System.out.println("수정 ㄴㄴ");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return result;
 	}
 
 	@Override
 	public int deleteRevBoard(RevBoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 삭제
+		
+		int result = 0;
+		sql = "update rev_board set title = title||'(deadcode:1234)' where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getTitle());
+			psmt.setInt(2, vo.getId());
+			
+			result = psmt.executeUpdate();
+			
+			if (result != 0) {
+				System.out.println(result + "건 삭제");
+			} else {
+				System.out.println("삭제 ㄴㄴ");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return result;
 	}
 
+	// 조회수 증가
+	public void hitCount(int id) {
+		
+		sql = "update rev_board set hit = hit + 1 where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+			
+			psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
