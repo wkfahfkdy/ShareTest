@@ -15,6 +15,19 @@
 			}
 		});
 	}
+	
+	function addCount(itemCode) {
+		$.ajax({
+			url: '',
+			data: {itemCode: itemCode}
+			success: function (){
+				
+			},
+			error: function (err){
+				console.log(err);
+			}
+		});
+	}
 </script>
 
 <section class="py-5">
