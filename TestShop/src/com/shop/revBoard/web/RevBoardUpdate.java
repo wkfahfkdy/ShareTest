@@ -8,7 +8,7 @@ import com.shop.revBoard.service.RevBoardService;
 import com.shop.revBoard.serviceImpl.RevBoardServiceImpl;
 import com.shop.revBoard.vo.RevBoardVO;
 
-public class revBoardUpdate implements DbCommand {
+public class RevBoardUpdate implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {

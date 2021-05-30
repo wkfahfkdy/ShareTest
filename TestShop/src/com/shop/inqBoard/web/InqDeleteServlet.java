@@ -12,11 +12,11 @@ import com.shop.inqBoard.serviceImpl.InqBoardServiceImpl;
 import com.shop.inqBoard.vo.InqBoardVO;
 
 @WebServlet("/inqDeleteServlet")
-public class inqDeleteServlet extends HttpServlet {
+public class InqDeleteServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
        
-    public inqDeleteServlet() {
+    public InqDeleteServlet() {
         super();
     }
 

@@ -5,7 +5,7 @@
 
 <script>
 	$(function(){
-		CKEDITOR>replace('content', {
+		CKEDITOR.replace('content', {
 			filebrowserUploadUrl : '${pageContext.request.contextPath }/fileUpload',
 			height : '600px',
 			width : '800px'

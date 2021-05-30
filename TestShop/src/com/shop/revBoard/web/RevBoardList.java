@@ -10,7 +10,7 @@ import com.shop.common.Paging;
 import com.shop.revBoard.serviceImpl.RevBoardServiceImpl;
 import com.shop.revBoard.vo.RevBoardVO;
 
-public class revBoardList implements DbCommand {
+public class RevBoardList implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {

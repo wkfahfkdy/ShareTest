@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.inqBoard.web.InqBoardForm;
 import com.shop.inqBoard.web.InqBoardList;
-import com.shop.inqBoard.web.inqBoardInsert;
-import com.shop.inqBoard.web.inqBoardSelect;
-import com.shop.inqBoard.web.inqBoardUpdate;
+import com.shop.inqBoard.web.InqBoardInsert;
+import com.shop.inqBoard.web.InqBoardSelect;
+import com.shop.inqBoard.web.InqBoardUpdate;
 import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
@@ -20,10 +21,11 @@ import com.shop.member.web.MemberLogout;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.goDesc;
-import com.shop.revBoard.web.revBoardInsert;
-import com.shop.revBoard.web.revBoardList;
-import com.shop.revBoard.web.revBoardSelect;
-import com.shop.revBoard.web.revBoardUpdate;
+import com.shop.revBoard.web.RevBoardForm;
+import com.shop.revBoard.web.RevBoardInsert;
+import com.shop.revBoard.web.RevBoardList;
+import com.shop.revBoard.web.RevBoardSelect;
+import com.shop.revBoard.web.RevBoardUpdate;
 
 public class FrontController extends HttpServlet {
 	
@@ -45,16 +47,18 @@ public class FrontController extends HttpServlet {
 		map.put("/goDesc.do", new goDesc());
 		
 		// REVIEW
-		map.put("/revBoardList.do", new revBoardList());
-		map.put("/revBoardSelect.do", new revBoardSelect());
-		map.put("/revBoardInsert.do", new revBoardInsert());
-		map.put("/revBoardUpdate.do", new revBoardUpdate());
+		map.put("/revBoardList.do", new RevBoardList());
+		map.put("/revBoardForm.do", new RevBoardForm());
+		map.put("/revBoardSelect.do", new RevBoardSelect());
+		map.put("/revBoardInsert.do", new RevBoardInsert());
+		map.put("/revBoardUpdate.do", new RevBoardUpdate());
 		
 		// INQUIRE
 		map.put("/inqBoardList.do", new InqBoardList());
-		map.put("/inqBoardSelect.do", new inqBoardSelect());
-		map.put("/inqBoardInsert.do", new inqBoardInsert());
-		map.put("/inqBoardUpdate.do", new inqBoardUpdate());
+		map.put("/inqBoardForm.do", new InqBoardForm());
+		map.put("/inqBoardSelect.do", new InqBoardSelect());
+		map.put("/inqBoardInsert.do", new InqBoardInsert());
+		map.put("/inqBoardUpdate.do", new InqBoardUpdate());
 	}
 	
 	@Override

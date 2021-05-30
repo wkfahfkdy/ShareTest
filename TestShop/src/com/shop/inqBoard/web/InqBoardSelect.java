@@ -8,7 +8,7 @@ import com.shop.inqBoard.service.InqBoardService;
 import com.shop.inqBoard.serviceImpl.InqBoardServiceImpl;
 import com.shop.inqBoard.vo.InqBoardVO;
 
-public class inqBoardSelect implements DbCommand {
+public class InqBoardSelect implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {

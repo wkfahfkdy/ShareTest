@@ -8,23 +8,26 @@ import com.shop.revBoard.service.RevBoardService;
 import com.shop.revBoard.serviceImpl.RevBoardServiceImpl;
 import com.shop.revBoard.vo.RevBoardVO;
 
-public class revBoardSelect implements DbCommand {
+public class RevBoardInsert implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// 후기 하나 조회
+		// 후기 등록
 		
-		String id = request.getParameter("id");
+		String writer = request.getParameter("id");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 		
 		RevBoardVO vo = new RevBoardVO();
-		vo.setId(Integer.parseInt(id));
+		vo.setWriter(writer);
+		vo.setTitle(title);
+		vo.setContent(content);
 		
 		RevBoardService serv = new RevBoardServiceImpl();
-		serv.selectRevBoard(vo);
+		serv.insertRevBoard(vo);
 		
 		request.setAttribute("revBoard", vo);
-		
-		return "revBoard/revBoard.tiles";
+		return "revBoardList.do";
 	}
 
 }
