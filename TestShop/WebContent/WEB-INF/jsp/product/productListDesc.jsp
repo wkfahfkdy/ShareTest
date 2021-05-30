@@ -9,6 +9,9 @@
 <body>
 	<div>
 		<h4>${vo.itemCode }</h4>
+		<h4>${vo.itemImage }</h4>
+		<h4>${vo.likeIt }</h4>
+		<h4>${vo.itemDesc }</h4>
 	</div>
 </body>
 </html>
