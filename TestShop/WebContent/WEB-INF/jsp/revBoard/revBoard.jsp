@@ -55,7 +55,7 @@
 					<c:if test = "${id eq revBoard.writer || id eq 'admin' }">
 						<input name = "title" type = "text" value = "${revBoard.title }">
 					</c:if>
-					<c:if test = "${id ne revBoard.writer }">
+					<c:if test = "${id ne revBoard.writer && id ne 'admin' }">
 						${revBoard.title }
 					</c:if>
 				</td>
@@ -66,7 +66,7 @@
 					<c:if test = "${id eq revBoard.writer || id eq 'admin' }">
 						<textarea name = "content" rows = "6" cols = "90">${revBoard.content }</textarea>
 					</c:if>
-					<c:if test = "${id ne revBoard.writer }">
+					<c:if test = "${id ne revBoard.writer && id ne 'admin' }">
 						${revBoard.content }
 					</c:if>
 				</td>

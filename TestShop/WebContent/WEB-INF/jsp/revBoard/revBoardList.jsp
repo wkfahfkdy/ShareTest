@@ -57,7 +57,7 @@
 				</c:forEach>
 			</table>
 			<div>
-				<button type="button" onclick="location.href = 'index.do'">홈</button>
+				<!-- <button type="button" onclick="location.href = 'index.do'">홈</button> -->
 				<c:if test="${!empty id }">
 					<button type="button" onclick="location.href = 'revBoardInsert.do'">등록</button>
 				</c:if>
