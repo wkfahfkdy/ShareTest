@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shop.inqBoard.web.InqBoardList;
+import com.shop.inqBoard.web.inqBoardInsert;
+import com.shop.inqBoard.web.inqBoardSelect;
+import com.shop.inqBoard.web.inqBoardUpdate;
 import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
@@ -17,8 +20,6 @@ import com.shop.member.web.MemberLogout;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.goDesc;
-import com.shop.revBoard.web.revBoardDelete;
-import com.shop.revBoard.web.revBoardForm;
 import com.shop.revBoard.web.revBoardInsert;
 import com.shop.revBoard.web.revBoardList;
 import com.shop.revBoard.web.revBoardSelect;
@@ -46,13 +47,14 @@ public class FrontController extends HttpServlet {
 		// REVIEW
 		map.put("/revBoardList.do", new revBoardList());
 		map.put("/revBoardSelect.do", new revBoardSelect());
-		map.put("/revBoardForm.do", new revBoardForm());
 		map.put("/revBoardInsert.do", new revBoardInsert());
 		map.put("/revBoardUpdate.do", new revBoardUpdate());
-		map.put("/revBoardDelete.do", new revBoardDelete());
 		
 		// INQUIRE
 		map.put("/inqBoardList.do", new InqBoardList());
+		map.put("/inqBoardSelect.do", new inqBoardSelect());
+		map.put("/inqBoardInsert.do", new inqBoardInsert());
+		map.put("/inqBoardUpdate.do", new inqBoardUpdate());
 	}
 	
 	@Override

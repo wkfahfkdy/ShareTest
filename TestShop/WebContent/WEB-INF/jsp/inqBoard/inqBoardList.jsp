@@ -59,7 +59,7 @@
 			<div>
 				<button type="button" onclick="location.href = 'index.do'">홈</button>
 				<c:if test="${!empty id }">
-					<button type="button" onclick="location.href = 'inqBoardForm.do'">등록</button>
+					<button type="button" onclick="location.href = 'inqBoardInsert.do'">등록</button>
 				</c:if>
 			</div>
 			<jsp:include page="../common/paging.jsp" flush="true">

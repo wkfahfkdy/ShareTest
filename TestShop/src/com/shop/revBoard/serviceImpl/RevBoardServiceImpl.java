@@ -32,7 +32,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 	
 		sql = "select r.* from "
 				+ "(select rownum rn, a.* "
-				+ "from (select * from rev_board where title not like '%(deadcode:1234)%' order by 1) a) r "
+				+ "from (select * from rev_board where title not like '%(deadcode:1234)%' order by 1 desc) a) r "
 				+ "where r.rn between ? and ?";
 		
 		List<RevBoardVO> list = new ArrayList<>();
@@ -76,7 +76,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 	public List<RevBoardVO> selectRevBoardList() {
 		// 전체 리뷰 조회
 		
-		sql = "select * from rev_board where title not like '%(deadcode:1234)%' order by 1";
+		sql = "select * from rev_board where title not like '%(deadcode:1234)%' order by 1 desc";
 		List<RevBoardVO> list = new ArrayList<>();
 		
 		try {
@@ -84,6 +84,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
+				
 				RevBoardVO vo = new RevBoardVO();
 				vo.setContent(rs.getString("content"));
 				vo.setHit(rs.getInt("hit"));
@@ -117,6 +118,7 @@ public class RevBoardServiceImpl extends DAO implements RevBoardService {
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
+				
 				hitCount(vo.getId());
 				vo.setContent(rs.getString("content"));
 				vo.setHit(rs.getInt("hit"));

@@ -24,7 +24,7 @@
 			data : {id},
 			type : 'POST',
 			success : function(resp){
-				location.href = "revBoardDelete.do";
+				location.href = "revBoardList.do";
 			},
 			error : function(err){
 				console.log(err);
