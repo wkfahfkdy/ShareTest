@@ -8,6 +8,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script>
+	function addCart(itemCode) {
+		$.ajax({
+			url: 'addCart.do',
+			data: {
+				itemCode: itemCode,
+				id: '${id }'
+			},
+			success: function(result){
+				location.href="productListDesc.do"
+			},
+			error: function (err){
+				console.log(err);
+			}
+		});
+	}
+	</script>
 <body>
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 my-5">
@@ -40,9 +57,16 @@
 					<div class="d-flex">
 						<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem">
 						<button class="btn btn-outline-dark flex-shrink-0" type="button">
-							<i class="bi-cart-fill me-1">
+							<i class="bi-cart-fill me-1"
+								<c:if test="${id ne null }">
+									onclick="addCart('${vo.itemCode }')"
+								</c:if>
+								<c:if test="${id eq null }">
+									onclick="productAlert()"
+								</c:if>
+								>
+								Add to cart 
 							</i>
-							 Add to cart 
 						</button>
 					</div>
 				</div>
