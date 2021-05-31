@@ -65,7 +65,7 @@
 						<textarea name = "content" rows = "6" cols = "90">${inqBoard.content }</textarea>
 					</c:if>
 					<c:if test = "${id ne inqBoard.writer && id ne 'admin' }">
-						${inqBoard.content }
+						<textarea name = "content" rows = "6" cols = "90" readonly>${inqBoard.content }</textarea>
 					</c:if>
 				</td>
 			</tr>
