@@ -19,8 +19,7 @@ public class Indexpage implements DbCommand {
 		CartServiceImpl service = new CartServiceImpl();
 		int cnt = service.getCnt(id);
 		
-		request.setAttribute("cnt", cnt);
-		
+		session.setAttribute("cnt", cnt);
 		
 		if(id == null) {
 			return "member/memberLoginForm.tiles";

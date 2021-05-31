@@ -46,6 +46,9 @@ public class CartServiceImpl extends DAO implements CartService {
 		
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, id);
+			psmt.setString(3, id);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {

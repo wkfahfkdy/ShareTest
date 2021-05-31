@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${vo.itemImage }
-	${vo.itemName }
-	${vo.itemQty }
-	${vo.price } <!-- c:if sale eq 'Y'  -->
-	${vo.salePrice }
-	${vo.itemSum }
+	${list.itemImage } <br>
+	${list.itemName } <br>
+	${list.qtySum } <br>
+	${list.price } <br>
+	${list.salePrice } <br>
+	${list.priceSum } <br>
 </body>
 </html>

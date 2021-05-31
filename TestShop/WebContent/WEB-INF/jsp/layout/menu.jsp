@@ -24,7 +24,7 @@
                         <li class="nav-item"><a class="nav-link" href="revBoardList.do">후기</a></li>
                         <li class="nav-item"><a class="nav-link" href="inqBoardList.do">문의</a></li>
                     </ul>
-                    <form class="d-flex" action = "cartList.do"><!-- id로 장바구니 조회 ~> cartList.do -->
+                    <form class="d-flex" action = "cartList.do" type="post"><!-- id로 장바구니 조회 ~> cartList.do -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 							<span class="navbar-toggler-icon"></span>
 						</button>
