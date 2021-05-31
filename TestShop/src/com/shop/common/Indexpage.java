@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.shop.cart.serviceImpl.CartServiceImpl;
+
 public class Indexpage implements DbCommand {
 
 	@Override
@@ -13,6 +15,12 @@ public class Indexpage implements DbCommand {
 		String id = (String) session.getAttribute("id");
 		
 		request.setAttribute("id", id);
+		
+		CartServiceImpl service = new CartServiceImpl();
+		int cnt = service.getCnt(id);
+		
+		request.setAttribute("cnt", cnt);
+		
 		
 		if(id == null) {
 			return "member/memberLoginForm.tiles";

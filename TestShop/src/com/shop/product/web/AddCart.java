@@ -24,10 +24,10 @@ public class AddCart implements DbCommand {
 		CartService service = new CartServiceImpl();
 		service.insertCart(vo);
 		
-		HttpSession session = request.getSession();
 		CartServiceImpl service2 = new CartServiceImpl();
 		int cnt = service2.getCnt(id);
 		
+		HttpSession session = request.getSession();
 		session.setAttribute("cnt", cnt);
 		
 		return "productList.do";

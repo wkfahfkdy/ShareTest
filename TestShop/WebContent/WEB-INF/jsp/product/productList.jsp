@@ -25,6 +25,7 @@
 				id: '${id }'
 			},
 			success: function(result){
+				location.href="productList.do"
 			},
 			error: function (err){
 				console.log(err);
