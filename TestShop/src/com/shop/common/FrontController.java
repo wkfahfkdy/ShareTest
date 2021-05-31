@@ -21,6 +21,9 @@ import com.shop.member.web.MemberLogin;
 import com.shop.member.web.MemberLogout;
 import com.shop.product.web.AddCart;
 import com.shop.product.web.DivisionListA;
+import com.shop.product.web.DivisionListB;
+import com.shop.product.web.DivisionListC;
+import com.shop.product.web.DivisionListD;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.goDesc;
@@ -50,9 +53,9 @@ public class FrontController extends HttpServlet {
 		map.put("/productListDesc.do", new ProductListDesc());
 		map.put("/goDesc.do", new goDesc());
 		map.put("/divisionListA.do", new DivisionListA());
-//		map.put("/divisionListB.do", new DivisionListB());
-//		map.put("/divisionListC.do", new DivisionListC());
-//		map.put("/divisionListD.do", new DivisionListD());
+		map.put("/divisionListB.do", new DivisionListB());
+		map.put("/divisionListC.do", new DivisionListC());
+		map.put("/divisionListD.do", new DivisionListD());
 		
 		// CART
 		map.put("/addCart.do", new AddCart());

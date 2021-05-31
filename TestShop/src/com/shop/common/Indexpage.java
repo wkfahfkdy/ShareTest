@@ -1,6 +1,5 @@
 package com.shop.common;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,8 +24,14 @@ public class Indexpage implements DbCommand {
 		
 		ProductServiceImpl service2 = new ProductServiceImpl();
 		ProductVO diviCookie = service2.getDiviCookie();
+		ProductVO diviBread = service2.getDiviBread();
+		ProductVO diviDrink = service2.getDiviDrink();
+		ProductVO diviHRM = service2.getDiviHMR();
 		
 		session.setAttribute("cateA", diviCookie);
+		session.setAttribute("cateB", diviBread);
+		session.setAttribute("cateC", diviDrink);
+		session.setAttribute("cateD", diviHRM);
 		session.setAttribute("cnt", cnt);
 		
 		if(id == null) {

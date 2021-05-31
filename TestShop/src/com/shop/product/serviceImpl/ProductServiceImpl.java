@@ -48,6 +48,69 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		return vo;
 	}
 	
+	public ProductVO getDiviBread() {
+		
+		sql = "select division from product where division='빵'";
+		ProductVO vo = new ProductVO();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setDivision(rs.getString("division"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return vo;
+	}
+	
+	public ProductVO getDiviHMR() {
+		
+		sql = "select division from product where division='간편식'";
+		ProductVO vo = new ProductVO();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setDivision(rs.getString("division"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return vo;
+	}
+	
+	public ProductVO getDiviDrink() {
+		
+		sql = "select division from product where division='음료'";
+		ProductVO vo = new ProductVO();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setDivision(rs.getString("division"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return vo;
+	}
+	
 	public ProductVO goDesc(String itemCode) {
 		
 		sql = "select * from product where item_code = ?";
