@@ -32,6 +32,11 @@
 			}
 		});
 	}
+	
+	function productAlert(){
+		alert('로그인 후 이용 가능합니다');
+		return;
+	}
 </script>
 
 <section class="py-5">
@@ -82,9 +87,16 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto"	onclick="addCart('${vo.itemCode }')">
-									Add to cart
-								</a>
+									<a class="btn btn-outline-dark mt-auto"	
+										<c:if test="${id ne null }">
+											onclick="addCart('${vo.itemCode }')"
+										</c:if>
+										<c:if test="${id eq null }">
+											onclick="productAlert()"
+										</c:if>
+										>
+										Add to cart
+									</a>
 							</div>
 						</div>
 					</div>

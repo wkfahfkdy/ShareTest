@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 
 <script>
 	$(function(){
