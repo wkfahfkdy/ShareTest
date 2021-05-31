@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script>
 	function goDesc(itemCode) {
+		console.log(itemCode);
 		$.ajax({
 			url: 'goDesc.do',
 			data: {itemCode: itemCode},
@@ -16,11 +17,11 @@
 		});
 	}
 	
-	function addCount(itemCode) {
+	function addCart(itemCode) {
 		$.ajax({
-			url: '',
+			url: 'addCart.do',
 			data: {itemCode: itemCode}
-			success: function (){
+			success: function(result){
 				
 			},
 			error: function (err){
@@ -78,8 +79,9 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto"
-									onclick="addCnt('${vo.itemCode }')">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto"	onclick="addCart('${vo.itemCode }')">
+									Add to cart
+								</a>
 							</div>
 						</div>
 					</div>

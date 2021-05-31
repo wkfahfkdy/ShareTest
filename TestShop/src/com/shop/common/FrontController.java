@@ -18,6 +18,7 @@ import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
 import com.shop.member.web.MemberLogout;
+import com.shop.product.web.AddCart;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.goDesc;
@@ -45,6 +46,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productList.do", new ProductList());
 		map.put("/productListDesc.do", new ProductListDesc());
 		map.put("/goDesc.do", new goDesc());
+		map.put("/addCart.do", new AddCart());
 		
 		// REVIEW
 		map.put("/revBoardList.do", new RevBoardList());
