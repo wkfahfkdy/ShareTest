@@ -11,6 +11,8 @@ public class ProductVO {
 	private String sale;
 	private int salePrice;
 	private String division;
+	private int qtySum;
+	private int priceSum;
 	
 	public String getItemCode() {
 		return itemCode;
@@ -66,13 +68,22 @@ public class ProductVO {
 	public void setDivision(String division) {
 		this.division = division;
 	}
-	
-	
+	public int getQtySum() {
+		return qtySum;
+	}
+	public void setQtySum(int qtySum) {
+		this.qtySum = qtySum;
+	}
+	public int getPriceSum() {
+		return priceSum;
+	}
+	public void setPriceSum(int priceSum) {
+		this.priceSum = priceSum;
+	}
 	@Override
 	public String toString() {
 		return "ProductVO [itemCode=" + itemCode + ", itemName=" + itemName + ", itemImage=" + itemImage + ", price="
 				+ price + ", itemDesc=" + itemDesc + ", likeIt=" + likeIt + ", sale=" + sale + ", salePrice="
-				+ salePrice + ", division=" + division + "]";
+				+ salePrice + ", division=" + division + ", qtySum=" + qtySum + ", priceSum=" + priceSum + "]";
 	}
-	
 }

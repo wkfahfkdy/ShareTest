@@ -9,6 +9,7 @@ import java.util.List;
 import com.shop.cart.service.CartService;
 import com.shop.cart.vo.CartVO;
 import com.shop.common.DAO;
+import com.shop.product.vo.ProductVO;
 
 public class CartServiceImpl extends DAO implements CartService {
 
@@ -26,6 +27,52 @@ public class CartServiceImpl extends DAO implements CartService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public List<ProductVO> cartList(String id) {
+		
+		sql = "select \r\n"
+				+ "  A.*, \r\n"
+				+ "  (select sum(item_qty) from cart group by user_id, item_code having user_id=?) as \"qtySum\", \r\n"
+				+ "  A.sale_price * (select sum(item_qty) from cart group by user_id, item_code having user_id=?) as \"priceSum\"\r\n"
+				+ "from \r\n"
+				+ "  product A \r\n"
+				+ "  JOIN \r\n"
+				+ "  (select user_id, item_code, sum(item_qty) AS \"sumQty\" from cart group by user_id, item_code having user_id=?) B\r\n"
+				+ "on \r\n"
+				+ "  A.item_code = B.item_code";
+		
+		List<ProductVO> list = new ArrayList<>();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO vo = new ProductVO();
+				
+				vo.setDivision(rs.getString("division"));
+				vo.setItemCode(rs.getString("item_code"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setItemName(rs.getString("item_name"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setPriceSum(rs.getInt("priceSum"));
+				vo.setQtySum(rs.getInt("qtySum"));
+				vo.setSale(rs.getString("sale"));
+				vo.setSalePrice(rs.getInt("sale_price"));
+				
+				list.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return list;
 	}
 	
 	public int getCnt(String id) {

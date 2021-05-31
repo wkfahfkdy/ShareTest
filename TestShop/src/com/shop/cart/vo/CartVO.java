@@ -5,7 +5,7 @@ public class CartVO {
 	public String userID;
 	public String itemCode;
 	public int itemQty;
-	
+	public int itemSum;
 	
 	public String getUserID() {
 		return userID;
@@ -25,10 +25,16 @@ public class CartVO {
 	public void setItemQty(int itemQty) {
 		this.itemQty = itemQty;
 	}
+	public int getItemSum() {
+		return itemSum;
+	}
+	public void setItemSum(int itemSum) {
+		this.itemSum = itemSum;
+	}
 	
 	@Override
 	public String toString() {
-		return "CartVO [userID=" + userID + ", itemCode=" + itemCode + ", itemQty=" + itemQty + "]";
+		return "CartVO [userID=" + userID + ", itemCode=" + itemCode + ", itemQty=" + itemQty + ", itemSum=" + itemSum
+				+ "]";
 	}
-	
 }
