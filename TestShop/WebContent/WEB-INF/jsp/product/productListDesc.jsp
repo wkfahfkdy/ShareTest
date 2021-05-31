@@ -24,7 +24,12 @@
 			}
 		});
 	}
-	</script>
+	
+	function productAlert(){
+		alert('로그인 후 이용 가능합니다');
+		return;
+	}
+</script>
 <body>
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 my-5">
