@@ -28,7 +28,6 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	}
 	
 	
-	
 	public ProductVO goDesc(String itemCode) {
 		
 		sql = "select * from product where item_code = ?";
@@ -59,6 +58,40 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		return vo;
 	}
 	
+	@Override
+	public List<ProductVO> selectCategory(String division) {
+		// 카테고리 별 조회
+		
+		sql = "select * from product where division = ? order by 1 desc";
+		List<ProductVO> list = new ArrayList<>();
+		ProductVO vo = new ProductVO();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, division);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				vo.setItemCode(rs.getString("item_code"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setItemName(rs.getString("item_name"));
+				vo.setLikeIt(rs.getInt("like_it"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setSale(rs.getString("sale"));
+				vo.setSalePrice(rs.getInt("sale_price"));
+				
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
 	
 	@Override
 	public List<ProductVO> selectProductList() {
@@ -92,12 +125,6 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		}
 		
 		return list;
-	}
-
-	@Override
-	public ProductVO selectProduct(String id) {
-		// 상품 분류 지정 조회
-		return null;
 	}
 
 	@Override

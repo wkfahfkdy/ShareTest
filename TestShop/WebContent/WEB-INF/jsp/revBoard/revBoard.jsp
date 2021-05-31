@@ -67,7 +67,7 @@
 						<textarea name = "content" rows = "6" cols = "90">${revBoard.content }</textarea>
 					</c:if>
 					<c:if test = "${id ne revBoard.writer && id ne 'admin' }">
-						${revBoard.content }
+						<textarea name = "content" rows = "6" cols = "90" readonly>${revBoard.content }</textarea>
 					</c:if>
 				</td>
 			</tr>

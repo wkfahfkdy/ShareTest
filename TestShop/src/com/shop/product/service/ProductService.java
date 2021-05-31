@@ -7,7 +7,7 @@ import com.shop.product.vo.ProductVO;
 public interface ProductService {
 
 	List<ProductVO> selectProductList();
-	ProductVO selectProduct(String id);
+	List<ProductVO> selectCategory(String division);
 	public int insertProduct(ProductVO vo);
 	public int updateProduct(ProductVO vo);
 	public int deleteProduct(ProductVO vo);

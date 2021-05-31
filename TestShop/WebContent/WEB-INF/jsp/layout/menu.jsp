@@ -15,10 +15,10 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">카테고리 별</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 
-                                <li><a class="dropdown-item" href="#!">대분류1</a></li>
-                                <li><a class="dropdown-item" href="#!">대분류2</a></li>
-                                <li><a class="dropdown-item" href="#!">대분류3</a></li>
-                                <li><a class="dropdown-item" href="#!">대분류4</a></li>
+                                <li><a class="dropdown-item" href="divisionListA.do">대분류1</a></li>
+                                <li><a class="dropdown-item" href="divisionListB.do">대분류2</a></li>
+                                <li><a class="dropdown-item" href="divisionListC.do">대분류3</a></li>
+                                <li><a class="dropdown-item" href="divisionListD.do">대분류4</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="revBoardList.do">후기</a></li>
