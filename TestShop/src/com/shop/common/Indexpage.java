@@ -24,9 +24,15 @@ public class Indexpage implements DbCommand {
 		
 		ProductServiceImpl service2 = new ProductServiceImpl();
 		ProductVO diviCookie = service2.getDiviCookie();
-		ProductVO diviBread = service2.getDiviBread();
-		ProductVO diviDrink = service2.getDiviDrink();
-		ProductVO diviHRM = service2.getDiviHMR();
+		
+		ProductServiceImpl service3 = new ProductServiceImpl();
+		ProductVO diviBread = service3.getDiviBread();
+		
+		ProductServiceImpl service4 = new ProductServiceImpl();
+		ProductVO diviDrink = service4.getDiviDrink();
+		
+		ProductServiceImpl service5 = new ProductServiceImpl();
+		ProductVO diviHRM = service5.getDiviHMR();
 		
 		session.setAttribute("cateA", diviCookie);
 		session.setAttribute("cateB", diviBread);

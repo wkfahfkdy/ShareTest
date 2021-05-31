@@ -28,7 +28,7 @@
 				id : '${id}'
 			},
 			success : function(resp){
-				location.href = "productList.do"
+				location.href = "divisionListB.do"
 			},
 			error : function(err){
 				console.log(err);

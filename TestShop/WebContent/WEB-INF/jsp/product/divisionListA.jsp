@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script>
 	function divisionInfo(division){
+	// 아직 값 안 받아 와짐.		
 		
 		$.ajax({
 			url : 'goDesc.do',
@@ -20,7 +21,6 @@
 	}
 	
 	function addCart(itemCode){
-	// 아직 값 안 받아 와짐.		
 		$.ajax({
 			url: 'addCart.do',
 			data : {
@@ -28,7 +28,7 @@
 				id : '${id}'
 			},
 			success : function(resp){
-				location.href = "productList.do"
+				location.href = "divisionListA.do"
 			},
 			error : function(err){
 				console.log(err);
