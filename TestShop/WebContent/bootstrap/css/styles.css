@@ -7417,10 +7417,6 @@ textarea.form-control-lg {
 }
 
 .bg-dark {
-	/*
-	배경 왜 안 먹지???
-	background-image: url( "upload/cornDog (3).jpg" ) !important;
-	*/
 
   background-color: #212529 !important;
 

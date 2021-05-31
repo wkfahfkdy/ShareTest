@@ -2,6 +2,7 @@
    pageEncoding="UTF-8"%>
 <!-- Header-->
 <style>
+<<<<<<< HEAD
    #sdaf {
 
    background-image: url("upload/cornDog (1).jpg");
@@ -15,9 +16,9 @@
    }
 </style>
 <header id="sdaf">
-   <div class="container px-4 px-lg-5 my-5">
-      <div class="text-center text-white" id = "asd">
-         <h1> am</h1>
-      </div>
-   </div>
+	<div class="container px-4 px-lg-5 my-5">
+		<div class="text-center text-white" id = "asd">
+			<h1> am</h1>
+		</div>
+	</div>
 </header>
