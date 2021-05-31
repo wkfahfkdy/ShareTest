@@ -27,6 +27,8 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		}
 	}
 	
+	
+	
 	public ProductVO goDesc(String itemCode) {
 		
 		sql = "select * from product where item_code = ?";

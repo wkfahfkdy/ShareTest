@@ -1,7 +1,7 @@
 package com.shop.product.vo;
 
 public class ProductVO {
-
+	
 	private String itemCode;
 	private String itemName;
 	private String itemImage;
@@ -11,7 +11,6 @@ public class ProductVO {
 	private String sale;
 	private int salePrice;
 	private String division;
-	
 	
 	public String getItemCode() {
 		return itemCode;

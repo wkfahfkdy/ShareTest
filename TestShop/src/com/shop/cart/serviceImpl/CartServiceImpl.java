@@ -15,7 +15,7 @@ public class CartServiceImpl extends DAO implements CartService {
 	PreparedStatement psmt;
 	ResultSet rs;
 	String sql;
-
+	
 	public void close() {
 
 		try {
@@ -26,9 +26,31 @@ public class CartServiceImpl extends DAO implements CartService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
-
+	
+	public int getCnt(String id) {
+		
+		sql = "select count(*) from cart where user_id = ?";
+		int cnt = 0;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				cnt = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
+	
 	@Override
 	public List<CartVO> selectCartList() {
 		// TODO 장바구니 전체 조회
@@ -88,7 +110,7 @@ public class CartServiceImpl extends DAO implements CartService {
 	public int insertCart(CartVO vo) {
 		// TODO 장바구니 입력
 		
-		sql = "insert into cart values(?, ?, ?)";
+		sql = "insert into cart values(?, ?, 1)";
 		
 		int result = 0;
 		
@@ -97,7 +119,6 @@ public class CartServiceImpl extends DAO implements CartService {
 			
 			psmt.setString(1, vo.getUserID());
 			psmt.setString(2, vo.getItemCode());
-			psmt.setInt(3, vo.getItemQty());
 			
 			result = psmt.executeUpdate();
 			

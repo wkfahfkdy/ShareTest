@@ -20,9 +20,11 @@
 	function addCart(itemCode) {
 		$.ajax({
 			url: 'addCart.do',
-			data: {itemCode: itemCode}
+			data: {
+				itemCode: itemCode,
+				id: '${id }'
+			},
 			success: function(result){
-				
 			},
 			error: function (err){
 				console.log(err);
