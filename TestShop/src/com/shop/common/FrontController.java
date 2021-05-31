@@ -37,6 +37,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map.put("/index.do", new Indexpage());
+		map.put("/productManage.do", new ProductManage());
 		
 		// MEMBER
 		map.put("/memberJoin.do", new MemberJoin());

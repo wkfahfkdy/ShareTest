@@ -30,6 +30,9 @@
 						</button>
 						<div class="collapse navbar-collapse" id="collapsibleNavbar">
 							<ul class="navbar-nav">
+								<c:if test = "${id eq 'admin' }">
+									<li class="nav-item"><a class="nav-link" href="productManage.do">상품 관리</a></li>
+								</c:if>
 								<c:if test = "${empty id }">
 									<li class = "nav-item"><a class = "nav-link">Hi : Guest</a></li>
 								</c:if>
