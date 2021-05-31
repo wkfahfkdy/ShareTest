@@ -26,6 +26,7 @@ import com.shop.product.web.DivisionListC;
 import com.shop.product.web.DivisionListD;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
+import com.shop.product.web.ProductManage;
 import com.shop.product.web.goDesc;
 import com.shop.revBoard.web.RevBoardForm;
 import com.shop.revBoard.web.RevBoardInsert;
