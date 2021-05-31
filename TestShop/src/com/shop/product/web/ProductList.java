@@ -24,7 +24,7 @@ public class ProductList implements DbCommand {
 		request.setAttribute("id", id);
 		request.setAttribute("list", list);
 		request.setAttribute("cnt", cnt);
-				
+		 
 		return "product/productList.tiles";
 	}
 
