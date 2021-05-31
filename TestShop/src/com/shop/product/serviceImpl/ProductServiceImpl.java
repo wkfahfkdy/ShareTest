@@ -27,6 +27,26 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		}
 	}
 	
+	public ProductVO getDiviCookie() {
+		
+		sql = "select division from product where division='쿠키'";
+		ProductVO vo = new ProductVO();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setDivision(rs.getString("division"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return vo;
+	}
 	
 	public ProductVO goDesc(String itemCode) {
 		
@@ -59,16 +79,15 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	}
 	
 	@Override
-	public List<ProductVO> selectCategory(String division) {
+	public List<ProductVO> selectCategory(ProductVO vo) {
 		// 카테고리 별 조회
 		
 		sql = "select * from product where division = ? order by 1 desc";
 		List<ProductVO> list = new ArrayList<>();
-		ProductVO vo = new ProductVO();
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, division);
+			psmt.setString(1, vo.getDivision());
 			
 			rs = psmt.executeQuery();
 			

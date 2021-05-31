@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.shop.common.DbCommand;
 import com.shop.product.service.ProductService;
@@ -15,19 +16,21 @@ public class DivisionListA implements DbCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-		String division = request.getParameter("division");
+		HttpSession session = request.getSession();
+		
+		ProductVO cateA = (ProductVO) session.getAttribute("cateA");		
+		//String division = request.getParameter("division");
 		String id = request.getParameter("id");
 		
-		System.out.println(id);
-		System.out.println(division);
-		
 		ProductService service = new ProductServiceImpl();
-		List<ProductVO> list = service.selectCategory(division);
+		List<ProductVO> list = service.selectCategory(cateA);
+		//System.out.println(cateA);
+		//System.out.println(list);
 		
+		request.setAttribute("cateA", cateA);
 		request.setAttribute("list", list);
 		request.setAttribute("id", id);
 		
 		return "product/divisionListA.tiles";
 	}
-
 }
