@@ -4,9 +4,11 @@
 <style>
    header {
 
-   background-image: url("upload/cornDog (2).jpg");
+   background-image: url("upload/cornDog (1).jpg");
    background-repeat: no-repeat;
    background-size: cover;
+   max-width : 100%;
+   height : auto;
 
    }
    #asd{

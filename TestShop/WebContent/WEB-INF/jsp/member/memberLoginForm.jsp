@@ -28,14 +28,9 @@
 		// 로그인 실패시 문구 띄우기는 보류
 	}
 </script>
-<style>
-	th {
-		color: white;
-	}
-</style>
 </head>
 <body>
-	<div class="bg-dark py-5">
+	<div class="py-5">
 		<div align="center">
 			<form id="frm" action="memberLogin.do" method="post">
 				<div>
