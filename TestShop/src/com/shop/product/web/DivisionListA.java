@@ -17,13 +17,16 @@ public class DivisionListA implements DbCommand {
 
 		String division = request.getParameter("division");
 		String id = request.getParameter("id");
-		String 
+		
+		System.out.println(id);
+		System.out.println(division);
 		
 		ProductService service = new ProductServiceImpl();
 		List<ProductVO> list = service.selectCategory(division);
 		
 		request.setAttribute("list", list);
 		request.setAttribute("id", id);
+		
 		return "product/divisionListA.tiles";
 	}
 
