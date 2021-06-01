@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script>
 	function divisionInfo(itemCode){
-	// 아직 값 안 받아 와짐.		
 		
 		$.ajax({
 			url : 'goDesc.do',
