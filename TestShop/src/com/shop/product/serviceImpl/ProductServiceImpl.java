@@ -145,7 +145,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 	public List<ProductVO> selectCategory(ProductVO vo) {
 		// 카테고리 별 조회
 		
-		sql = "select * from product where division = ? order by 1 desc";
+		sql = "select * from product where division = ?";
 		List<ProductVO> list = new ArrayList<>();
 		
 		try {
@@ -155,7 +155,8 @@ public class ProductServiceImpl extends DAO implements ProductService {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				
+				vo = new ProductVO();
+				vo.setDivision(rs.getString("division"));
 				vo.setItemCode(rs.getString("item_code"));
 				vo.setItemDesc(rs.getString("item_desc"));
 				vo.setItemImage(rs.getString("item_image"));
