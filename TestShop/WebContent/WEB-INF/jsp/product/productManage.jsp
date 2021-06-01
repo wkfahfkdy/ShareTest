@@ -5,18 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-	$(function fileUpload(){
-		$.ajax(){
-			
-		}
-	};
-</script>
 </head>
 <body>
 	<div align="center">
 		<h3>상품 입력</h3><br>
-		<form id = "frm" action="fileUpload.do" method="post" enctype="multipart/form-data">
+		<form id = "frm" action="fileUpload()" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Item_Code  </td><td><input type="text" name="itemCode"></td>
@@ -25,7 +18,7 @@
 					<td>Item_Name  </td><td><input type="text" name="itemName"></td>
 				</tr>
 				<tr>
-					<td>Item_Image  </td><td><input type="file" name="photo"></td>
+					<td>Item_Image  </td><td><input type="file" name="itemImage"></td>
 				</tr>
 				<tr>
 					<td>Price  </td><td><input type="number" name="price"></td>
@@ -34,7 +27,7 @@
 					<td>Item_Desc  </td><td><input type="text" name="itemDesc"></td>
 				</tr>
 				<tr>
-					<td>Sale  </td><td><input type="radio" name="sale" value="Y">Y <input type="radio" name="sale" value="N">N  </td>
+					<td>Sale  </td><td><input type="radio" name="sale" value="Y"> Y <input type="radio" name="sale" value="N"> N  </td>
 					<!-- Y/N 선택지 -->
 				</tr>
 				<tr>
@@ -42,7 +35,7 @@
 					 <!-- Y 할거라면 80% 가격 N면 100% 가격 입력 -->
 				</tr>
 				<tr>
-					<td>Division  </td><td><input type="radio" name="division" value="쿠키">쿠키 <input type="radio" name="division" value="빵">빵 <input type="radio" name="division" value="간편식">간편식 <input type="radio" name="division" value="음료">음료</td>
+					<td>Division  </td><td><input type="radio" name="division" value="쿠키"> 쿠키 <input type="radio" name="division" value="빵"> 빵 <input type="radio" name="division" value="간편식"> 간편식 <input type="radio" name="division" value="음료"> 음료</td>
 				</tr>
 			</table><br>
 			<input type="submit" value="upload">
