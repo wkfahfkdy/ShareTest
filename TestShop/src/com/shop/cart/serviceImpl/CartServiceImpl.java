@@ -31,24 +31,21 @@ public class CartServiceImpl extends DAO implements CartService {
 	
 	public List<ProductVO> cartList(String id) {
 		
-		sql = "select \r\n"
-				+ "  A.*, \r\n"
-				+ "  (select sum(item_qty) from cart group by user_id, item_code having user_id=?) as \"qtySum\", \r\n"
-				+ "  A.sale_price * (select sum(item_qty) from cart group by user_id, item_code having user_id=?) as \"priceSum\"\r\n"
-				+ "from \r\n"
-				+ "  product A \r\n"
-				+ "  JOIN \r\n"
-				+ "  (select user_id, item_code, sum(item_qty) AS \"sumQty\" from cart group by user_id, item_code having user_id=?) B\r\n"
-				+ "on \r\n"
-				+ "  A.item_code = B.item_code";
+		sql = "SELECT A.*, B.USER_ID, B.qtySum, A.SALE_PRICE * B.qtySum AS priceSum\r\n"
+				+ "FROM PRODUCT A\r\n"
+				+ ", (\r\n"
+				+ "  select user_id, item_code, sum(item_qty) AS qtySum\r\n"
+				+ "  from cart \r\n"
+				+ "  group by user_id, item_code \r\n"
+				+ "  having user_id=?) B\r\n"
+				+ "WHERE A.ITEM_CODE = B.ITEM_CODE\r\n"
+				+ "order by A.item_code";
 		
 		List<ProductVO> list = new ArrayList<>();
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
-			psmt.setString(2, id);
-			psmt.setString(3, id);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
