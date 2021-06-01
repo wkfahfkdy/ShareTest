@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script>
-	function divisionInfo(division){
+	function divisionInfo(itemCode){
 	// 아직 값 안 받아 와짐.		
 		
 		$.ajax({
 			url : 'goDesc.do',
 			data : {
-				division: division,
+				itemCode: itemCode,
 			},
 			success : function(resp){
 				location.href = "productListDesc.do"
@@ -84,7 +84,7 @@
 						<!-- 클릭 액션 -->
 						<div class = "card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class = "text-center">
-								<a class = "btn btn-outline-dark mt-auto" onclick = "divisionInfo('${cateA }')">
+								<a class = "btn btn-outline-dark mt-auto" onclick = "divisionInfo('${divi.itemCode }')">
 									View options
 								</a>
 							</div>
