@@ -48,7 +48,7 @@
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">
 		<div class = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-			<c:forEach items = "${list }" var = "list">
+			<c:forEach items = "${dList }" var = "divi">
 				<div class = "col mb-5">
 					<div class = "card h-100">
 						<!-- 뱃찌 -->
@@ -57,27 +57,27 @@
 						</div>
 						
 						<!-- 상품 이미지 -->
-						<img class = "card-img-top" src = "upload/${list.itemImage }" alt = "..." width = "300px" height = "180px" />
+						<img class = "card-img-top" src = "upload/${divi.itemImage }" alt = "..." width = "300px" height = "180px" />
 						
 						<!-- 상품 상세 -->
 						<div class = "card-body p-4">
 							<div class = "text-center">
 								<!-- 상품 이름 -->
-								<h5 class = "fw-bolder">${list.itemName }</h5>
+								<h5 class = "fw-bolder">${divi.itemName }</h5>
 								
 								<!-- 상품 후기 -->
 								<div class = "d-flex justify-content-center small text-warning mb-2">
-									<div class = "bi-star-fill">${list.likeIt }</div>
+									<div class = "bi-star-fill">${divi.likeIt }</div>
 								</div>
 								
 								<!-- 상품 가격 -->
-								<c:if test = "${list.sale eq 'Y' }">
+								<c:if test = "${divi.sale eq 'Y' }">
 									<span class = "text-muted text-decoration-line-through">
-										<fmt:formatNumber type = "currency" value = "${list.price }"></fmt:formatNumber>
+										<fmt:formatNumber type = "currency" value = "${divi.price }"></fmt:formatNumber>
 									</span>
 									&nbsp;
 								</c:if>
-								<fmt:formatNumber type = "currency" value = "${list.salePrice }"></fmt:formatNumber>
+								<fmt:formatNumber type = "currency" value = "${divi.salePrice }"></fmt:formatNumber>
 							</div>
 						</div>
 						
@@ -95,7 +95,7 @@
 							<div class = "text-center">
 								<a class ="btn btn-outline-dark mt-auto"
 									<c:if test = "${id ne null }">
-										onclick="addCart('${list.itemCode }')"
+										onclick="addCart('${divi.itemCode }')"
 									</c:if>
 									<c:if test = "${id eq null }">
 										onclick="productAlert()"

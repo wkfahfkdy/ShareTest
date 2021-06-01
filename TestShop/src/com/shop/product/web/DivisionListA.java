@@ -19,16 +19,13 @@ public class DivisionListA implements DbCommand {
 		HttpSession session = request.getSession();
 		
 		ProductVO cateA = (ProductVO) session.getAttribute("cateA");		
-		//String division = request.getParameter("division");
 		String id = request.getParameter("id");
 		
 		ProductService service = new ProductServiceImpl();
-		List<ProductVO> list = service.selectCategory(cateA);
-		//System.out.println(cateA);
-		//System.out.println(list);
+		List<ProductVO> dList = service.selectCategory(cateA);
 		
 		request.setAttribute("cateA", cateA);
-		request.setAttribute("list", list);
+		request.setAttribute("dList", dList);
 		request.setAttribute("id", id);
 		
 		return "product/divisionListA.tiles";
