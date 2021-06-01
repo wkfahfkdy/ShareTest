@@ -16,7 +16,7 @@
 <body>
 	<div align="center">
 		<h3>상품 입력</h3><br>
-		<form id = "frm" action="fileUploadServlet" method="post" enctype="multipart/form-data">
+		<form id = "frm" action="fileUpload.do" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Item_Code  </td><td><input type="text" name="itemCode"></td>

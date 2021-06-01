@@ -7,8 +7,15 @@ public class FileUpload implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String photo = request.getParameter("photo");
+		String itemCode = request.getParameter("itemCode");
+		String itemName = request.getParameter("itemName");
+		System.out.println(photo);
+		System.out.println(itemCode);
+		System.out.println(itemName);
+		
+		return "productManage.do";
 	}
 
 }
