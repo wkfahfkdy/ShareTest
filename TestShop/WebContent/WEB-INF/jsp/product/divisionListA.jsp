@@ -21,6 +21,7 @@
 	}
 	
 	function addCart(itemCode){
+		
 		$.ajax({
 			url: 'addCart.do',
 			data : {
@@ -34,6 +35,13 @@
 				console.log(err);
 			}
 		});
+		
+	}
+	
+	function productAlert(){
+		
+		alert("로그인 후 이용 가능!")
+		return;
 	}
 </script>
 
@@ -85,7 +93,14 @@
 						<!-- 클릭 액션 -->
 						<div class = "card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class = "text-center">
-								<a class ="btn btn-outline-dark mt-auto" onclick="addCart('${list.itemCode }')">
+								<a class ="btn btn-outline-dark mt-auto"
+									<c:if test = "${id ne null }">
+										onclick="addCart('${list.itemCode }')"
+									</c:if>
+									<c:if test = "${id eq null }">
+										onclick="productAlert()"
+									</c:if>
+									>
 									Add to cart
 								</a>
 							</div>

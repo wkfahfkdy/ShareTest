@@ -29,15 +29,15 @@ public class Indexpage implements DbCommand {
 		ProductVO diviBread = service3.getDiviBread();
 		
 		ProductServiceImpl service4 = new ProductServiceImpl();
-		ProductVO diviDrink = service4.getDiviDrink();
+		ProductVO diviHRM = service4.getDiviHMR();
 		
 		ProductServiceImpl service5 = new ProductServiceImpl();
-		ProductVO diviHRM = service5.getDiviHMR();
+		ProductVO diviDrink = service5.getDiviDrink();
 		
 		session.setAttribute("cateA", diviCookie);
 		session.setAttribute("cateB", diviBread);
-		session.setAttribute("cateC", diviDrink);
-		session.setAttribute("cateD", diviHRM);
+		session.setAttribute("cateC", diviHRM);
+		session.setAttribute("cateD", diviDrink);
 		session.setAttribute("cnt", cnt);
 		
 		if(id == null) {
