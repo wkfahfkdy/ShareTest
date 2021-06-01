@@ -19,6 +19,11 @@ public class cartList implements DbCommand {
 		CartServiceImpl service = new CartServiceImpl();
 		List<ProductVO> list = service.cartList(id);
 		
+		int fsum = 0;
+		CartServiceImpl service2 = new CartServiceImpl();
+		fsum = service2.fsum(id);
+		
+		request.setAttribute("fsum", fsum);
 		request.setAttribute("list", list);
 		request.setAttribute("id", id);
 		

@@ -29,6 +29,38 @@ public class CartServiceImpl extends DAO implements CartService {
 		}
 	}
 	
+	// 장바구니 금액 총합계
+	public int fsum(String id) {
+		
+		int fsum = 0;
+		
+		sql = "SELECT sum(A.SALE_PRICE * B.qtySum) AS fsum\r\n"
+				+ "FROM PRODUCT A\r\n"
+				+ ", (\r\n"
+				+ "  select user_id, item_code, sum(item_qty) AS qtySum\r\n"
+				+ "  from cart \r\n"
+				+ "  group by user_id, item_code \r\n"
+				+ "  having user_id=?) B\r\n"
+				+ "WHERE A.ITEM_CODE = B.ITEM_CODE";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				fsum = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return fsum;
+	}
+	
+	// 장바구니 리스트
 	public List<ProductVO> cartList(String id) {
 		
 		sql = "SELECT A.*, B.USER_ID, B.qtySum, A.SALE_PRICE * B.qtySum AS priceSum\r\n"
