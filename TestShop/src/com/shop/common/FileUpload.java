@@ -18,9 +18,10 @@ public class FileUpload implements DbCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ServletContext context = request.getServletContext();
-		String path = context.getRealPath("upload");
-		// System.out.println("경로 : " + path);
+		//ServletContext context = request.getServletContext();
+		//String path = context.getRealPath("upload");				// 배운대로 하니까 절대경로로 core 뭐시기 안에 있는 upload 폴더로 가서 반영이 안됨. 
+		String path = "D:\\ShareTest\\TestShop\\WebContent\\upload";
+		System.out.println("경로 : " + path);
 		
 		try {
 			MultipartRequest multi = new MultipartRequest(request, path , 5*1024*1024, "UTF-8", new DefaultFileRenamePolicy());

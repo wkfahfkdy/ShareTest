@@ -27,7 +27,7 @@ public class DivisionListA implements DbCommand {
 		request.setAttribute("cateA", cateA);
 		request.setAttribute("dList", dList);
 		request.setAttribute("id", id);
-		System.out.println(dList);
+		//System.out.println(dList);
 		return "product/divisionListA.tiles";
 	}
 }
