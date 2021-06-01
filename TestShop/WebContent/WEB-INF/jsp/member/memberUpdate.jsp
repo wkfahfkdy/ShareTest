@@ -36,6 +36,17 @@
 			e.value = e.value.slice(0, e.maxLength);
 		}
 	}
+	
+	function selectEmail(){
+		
+		var tartget = document.getElementById("localEmail");
+		
+		if(target.options[target.selectdIndex].text == "직접입력") {
+			
+		} else if {
+			
+		}
+	}
 </script>
 <body>
 
@@ -45,11 +56,11 @@
 	
 		<span>
 			<Strong><b>${id }</b></Strong> 님의 연락처 정보입니다.
-			회원정보는 개인정보처리방침에 따라 안전하게 보호되며, 회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.
+			<p>회원정보는 개인정보처리방침에 따라 안전하게 보호되며, 회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.</p>
 			<a href = "#" target = "_blank">개인정보처리방침</a>
 		</span>
 	
-		<form method = "post">
+		<form action = "memberUpdate.do" method = "post">
 			<table frame = void>
 				<tr>
 					<th>이름</th>
@@ -74,7 +85,7 @@
 				<tr>
 				<th>전번</th>
 					<td>
-						<select class = "localPhoneNumber" style = "width : 150px;">
+						<select id = "localPhoneNumber" name = "localPhoneNumber" style = "width : 150px;">
 							<option value = "010">010</option>
 							<option value = "053">053</option>
 						</select> -
@@ -90,8 +101,11 @@
 				<tr>
 					<th>메일</th>
 					<td>
-						<input type = "text" name = "mail"> @
-						<select class = "localEmail" style = "width : 150px;">
+						<input type = "text" name = "mail" maxlength="50" value = "${vo.mail }"> @ 
+						<input type = "text" name = "email" value = "disabled">
+						<select id = "localEmail" name = "localEmail" style = "width : 150px;" onchange = "selectEmail(this)">
+							<option>선택</option>
+							<option>직접입력</option>
 							<option value = "naver">naver</option>
 							<option value = "google">google</option>
 							<option value = "daum">daum</option>
@@ -105,6 +119,9 @@
 					<td><input type = "text" name = "addr"></td>
 				</tr>
 			</table>
+			<div class = "btn_group">
+				<input type = "submit" value = "수정">
+			</div>
 		</form>
 	</div>
 </body>

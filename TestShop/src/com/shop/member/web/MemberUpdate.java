@@ -17,8 +17,15 @@ public class MemberUpdate implements DbCommand {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
+		String modiName = request.getParameter("mName");
+		
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setName(modiName);
+		
+		
 		MemberService service = new MemberServiceImpl();
-		MemberVO vo = service.selectMember(id);
+		vo = service.selectMember(id);
 		
 		request.setAttribute("vo", vo);
 		return "member/memberUpdate.tiles";
