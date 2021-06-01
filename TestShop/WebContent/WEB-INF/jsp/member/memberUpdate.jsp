@@ -39,20 +39,55 @@
 	
 	function selectEmail(){
 		
-		var tartget = document.getElementById("localEmail");
+		var target = document.getElementById("email");
 		
-		if(target.options[target.selectdIndex].text == "직접입력") {
-			
-		} else if {
-			
+		console.log(target);
+		
+		if(target.options[target.selectedIndex].text == "직접입력") {
+			document.update.email.disabled = false;
+			document.update.email.value = "";
+			document.update.email.focus();
+		} else if(target.options[target.selectedIndex].text == "선택") {
+			document.update.email.readonly = true;
+			document.update.email.value = "";
+		} else {
+			document.update.email.disabled = false;
+			document.update.email.value = target.options[target.selectedIndex].value;
+			alert('선택된 옵션 value 값 = ' + document.update.email.value); 
 		}
 	}
+	
+	/* $(function(){
+		$('#pwdCheck').click(function(){
+			if($('#mPwd').val() != $('#iPwd').val()){
+				alert('비밀번호가 같지 않다.');
+				$('#iPwd').focus();
+			} else {
+				alert('같다');
+			}
+			
+			return;
+		});
+	}); */
+	
+	function checkThePwd(){
+		
+		if($('#mPwd').val() != $('#iPwd').val()){
+			
+			alert('XXXXXXXXXXXXXXX');
+			$('#iPwd').focus();
+		} else {
+			alert('O');
+		}
+		
+	}
+	
 </script>
 <body>
 
 	<h2>내 정보 수정</h2>
 
-	<div align = "center" width = "60%">
+	<div align = "center">
 	
 		<span>
 			<Strong><b>${id }</b></Strong> 님의 연락처 정보입니다.
@@ -64,27 +99,27 @@
 			<table frame = void>
 				<tr>
 					<th>이름</th>
-					<td><input type = "text" name = "mName" placeholder = "${vo.name}"></td>
+					<td>
+						${vo.name }
+						<p><br><input type = "text" name = "mName" placeholder = "바꿀 이름 입력."></p>
+					</td>
 				</tr>
 				
 				<tr>
-					<th>현재 비번</th>
-					<td><input type = "password" name = "nPwd"></td>
-				</tr>
-				
-				<tr>
-					<th>수정 비번</th>
-					<td><input type = "password" name = "mPwd"></td>
-				</tr>
-				
-				<tr>
-					<th>비번 확인</th>
-					<td><input type = "password" name = "iPwd"></td>
+					<th>비번 수정</th>
+					<td>
+						<input type = "password" id = "mPwd" placeholder = "수정할 비밀번호 입력">
+						<p><br>
+							<input type = "password" name = "iPwd" id = "iPwd" placeholder = "비밀번호 재입력">
+							<button type = "button" id = "pwdCheck" onclick = "checkThePwd()">확인</button>
+						</p>
+					</td>
 				</tr>
 				
 				<tr>
 				<th>전번</th>
 					<td>
+						${vo.phone }<br><br>
 						<select id = "localPhoneNumber" name = "localPhoneNumber" style = "width : 150px;">
 							<option value = "010">010</option>
 							<option value = "053">053</option>
@@ -99,28 +134,32 @@
 				</tr>
 				
 				<tr>
-					<th>메일</th>
+					<th>이멜</th>
 					<td>
-						<input type = "text" name = "mail" maxlength="50" value = "${vo.mail }"> @ 
-						<input type = "text" name = "email" value = "disabled">
-						<select id = "localEmail" name = "localEmail" style = "width : 150px;" onchange = "selectEmail(this)">
+						${vo.mail }<br><br>
+						<input type = "text" name = "mail" maxlength="50"> @ 
+						<input type = "text" name = "email" id = "email" value ="" readonly>
+						<select id = "localEmail" name = "localEmail" style = "width : 150px;" onchange = "selectEmail()">
 							<option>선택</option>
 							<option>직접입력</option>
-							<option value = "naver">naver</option>
-							<option value = "google">google</option>
-							<option value = "daum">daum</option>
-							<option value = "nate">nate</option>
+							<option value = "@naver.com">naver.com</option>
+							<option value = "@google.com">google.com</option>
+							<option value = "@daum.net">daum.net</option>
+							<option value = "@nate.net">nate.net</option>
 						</select>
 					</td>
 				</tr>
 				
 				<tr>
 					<th>주소</th>
-					<td><input type = "text" name = "addr"></td>
+					<td>
+						${vo.address}
+						<p><br><input type = "text" name = "addr"></p>
+					</td>
 				</tr>
 			</table>
 			<div class = "btn_group">
-				<input type = "submit" value = "수정">
+				<button type = "submit">수정</button>
 			</div>
 		</form>
 	</div>
