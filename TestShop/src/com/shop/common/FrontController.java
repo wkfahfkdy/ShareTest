@@ -15,10 +15,12 @@ import com.shop.inqBoard.web.InqBoardList;
 import com.shop.inqBoard.web.InqBoardInsert;
 import com.shop.inqBoard.web.InqBoardSelect;
 import com.shop.inqBoard.web.InqBoardUpdate;
+import com.shop.member.web.MemberDelete;
 import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
 import com.shop.member.web.MemberLogout;
+import com.shop.member.web.MemberUpdate;
 import com.shop.product.web.AddCart;
 import com.shop.product.web.DivisionListA;
 import com.shop.product.web.DivisionListB;
@@ -48,6 +50,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogOut.do", new MemberLogout());
+		map.put("/memberDelete.do", new MemberDelete());
+		map.put("/memberUpdate.do", new MemberUpdate());
 		
 		// PRODUCT
 		map.put("/productList.do", new ProductList());

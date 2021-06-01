@@ -84,7 +84,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	public List<MemberVO> selectMemberList() {
 		// TODO 전체 조회
 		
-		sql = "select * from member order by 1";
+		sql = "select * from member where id not like '%(deadcode:1234)%' order by 1 desc";
 		
 		List<MemberVO> list = new ArrayList<>();
 		
@@ -148,7 +148,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	public int insertMember(MemberVO vo) {
 		// TODO 멤버 입력
 		
-		sql = "insert into member(id, passwd, name, phone, mail, address) values (?, ?, ?, ?, ?, ?)";
+		sql = "insert into member values (?, ?, ?, ?, ?, ?)";
 		
 		int result = 0;
 		
@@ -219,7 +219,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	public int deleteMember(MemberVO vo) {
 		// TODO 멤버 삭제
 		
-		sql = "delete from member where id = ?";
+		sql = "update member set id = id||'(deadcode:1234)' where id = ?";
 		// not exist ( select * from inq_board where title = (sdfsdaf)%) 이렇게 뭐 어딘가에 써먹을수도
 		int result = 0;
 		
