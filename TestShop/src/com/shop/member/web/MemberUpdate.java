@@ -17,25 +17,8 @@ public class MemberUpdate implements DbCommand {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
-		String name = request.getParameter("mName");
-		String phone = request.getParameter(
-					"localPhoneNumber" + "-" + 
-					"phoneNumber1" + "-" +
-					"phoneNumber2");
-		String mail = request.getParameter("mail" + "localEmail");
-		String addr = request.getParameter("addr");
-		String pwd = request.getParameter("iPwd");
-		
-		MemberVO vo = new MemberVO();
-		vo.setId(id);
-		vo.setName(name);
-		vo.setAddress(addr);
-		vo.setMail(mail);
-		vo.setPasswd(pwd);
-		vo.setPhone(phone);
-		
 		MemberService service = new MemberServiceImpl();
-		vo = service.selectMember(id);
+		MemberVO vo = service.selectMember(id);
 		
 		request.setAttribute("vo", vo);
 		return "member/memberUpdate.tiles";

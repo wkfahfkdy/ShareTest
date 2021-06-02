@@ -37,7 +37,7 @@
 		}
 	}
 	
-	function selectEmail(){
+	/* function selectEmail(){
 		
 		var target = document.getElementById("email");
 		
@@ -55,7 +55,7 @@
 			document.update.email.value = target.options[target.selectedIndex].value;
 			alert('선택된 옵션 value 값 = ' + document.update.email.value); 
 		}
-	}
+	} */
 	
 	/* $(function(){
 		$('#pwdCheck').click(function(){
@@ -82,6 +82,19 @@
 		
 	}
 	
+	/* 
+	기능 안 함.
+	최종 킄릭 시 필요한 요소
+		1. 전화 번호 수정했을 경우, phoneNumber1, 2 각각 네 자리를 충족했는가.
+		2. 이메일 수정할 때 선택사항을 적용시켰는가.
+		3. 비밀번호 수정 <확인> 버튼을 눌렀는가.
+		
+	$('#submitBtn').click(function(){
+		
+		alert('수정됨');
+		location.href = "index.do";
+	}); */
+	
 </script>
 <body>
 
@@ -95,7 +108,14 @@
 			<a href = "#" target = "_blank">개인정보처리방침</a>
 		</span>
 	
-		<form action = "memberUpdate.do" method = "post">
+		<form action = "memberUpdateForm.do" method = "post">
+		
+			<input type = "hidden" name = "hiddenPhone" value = ${vo.phone }>
+			<input type = "hidden" name = "hiddenName" value = ${vo.name }>
+			<input type = "hidden" name = "hiddenMail" value = ${vo.mail }>
+			<input type = "hidden" name = "hiddenAddr" value = ${vo.address }>
+			<input type = "hidden" name = "hiddenPwd" value = ${vo.passwd }>
+			
 			<table frame = void>
 				<tr>
 					<th>이름</th>
@@ -138,10 +158,11 @@
 					<td>
 						${vo.mail }<br><br>
 						<input type = "text" name = "mail" maxlength="50"> @ 
-						<input type = "text" name = "email" id = "email" value ="" readonly>
-						<select id = "localEmail" name = "localEmail" style = "width : 150px;" onchange = "selectEmail()">
+						<!-- <input type = "text" name = "email" id = "email" value ="" readonly> -->
+						<select id = "localEmail" name = "localEmail" style = "width : 150px;">
+						 <!-- onchange = "selectEmail()" -->
 							<option>선택</option>
-							<option>직접입력</option>
+							<!-- <option>직접입력</option> -->
 							<option value = "@naver.com">naver.com</option>
 							<option value = "@google.com">google.com</option>
 							<option value = "@daum.net">daum.net</option>
@@ -159,7 +180,7 @@
 				</tr>
 			</table>
 			<div class = "btn_group">
-				<button type = "submit">수정</button>
+				<input type = "submit" value = "수정" id = "submitBtn">
 			</div>
 		</form>
 	</div>
