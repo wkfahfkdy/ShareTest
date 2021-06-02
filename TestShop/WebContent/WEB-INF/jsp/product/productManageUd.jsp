@@ -20,16 +20,24 @@ function goUpdate(itemCode) {
 
 function goDelete(itemCode) {
 	console.log(itemCode);
-	$.ajax({
-		url: 'goDelete.do',
-		data: {itemCode: itemCode},
-		success: function(result){
-			location.href="productManageUD.do"
-		},
-		error: function(err){
-			console.log(err);
-		}
-	});
+	
+	if (confirm("정말 삭제 ㄱ?") == true){
+		
+		$.ajax({
+			url: 'goDelete.do',
+			data: {itemCode: itemCode},
+			success: function(result){
+				alert("삭제ㅇ");
+				location.href="productManageUD.do"
+			},
+			error: function(err){
+				alert("에러 발생");
+			}
+		});
+		
+	} else {
+		alert("삭제x");
+	}
 }
 </script>
 
