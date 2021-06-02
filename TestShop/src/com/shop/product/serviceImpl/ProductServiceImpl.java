@@ -253,7 +253,7 @@ public class ProductServiceImpl extends DAO implements ProductService {
 		
 		int result = 0;
 		sql = "update product set "
-				+ "item_name = ?, item_image = ?, price = ?, like_it = ?, "
+				+ "item_name = ?, item_image = ?, price = ?, item_desc = ?, like_it = ?, "
 				+ "sale = ?, sale_price = ?, division = ?"
 				+ "where item_code = ?";
 		

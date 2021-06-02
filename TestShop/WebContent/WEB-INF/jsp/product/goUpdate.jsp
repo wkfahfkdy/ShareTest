@@ -62,6 +62,9 @@
 							<td>Item_Desc  </td><td><input type="text" name="itemDesc" value="${vo.itemDesc }"></td>
 						</tr>
 						<tr>
+							<td>Like_It  </td><td>${vo.likeIt }<input type="hidden" name="likeIt" value="${vo.likeIt }"></td>
+						</tr>
+						<tr>
 							<td>Sale  </td><td><input type="radio" name="sale" value="Y"> Y <input type="radio" name="sale" value="N"> N  </td>
 							<!-- Y/N 선택지 -->
 						</tr>
