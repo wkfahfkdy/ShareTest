@@ -38,7 +38,7 @@ public class MemberJoin implements DbCommand {
 		
 		session.setAttribute("member", vo);
 		
-		return "main/main.tiles";
+		return "index.do";
 	}
 
 }
