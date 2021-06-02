@@ -26,7 +26,7 @@ public class MemberLogin implements DbCommand {
 		MemberVO rvo = service.loginCheck(vo);
 		
 		if(rvo == null) {
-			session.setAttribute("id", "");
+			session.setAttribute("id", null);
 			return "index.do";
 		} else {
 			session.setAttribute("id", rvo.getId());

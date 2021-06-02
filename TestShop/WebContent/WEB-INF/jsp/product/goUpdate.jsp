@@ -44,7 +44,7 @@
 				<form id = "frm" action="fileUploadUpdate.do" method="post" enctype="multipart/form-data">
 					<table>
 						<tr>
-							<td>Item_Code  </td><td><input type="text" name="itemCode" value="${vo.itemCode }"></td>
+							<td>Item_Code  </td><td><input type="text" name="itemCode" value="${vo.itemCode }" readonly></td>
 						</tr>
 						<tr>
 							<td>Item_Name  </td><td><input type="text" name="itemName" value="${vo.itemName }"></td>
