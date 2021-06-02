@@ -29,6 +29,8 @@ import com.shop.product.web.DivisionListA;
 import com.shop.product.web.DivisionListB;
 import com.shop.product.web.DivisionListC;
 import com.shop.product.web.DivisionListD;
+import com.shop.product.web.FileUploadDelete;
+import com.shop.product.web.FileUploadUpdate;
 import com.shop.product.web.GoDelete;
 import com.shop.product.web.GoUpdate;
 import com.shop.product.web.ProductList;
@@ -74,6 +76,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productManageUD.do", new ProductManageUD());
 		map.put("/goUpdate.do", new GoUpdate());
 		map.put("/goDelete.do", new GoDelete());
+		map.put("/fileUploadUpdate.do", new FileUploadUpdate());
+		map.put("/fileUploadDelete", new FileUploadDelete());
 		
 		// CART
 		map.put("/addCart.do", new AddCart());
