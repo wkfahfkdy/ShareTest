@@ -1,42 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <script>
-	function goDesc(itemCode) {
-		console.log(itemCode);
-		$.ajax({
-			url: 'goDesc.do',
-			data: {itemCode: itemCode},
-			success: function(result){
-				location.href="productListDesc.do"
-			},
-			error: function(err){
-				console.log(err);
-			}
-		});
-	}
-	
-	function addCart(itemCode) {
-		$.ajax({
-			url: 'addCart.do',
-			data: {
-				itemCode: itemCode,
-				id: '${id }'
-			},
-			success: function(result){
-				location.href="productList.do"
-			},
-			error: function (err){
-				console.log(err);
-			}
-		});
-	}
-	
-	function productAlert(){
-		alert('로그인 후 이용 가능합니다');
-		return;
-	}
+function goUpdate(itemCode) {
+	console.log(itemCode);
+	$.ajax({
+		url: 'goUpdate.do',
+		data: {itemCode: itemCode},
+		success: function(result){
+			location.href="productManageUD.do"
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+}
+
+function goDelete(itemCode) {
+	console.log(itemCode);
+	$.ajax({
+		url: 'goDelete.do',
+		data: {itemCode: itemCode},
+		success: function(result){
+			location.href="productManageUD.do"
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+}
 </script>
 
 <section class="py-5">
@@ -69,7 +63,7 @@
 								<!-- Product price-->
 								<c:if test="${vo.sale eq 'Y'}">
 									<span class="text-muted text-decoration-line-through"> <fmt:formatNumber
-											type="currency" value="${vo.price }"></fmt:formatNumber> <!-- c : core 처럼 fmt : fmt 가 있음 -->
+											type="currency" value="${vo.price }"></fmt:formatNumber>
 									</span>&nbsp;
 								</c:if>
 								<fmt:formatNumber type="currency" value="${vo.salePrice }"></fmt:formatNumber>
@@ -78,24 +72,16 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<!-- <a class="btn btn-outline-dark mt-auto" href="productListDesc.do"> -->
-								<a class="btn btn-outline-dark mt-auto" onclick="goDesc('${vo.itemCode }')">
-									View options
+								<a class="btn btn-outline-dark mt-auto" onclick="goUpdate('${vo.itemCode }')">
+									Update
 								</a>
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto"	
-									<c:if test="${id ne null }">
-										onclick="addCart('${vo.itemCode }')"
-									</c:if>
-									<c:if test="${id eq null }">
-										onclick="productAlert()"
-									</c:if>
-									>
-									Add to cart
+								<a class="btn btn-outline-dark mt-auto"	onclick="goDelete('${vo.itemCode }')">
+									Delete
 								</a>
 							</div>
 						</div>

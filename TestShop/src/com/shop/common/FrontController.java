@@ -27,6 +27,8 @@ import com.shop.product.web.DivisionListA;
 import com.shop.product.web.DivisionListB;
 import com.shop.product.web.DivisionListC;
 import com.shop.product.web.DivisionListD;
+import com.shop.product.web.GoDelete;
+import com.shop.product.web.GoUpdate;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.ProductManage;
@@ -45,8 +47,6 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map.put("/index.do", new Indexpage());
-		map.put("/productManage.do", new ProductManage());
-		map.put("/productManageUD.do", new ProductManageUD());
 		map.put("/fileUpload.do", new FileUpload());
 		
 		// MEMBER
@@ -66,6 +66,10 @@ public class FrontController extends HttpServlet {
 		map.put("/divisionListB.do", new DivisionListB());
 		map.put("/divisionListC.do", new DivisionListC());
 		map.put("/divisionListD.do", new DivisionListD());
+		map.put("/productManage.do", new ProductManage());
+		map.put("/productManageUD.do", new ProductManageUD());
+		map.put("/goUpdate.do", new GoUpdate());
+		map.put("/goDelete.do", new GoDelete());
 		
 		// CART
 		map.put("/addCart.do", new AddCart());
