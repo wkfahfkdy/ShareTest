@@ -7,9 +7,17 @@
 <title>회원 정보 확인</title>
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	
 	function formCheck(){
+
+		let userID = ${id};
+		let userPwd = ${userInfo.passwd};
+		
+		console.log(userID);
+		console.log(userPwd);
+		
 		if(frm.memberId.value == ""){
 			alert("아이디 입력");
 			frm.memberId.focus();
@@ -21,7 +29,7 @@
 			return false;
 		}
 		
-		if(frm.memberId.value != ${userInfo.id} || frm.memberPwd.value != ${userInfo.passwd}){
+		if(frm.memberId.value != ${id} || frm.memberPwd.value != ${userInfo.passwd}){
 			alert("정보가 바르지 않다.");
 			frm.memberId.focus();
 			return false;

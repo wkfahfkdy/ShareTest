@@ -88,6 +88,7 @@
 		1. 전화 번호 수정했을 경우, phoneNumber1, 2 각각 네 자리를 충족했는가.
 		2. 이메일 수정할 때 <선택사항>을 적용시켰는가.
 		3. 비밀번호 수정 <확인> 버튼을 눌렀는가. ~> unChecked 이용하면 됨 (memberJoinForm.jsp)
+		+ 아이디 비밀번호 한글 입력 불가능으로!
 		
 	$('#submitBtn').click(function(){
 		
