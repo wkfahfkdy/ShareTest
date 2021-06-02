@@ -16,6 +16,8 @@ import com.shop.inqBoard.web.InqBoardInsert;
 import com.shop.inqBoard.web.InqBoardSelect;
 import com.shop.inqBoard.web.InqBoardUpdate;
 import com.shop.member.web.MemberDelete;
+import com.shop.member.web.MemberInfoCheck;
+import com.shop.member.web.MemberInformation;
 import com.shop.member.web.MemberJoin;
 import com.shop.member.web.MemberJoinForm;
 import com.shop.member.web.MemberLogin;
@@ -57,6 +59,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLogOut.do", new MemberLogout());
 		map.put("/memberDelete.do", new MemberDelete());
 		map.put("/memberUpdate.do", new MemberUpdate());
+		map.put("/memberInformation.do", new MemberInformation());
+		map.put("/memberInfoCheck.do", new MemberInfoCheck());
 		
 		// PRODUCT
 		map.put("/productList.do", new ProductList());

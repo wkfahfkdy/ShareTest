@@ -48,7 +48,7 @@
                             			<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hi : ${id }</a>
                             			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 			<li><a class="dropdown-item" href="memberUpdate.do">회원 정보 수정</a></li>
-                                			<li><a class="dropdown-item" href="memberDelete.do">회원 탈퇴</a></li>
+                                			<li><a class="dropdown-item" href="memberInformation.do">회원 탈퇴</a></li>
                             			</ul>
                         			</li>
 								</c:if>
