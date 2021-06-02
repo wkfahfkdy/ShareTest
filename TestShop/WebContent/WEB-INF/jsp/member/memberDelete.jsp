@@ -5,6 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
+
+<script>
+	
+	function formCheck() {
+		
+		let data = document.getElementsByName('asd')[0].value;
+		console.log(data);
+		let data2 = document.getElementsByName('confirmText')[0].value;
+		console.log(data2);
+		
+		if(data != data2){
+			
+			alert('다시 입력');
+			return false;
+		} else {
+			
+			alert('잘 가');
+			frm.submit();
+		}
+		
+	}
+</script>
+
+
 </head>
 
 <!-- 
@@ -14,24 +38,20 @@
 3-1. 탈퇴 처리 완료 시 index.do로 이동. 
 -->
 
+
 <body>
 	<div class = "escapeCheckWindow">
 		<div align = "center">
 			
-			<h3><Strong>본인 확인을 위해 정보 재입력</Strong></h3>
+			<h3><Strong>화면에 출력된 글자를 입력해 주세요.</Strong></h3>
 		
-			<form id = "frm" action = "#" method = "post">
+			<form id = "frm" action = "memberDelete.do" method = "post">
 				<div class = showWindow">
-					<table>
-						<tr>
-							<th>ID</th>
-							<td><input type = "text" id = "memberId" name = "memberId"></td>
-						</tr>
-						<tr>
-							<th>PW</th>
-							<td><input type = "text" id = "memberPwd" name = "memberPwd"></td>
-						</tr>
-					</table>
+					${id } 삭제함.
+					<input type = "hidden" name = "asd" value = "${id } 삭제함.">
+				</div>
+				<div class = "inputValue">
+					<input type = "text" name = "confirmText">
 				</div>
 				<div class = "buttonCollect">
 					<button type = "button" onclick = "formCheck()">확인</button>

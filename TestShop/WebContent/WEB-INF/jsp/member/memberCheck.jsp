@@ -15,9 +15,6 @@
 		let userID = $('#id').val();
 		let userPwd = $('#passwd').val();
 		
-		console.log(userID);
-		console.log(userPwd);
-		
 		if(frm.memberId.value == ""){
 			alert("아이디 입력");
 			frm.memberId.focus();
@@ -47,7 +44,7 @@
 			
 			<h2><Strong>본인 확인을 위해 정보 재입력</Strong></h2>
 		
-			<form id = "frm" action = "MemberInfoCheck.do" method = "post">
+			<form id = "frm" action = "memberInfoCheck.do" method = "post">
 				<div class = showWindow">
 				<input type = "hidden" id = "id" name = "id" value = "${id }">
 				<input type = "hidden" id = "passwd" name = "passwd" value = "${userInfo.passwd }">

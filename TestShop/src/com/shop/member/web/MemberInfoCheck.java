@@ -23,17 +23,18 @@ public class MemberInfoCheck implements DbCommand {
 		MemberService checkID = new MemberServiceImpl();
 		MemberVO userInfo = checkID.selectMember(id);
 		
-		if(getID.equals(userInfo.id) && getPwd.equals(userInfo.passwd)) {
+		String path = "";
+		
+		if(getID.equals(id) && getPwd.equals(userInfo.passwd)) {
 			
-			session.setAttribute("userInfo", userInfo);
-			
-			return "member/memberDelete.tiles";
+			path = "member/memberDelete.tiles";
 			
 		} else {
 			
-			return "member/memberCheck.tiles";
+			path = "member/memberCheck.tiles";
 		}
 		
+		return path;
 	}
 
 }
