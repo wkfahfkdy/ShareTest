@@ -12,8 +12,8 @@
 	
 	function formCheck(){
 
-		let userID = ${id};
-		let userPwd = ${userInfo.passwd};
+		let userID = $('#id').val();
+		let userPwd = $('#passwd').val();
 		
 		console.log(userID);
 		console.log(userPwd);
@@ -29,7 +29,7 @@
 			return false;
 		}
 		
-		if(frm.memberId.value != ${id} || frm.memberPwd.value != ${userInfo.passwd}){
+		if(frm.memberId.value != userID || frm.memberPwd.value != userPwd){
 			alert("정보가 바르지 않다.");
 			frm.memberId.focus();
 			return false;
@@ -49,6 +49,8 @@
 		
 			<form id = "frm" action = "MemberInfoCheck.do" method = "post">
 				<div class = showWindow">
+				<input type = "hidden" id = "id" name = "id" value = "${id }">
+				<input type = "hidden" id = "passwd" name = "passwd" value = "${userInfo.passwd }">
 					<table>
 						<tr>
 							<th>ID</th>
@@ -56,7 +58,7 @@
 						</tr>
 						<tr>
 							<th>PW</th>
-							<td><input type = "text" id = "memberPwd" name = "memberPwd"></td>
+							<td><input type = "password" id = "memberPwd" name = "memberPwd"></td>
 						</tr>
 					</table>
 				</div>
