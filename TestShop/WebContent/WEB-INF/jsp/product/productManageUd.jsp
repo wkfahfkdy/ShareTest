@@ -7,10 +7,10 @@
 function goUpdate(itemCode) {
 	console.log(itemCode);
 	$.ajax({
-		url: 'goUpdate.do',
+		url: 'goDesc.do',
 		data: {itemCode: itemCode},
 		success: function(result){
-			location.href="productManageUD.do"
+			location.href="goUpdate.do"
 		},
 		error: function(err){
 			console.log(err);

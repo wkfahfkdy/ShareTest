@@ -19,11 +19,9 @@ public class ProductManageUD implements DbCommand {
 		List<ProductVO> list = service.selectProductList();
 		
 		String id = request.getParameter("id");
-		String cnt = request.getParameter("cnt");
 		
 		request.setAttribute("id", id);
 		request.setAttribute("list", list);
-		request.setAttribute("cnt", cnt);
 		
 		return "product/productManageUd.tiles";
 	}
