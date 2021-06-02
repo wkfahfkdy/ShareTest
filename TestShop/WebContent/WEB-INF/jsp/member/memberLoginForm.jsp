@@ -23,9 +23,25 @@
 			return false;
 		}
 		
-		frm.submit();
+		$.ajax({
+			url : 'memberIdCheck',
+			data: {id : $('#memberId').val()},
+			type : 'post',
+			success : function(data){
+				
+				if(data > 0){
+					
+					frm.submit();
+				} else {
+					alert('정보가 바르지 않다.');
+					return false;
+				}
+			},
+			error : function(err){
+				console.log(err);
+			}
+		});
 		
-		// 로그인 실패시 문구 띄우기는 보류
 	}
 </script>
 </head>
