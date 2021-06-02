@@ -29,6 +29,11 @@
 		color : #DCAD67;
 	}
 	
+	.asdf {
+		width: 720px;
+		text-align: left;
+	}
+	
 </style>
 <script>
 	function numberLength(e) {
@@ -103,12 +108,12 @@
 
 	<div align = "center">
 	
-		<span>
-			<Strong><b>${id }</b></Strong> 님의 연락처 정보입니다.
-			<p>회원정보는 개인정보처리방침에 따라 안전하게 보호되며, 회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.</p>
+		<div class="asdf">
+			<Strong>${id }</Strong> 님의 연락처 정보입니다.<br>
+			회원정보는 개인정보처리방침에 따라 안전하게 보호되며, 회원님의 명백한 동의 없이 공개 또는<br>제 3자에게 제공되지 않습니다.<br>
 			<a href = "#" target = "_blank">개인정보처리방침</a>
-		</span>
-	
+		</div>
+		<br>
 		<form action = "memberUpdateForm.do" method = "post">
 		
 			<input type = "hidden" name = "hiddenPhone" value = ${vo.phone }>
