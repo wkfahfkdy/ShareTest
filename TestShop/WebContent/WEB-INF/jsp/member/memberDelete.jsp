@@ -47,8 +47,8 @@
 		
 			<form id = "frm" action = "memberDelete.do" method = "post">
 				<div class = showWindow">
-					${id } 삭제함.
-					<input type = "hidden" name = "asd" value = "${id } 삭제함.">
+					${id } 탈퇴함.
+					<input type = "hidden" name = "asd" value = "${id } 탈퇴함.">
 				</div>
 				<div class = "inputValue">
 					<input type = "text" name = "confirmText">
