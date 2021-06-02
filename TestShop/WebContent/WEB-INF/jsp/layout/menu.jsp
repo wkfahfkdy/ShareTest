@@ -31,7 +31,13 @@
 						<div class="collapse navbar-collapse" id="collapsibleNavbar">
 							<ul class="navbar-nav">
 								<c:if test = "${id eq 'admin' }">
-									<li class="nav-item"><a class="nav-link" href="productManage.do">상품 관리</a></li>
+									<li class="nav-item dropdown">
+                            			<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">상품 관리</a>
+                            			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                			<li><a class="dropdown-item" href="productManage.do">상품 등록</a></li>
+                                			<li><a class="dropdown-item" href="productManageUD.do">상품 수정/삭제</a></li>
+                            			</ul>
+                        			</li>
 								</c:if>
 								<c:if test = "${empty id }">
 									<li class = "nav-item"><a class = "nav-link">Hi : Guest</a></li>

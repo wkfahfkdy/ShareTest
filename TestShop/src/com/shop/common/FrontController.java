@@ -30,6 +30,7 @@ import com.shop.product.web.DivisionListD;
 import com.shop.product.web.ProductList;
 import com.shop.product.web.ProductListDesc;
 import com.shop.product.web.ProductManage;
+import com.shop.product.web.ProductManageUD;
 import com.shop.product.web.goDesc;
 import com.shop.revBoard.web.RevBoardForm;
 import com.shop.revBoard.web.RevBoardInsert;
@@ -45,6 +46,7 @@ public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		map.put("/index.do", new Indexpage());
 		map.put("/productManage.do", new ProductManage());
+		map.put("/productManageUD.do", new ProductManageUD());
 		map.put("/fileUpload.do", new FileUpload());
 		
 		// MEMBER

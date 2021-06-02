@@ -8,6 +8,7 @@ public class DAO {
 
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	//private String url = "jdbc:oracle:thin:@adb.ap-seoul-1.oraclecloud.com:1522:sovgh7r6aeulzdz_shop_medium.adb.oraclecloud.com";
 	private String user = "shop";
 	private String passwd = "shop";
 	public Connection conn;
