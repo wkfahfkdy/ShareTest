@@ -100,6 +100,7 @@ public class FrontController extends HttpServlet {
 		map.put("/inqBoardUpdate.do", new InqBoardUpdate());
 		map.put("/icomInsert.do", new IComInsert());
 		map.put("/icomList.do", new IComList());
+		map.put("/icomListForm.do", new IComListForm());
 	}
 	
 	@Override

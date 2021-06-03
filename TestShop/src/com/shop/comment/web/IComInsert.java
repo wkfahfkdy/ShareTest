@@ -27,7 +27,7 @@ public class IComInsert implements DbCommand {
 		CommentService service = new CommentServiceImpl();
 		service.insertComment(vo);
 		
-		return null;
+		return "inqBoardSelect.do";
 	}
 
 }

@@ -25,7 +25,7 @@ public class IComList implements DbCommand {
 		
 		request.setAttribute("list", list);
 		
-		return null;
+		return "inqBoardSelect.do";
 	}
 
 }

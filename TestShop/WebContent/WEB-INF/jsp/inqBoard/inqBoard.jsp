@@ -44,6 +44,7 @@
 			success: function() {
 				alert("댓글 등록ㅇ");
 				listReply();
+				location.reload;
 			},
 			error: function(err) {
 				console.log(err);
@@ -60,7 +61,8 @@
 				bno: bno
 			},
 			success: function(result) {
-				$("#listReply").html(result);
+				$("#listReply").html(result.list);
+				location.reload;
 			}
 		});
 	}
@@ -116,7 +118,6 @@
 			</c:if>
 		</div>
 		<div id="listReply">
-			<button type="button" onclick="listReply()"></button>
 		</div>
 		
 		<br>
