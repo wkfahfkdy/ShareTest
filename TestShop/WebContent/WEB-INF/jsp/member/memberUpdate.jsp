@@ -133,10 +133,8 @@
 		} else {
 			
 			alert('수정됨');	// 안 돼도 됐다고 함.
-			//frm.submit();
-			let ss = document.getElementsByName('hiddenAddr')[0].value;
-			console.log(ss);
-			// 글자 왜 짤림 야발
+			frm.submit();
+			
 		}
 	}
 	
@@ -224,11 +222,11 @@
 		<br>
 		<form name = "frm" action = "memberUpdateForm.do" method = "post">
 		
-			<input type = "hidden" name = "hiddenPhone" value = ${vo.phone }>
-			<input type = "hidden" name = "hiddenName" value = ${vo.name }>
-			<input type = "hidden" name = "hiddenMail" value = ${vo.mail }>
-			<input type = "hidden" name = "hiddenAddr" value = ${vo.address }>
-			<input type = "hidden" name = "hiddenPwd" value = ${vo.passwd }>
+			<input type = "hidden" name = "hiddenPhone" value = "${vo.phone }">
+			<input type = "hidden" name = "hiddenName" value = "${vo.name }">
+			<input type = "hidden" name = "hiddenMail" value = "${vo.mail }">
+			<input type = "hidden" name = "hiddenAddr" value = "${vo.address }">
+			<input type = "hidden" name = "hiddenPwd" value = "${vo.passwd }">
 			
 			<table frame = void>
 				<tr>
