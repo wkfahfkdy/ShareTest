@@ -23,6 +23,9 @@
 			frm.memberPwd.focus();
 			return false;
 		}
+		
+		// 틀린 정보 입력 시 화면에 띄우기 = 보류
+		frm.submit();
 	}
 </script>
 </head>
