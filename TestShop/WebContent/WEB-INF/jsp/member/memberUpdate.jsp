@@ -77,29 +77,66 @@
 	
 	function checkThePwd(){
 		
-		if($('#mPwd').val() != $('#iPwd').val()){
+		let modiPwd = document.getElementsByName('mPwd')[0].value;	// 수정 비번
+		let idenPwd = document.getElementsByName('iPwd')[0].value;	// 확인 비번
+		
+		if(modiPwd != idenPwd){
 			
 			alert('XXXXXXXXXXXXXXX');
-			$('#iPwd').focus();
+			frm.iPwd.focus();
+			
 		} else {
+			
 			alert('O');
+			frm.pwdCheck.value = "checked";
 		}
 		
 	}
 	
+	function submitBtn(){
+		
+		let modiPwd = document.getElementsByName('mPwd')[0].value;	// 수정 비번
+		let checkPwd = document.getElementsByName('pwdCheck')[0].value;	// 비번 확인 버튼
+		let emailWrite = document.getElementsByName('mail')[0].value;	// 입력 이메일
+		let emailSelect = document.getElementsByName('localEmail')[0].value;	// 선택 이메일
+		let frontNumber = document.getElementsByName('phoneNumber1')[0].value;	// 전번 앞번호
+		let backNumber = document.getElementsByName('phoneNumber2')[0].value;	// 전번 뒷번호
+		
+		if(modiPwd != "" && checkPwd == "unChecked") {
+			
+			alert('비밀번호 확인 버튼 체크해라')
+			frm.iPwd.focus();
+			return;
+			
+		} else if(emailWrite != "" && emailSelect == '선택'){
+			
+			alert('이메일 주소 선택해라')
+			frm.mail.focus();
+			return;
+				
+		} else if((frontNumber != "" || backNumber != "") && (frontNumber.length < 4 || backNumber.length < 4)){
+		
+			alert('수정할 전화번호를 8자리 모두 입력해라.')
+			frm.phoneNumber1.focus();
+			return;
+		
+		} else {
+			
+			alert('수정됐다');
+			frm.submit();
+			
+		}
+	}
+	
+	
 	/* 
-	기능 안 함.
 	최종 킄릭 시 필요한 요소
-		1. 전화 번호 수정했을 경우, phoneNumber1, 2 각각 네 자리를 충족했는가.
-		2. 이메일 수정할 때 <선택사항>을 적용시켰는가.
-		3. 비밀번호 수정 <확인> 버튼을 눌렀는가. ~> unChecked 이용하면 됨 (memberJoinForm.jsp)
-		+ 아이디 비밀번호 한글 입력 불가능으로!
-		
-	$('#submitBtn').click(function(){
-		
-		alert('수정됨');
-		location.href = "index.do";
-	}); */
+		완 1. 전화 번호 수정했을 경우, phoneNumber1, 2 각각 네 자리를 충족했는가.
+		완 2. 이메일 수정할 때 <선택사항>을 적용시켰는가.
+		완 3. 비밀번호 수정 <확인> 버튼을 눌렀는가. ~> unChecked 이용하면 됨 (memberJoinForm.jsp)
+		미완 + 아이디 비밀번호 한글 입력 불가능으로!
+			+ 이 창으로 오기 전에 회원 정보 입력 창으로 이동시켜 본인 인증 받게. (memberInfoCheck.java)
+	*/
 	
 </script>
 <body>
@@ -114,7 +151,7 @@
 			<a href = "#" target = "_blank">개인정보처리방침</a>
 		</div>
 		<br>
-		<form action = "memberUpdateForm.do" method = "post">
+		<form name = "frm" action = "memberUpdateForm.do" method = "post">
 		
 			<input type = "hidden" name = "hiddenPhone" value = ${vo.phone }>
 			<input type = "hidden" name = "hiddenName" value = ${vo.name }>
@@ -127,17 +164,17 @@
 					<th>이름</th>
 					<td>
 						${vo.name }
-						<p><br><input type = "text" name = "mName" placeholder = "바꿀 이름 입력."></p>
+						<p><br><input type = "text" name = "mName" placeholder = "바꿀 이름 입력." maxlength = "30"></p>
 					</td>
 				</tr>
 				
 				<tr>
 					<th>비번 수정</th>
 					<td>
-						<input type = "password" id = "mPwd" placeholder = "수정할 비밀번호 입력">
+						<input type = "password" name = "mPwd" placeholder = "수정할 비밀번호 입력" maxlength = "20">
 						<p><br>
-							<input type = "password" name = "iPwd" id = "iPwd" placeholder = "비밀번호 재입력">
-							<button type = "button" id = "pwdCheck" onclick = "checkThePwd()">확인</button>
+							<input type = "password" name = "iPwd" placeholder = "비밀번호 재입력"  maxlength = "20">
+							<button type = "button" name = "pwdCheck" onclick = "checkThePwd()" value = "unChecked">확인</button>
 						</p>
 					</td>
 				</tr>
@@ -146,7 +183,7 @@
 				<th>전번</th>
 					<td>
 						${vo.phone }<br><br>
-						<select id = "localPhoneNumber" name = "localPhoneNumber" style = "width : 150px;">
+						<select name = "localPhoneNumber" style = "width : 150px;">
 							<option value = "010">010</option>
 							<option value = "053">053</option>
 						</select> -
@@ -163,9 +200,9 @@
 					<th>이멜</th>
 					<td>
 						${vo.mail }<br><br>
-						<input type = "text" name = "mail" maxlength="50"> @ 
+						<input type = "text" name = "mail" maxlength="30"> @ 
 						<!-- <input type = "text" name = "email" id = "email" value ="" readonly> -->
-						<select id = "localEmail" name = "localEmail" style = "width : 150px;">
+						<select name = "localEmail" style = "width : 150px;">
 						 <!-- onchange = "selectEmail()" -->
 							<option>선택</option>
 							<!-- <option>직접입력</option> -->
@@ -181,12 +218,12 @@
 					<th>주소</th>
 					<td>
 						${vo.address}
-						<p><br><input type = "text" name = "addr"></p>
+						<p><br><input type = "text" name = "addr" maxlength = "30"></p>
 					</td>
 				</tr>
 			</table>
 			<div class = "btn_group">
-				<input type = "submit" value = "수정" id = "submitBtn">
+				<input type = "button" value = "수정" onclick = "submitBtn()">
 			</div>
 		</form>
 	</div>
