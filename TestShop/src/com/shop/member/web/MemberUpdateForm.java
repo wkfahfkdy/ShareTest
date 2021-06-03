@@ -34,8 +34,8 @@ public class MemberUpdateForm implements DbCommand{
 		String detailAddr = request.getParameter("detailAddr");
 		String extraAddr = request.getParameter("extraAddr");
 		
-		String fullAddr = pastCode + " " + roadAddr + " " + jibunAddr 
-						+ " " + detailAddr + extraAddr;
+		String fullAddr = pastCode + " " + roadAddr + " " + jibunAddr + " " + 
+						detailAddr + extraAddr;
 		
 		String passwd = request.getParameter("iPwd");
 		
@@ -51,7 +51,7 @@ public class MemberUpdateForm implements DbCommand{
 			fullEmail = request.getParameter("hiddenMail");
 		}
 		
-		if (fullAddr.equals("")) {
+		if (pastCode.equals("") && roadAddr.equals("") && jibunAddr.equals("") && detailAddr.equals("") && extraAddr.equals("")) {
 			fullAddr = request.getParameter("hiddenAddr");
 		}
 		

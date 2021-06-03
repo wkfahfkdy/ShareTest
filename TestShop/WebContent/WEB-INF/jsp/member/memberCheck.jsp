@@ -12,28 +12,31 @@
 	
 	function formCheck(){
 
-		let userID = $('#id').val();
-		let userPwd = $('#passwd').val();
+		let userID = document.getElementsByName('id')[0].value;
+		let userPwd = document.getElementsByName('passwd')[0].value;
 		
-		if(frm.memberId.value == ""){
+		if(memberId.value == ""){
+			
 			alert("아이디 입력");
-			frm.memberId.focus();
+			memberId.focus();
 			return false;
-		}
-		if(frm.memberPwd.value == "") {
+			
+		} else if(memberPwd.value == "") {
+			
 			alert("비번 입력");
-			frm.memberPwd.focus();
+			memberPwd.focus();
 			return false;
-		}
-		
-		if(frm.memberId.value != userID || frm.memberPwd.value != userPwd){
+			
+		} else if(memberId.value != userID || memberPwd.value != userPwd){
+			
 			alert("정보가 바르지 않다.");
-			frm.memberId.focus();
+			memberId.focus();
 			return false;
+			
+		} else {
+			
+			frm.submit();
 		}
-		
-		frm.submit();
-		
 	}
 	
 </script>
@@ -48,9 +51,12 @@
 			<h2><Strong>본인 확인을 위해 정보 재입력</Strong></h2>
 		
 			<form id = "frm" action = "memberInfoCheck.do" method = "post">
+			
 				<div class = showWindow">
-				<input type = "hidden" id = "id" name = "id" value = "${id }">
-				<input type = "hidden" id = "passwd" name = "passwd" value = "${userInfo.passwd }">
+				
+				<input type = "hidden" name = "id" value = "${id }">
+				<input type = "hidden" name = "passwd" value = "${userInfo.passwd }">
+				
 					<table>
 						<tr>
 							<th>ID</th>

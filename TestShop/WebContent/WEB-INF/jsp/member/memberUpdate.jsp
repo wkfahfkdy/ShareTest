@@ -86,6 +86,7 @@
 			
 			alert('XXXXXXXXXXXXXXX');
 			frm.iPwd.focus();
+			return;
 			
 		} else {
 			
@@ -104,16 +105,16 @@
 		let frontNumber = document.getElementsByName('phoneNumber1')[0].value;	// 전번 앞번호
 		let backNumber = document.getElementsByName('phoneNumber2')[0].value;	// 전번 뒷번호
 		
-		if(modiPwd != "" && checkPwd == "unChecked") {
+		if (modiPwd != "" && checkPwd == "unChecked") {
 			
 			alert('비밀번호 확인 버튼 체크해라');
 			frm.iPwd.focus();
 			return;
 			
-		} else if (modiPwd != iPwd.value){
+		}else if (modiPwd != frm.iPwd.value){
 			
 			alert('비번이 같지 않다.');
-			iPwd.focus();
+			frm.iPwd.focus();
 			checkPwd = "unChecked";
 			return;
 			
@@ -132,8 +133,10 @@
 		} else {
 			
 			alert('수정됨');	// 안 돼도 됐다고 함.
-			frm.submit();
-			
+			//frm.submit();
+			let ss = document.getElementsByName('hiddenAddr')[0].value;
+			console.log(ss);
+			// 글자 왜 짤림 야발
 		}
 	}
 	
@@ -193,7 +196,7 @@
 				} else if(data.autoJibunAddress) {
 					
 					var expJibunAddr = data.autoJibunAddress;
-					guideTextBox.innerHTML = '(예상 지번 주소 : ' + expRoadAddr + ')';
+					guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
 					guideTextBox.style.display = 'block';
 					
 				} else {

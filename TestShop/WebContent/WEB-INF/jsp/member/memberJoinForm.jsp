@@ -57,25 +57,24 @@
 	
 	function formCheck() {
 		
+		// 아이디 관련 체크
 		if(frm.memberId.value == "") {
 			alert("아이디를 입력하시오");
 			frm.memberId.focus();
 			return false;
-		}
-		if(frm.idCheck.value == "unChecked"){
+		} else if(frm.idCheck.value == "unChecked"){
 			alert("아이디 중복 체크를 하시오");
 			return false;
 		}
 		
-		
+		// 비밀번호 관련 체크
 		if(frm.memberPwd.value == "") {
+			
 			alert("비밀번호를 입력하시오");
 			frm.memberPwd.focus();
 			return false;
 			
-		}
-		
-		if (frm.pwdCheck.value == 'nonChecked') {
+		} else if (frm.pwdCheck.value == 'nonChecked') {
 			
 			alert('비밀번호 확인해 봐라.');
 			frm.memberPwd2.focus();
@@ -88,6 +87,7 @@
 			pwdCheck.value = "nonChecked";
 			
 			return;
+			
 		} else {
 			
 			frm.submit();
@@ -151,7 +151,7 @@
 				} else if(data.autoJibunAddress) {
 					
 					var expJibunAddr = data.autoJibunAddress;
-					guideTextBox.innerHTML = '(예상 지번 주소 : ' + expRoadAddr + ')';
+					guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
 					guideTextBox.style.display = 'block';
 					
 				} else {

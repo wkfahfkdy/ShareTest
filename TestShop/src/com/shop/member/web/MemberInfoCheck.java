@@ -18,12 +18,15 @@ public class MemberInfoCheck implements DbCommand {
 		
 		String getID = request.getParameter("memberId");
 		String getPwd = request.getParameter("memberPwd");
-
+		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
 		MemberService checkID = new MemberServiceImpl();
 		MemberVO userInfo = checkID.selectMember(id);
+		
+		System.out.println(userInfo);
+		System.out.println(userInfo.toString());
 		
 		String path = "";
 		
