@@ -57,7 +57,7 @@ DB
 
 - 회원가입 시 email 인증 받아오게 해보기
 
-- *** 댓글 기능
+- *** 댓글 기능 - DB에 bo_commnet TABLE 추가
 
 - *** like_it = 고객들이 하는 것이니까 평점 지정을 하고 DB로 보낸다면
 			    실질적으로 필요한 data는 item_code랑 like_it 2개니까

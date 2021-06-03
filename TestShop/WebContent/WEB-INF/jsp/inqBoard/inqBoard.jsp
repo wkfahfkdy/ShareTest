@@ -29,7 +29,42 @@
 			}
 		});
 	}
+	
+	$("#btnReply").click(function() {
+		var replytext=$("#replytext").val();
+		var bno=$("#id").val(); // 게시물 번호
+		
+		$.ajax({
+			url: "icomInsert.do",
+			data: {
+				replytext: replytext,
+				bno: bno
+			},
+			success: function() {
+				alert("댓글 등록ㅇ");
+				listReply();
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		});
+	});
+	
+	function listReply() {
+		var bno=$("#id").val();
+		
+		$.ajax({
+			url: "icomList.do",
+			data: {
+				bno: bno
+			},
+			success: function(result) {
+				$("#listReply").html(result);
+			}
+		});
+	}
 </script>
+
 
 <div align = "center">
 
@@ -70,6 +105,18 @@
 				</td>
 			</tr>
 		</table>
+		
+		<!-- 댓글 입력할 곳 만들어야함 -->
+		<div style="width=804.5px; text-align:center;">
+			<c:if test="${id != null }">
+				<textarea rows="6" cols="90" id="replytext" placeholder="댓글 작성란"></textarea>
+				<br>
+				<button type="button" id="btnReply">댓글쓰기</button>
+			</c:if>
+		</div>
+		<div id="listReply"></div>
+		
+		<br>
 		<div>
 			<button type = "button" onclick = "location.href = 'inqBoardList.do'">돌아가기</button>
 			<c:if test = "${id eq inqBoard.writer || id eq 'admin' }">

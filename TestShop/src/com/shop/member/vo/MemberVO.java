@@ -2,12 +2,12 @@ package com.shop.member.vo;
 
 public class MemberVO {
 
-	public String id;
-	public String name;
-	public String passwd;
-	public String phone;
-	public String mail;
-	public String address;
+	private String id;
+	private String name;
+	private String passwd;
+	private String phone;
+	private String mail;
+	private String address;
 	
 	
 	public String getId() {
