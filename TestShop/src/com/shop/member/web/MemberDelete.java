@@ -23,6 +23,7 @@ public class MemberDelete implements DbCommand {
 		MemberService serv = new MemberServiceImpl();
 		
 		serv.deleteMember(vo);
+		session.invalidate();
 		
 		return "index.do";
 	}

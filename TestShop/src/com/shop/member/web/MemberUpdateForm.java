@@ -28,7 +28,15 @@ public class MemberUpdateForm implements DbCommand{
 		String localEmail = request.getParameter("localEmail");
 		String fullEmail = mail + localEmail;
 
-		String addr = request.getParameter("addr");
+		String pastCode = request.getParameter("postCode");
+		String roadAddr = request.getParameter("roadAddr");
+		String jibunAddr = request.getParameter("bunAddr");
+		String detailAddr = request.getParameter("detailAddr");
+		String extraAddr = request.getParameter("extraAddr");
+		
+		String fullAddr = pastCode + " " + roadAddr + " " + jibunAddr 
+						+ " " + detailAddr + extraAddr;
+		
 		String passwd = request.getParameter("iPwd");
 		
 		if (name.equals("")) {
@@ -43,8 +51,8 @@ public class MemberUpdateForm implements DbCommand{
 			fullEmail = request.getParameter("hiddenMail");
 		}
 		
-		if (addr.equals("")) {
-			addr = request.getParameter("hiddenAddr");
+		if (fullAddr.equals("")) {
+			fullAddr = request.getParameter("hiddenAddr");
 		}
 		
 		if (passwd.equals("")) {
@@ -54,7 +62,7 @@ public class MemberUpdateForm implements DbCommand{
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
 		vo.setName(name);
-		vo.setAddress(addr);
+		vo.setAddress(fullAddr);
 		vo.setMail(fullEmail);
 		vo.setPasswd(passwd);
 		vo.setPhone(phone);
@@ -63,8 +71,9 @@ public class MemberUpdateForm implements DbCommand{
 		int result = 0;
 		result = service.updateMember(vo);
 		
-		System.out.println(result + "건 수정");
+		System.out.println("MemberUpdateForm : " + result + "건 수정");
 		System.out.println(vo.toString());
+		
 		return "index.do";
 	}
 

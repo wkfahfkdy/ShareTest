@@ -20,8 +20,16 @@ public class MemberJoin implements DbCommand {
 		String pwd = request.getParameter("memberPwd");
 		String name = request.getParameter("memberName");
 		String phone = request.getParameter("memberPhone");
-		String addr = request.getParameter("memberAddr");
 		String mail = request.getParameter("memberMail");
+		
+		String pastCode = request.getParameter("postCode");
+		String roadAddr = request.getParameter("roadAddr");
+		String jibunAddr = request.getParameter("bunAddr");
+		String detailAddr = request.getParameter("detailAddr");
+		String extraAddr = request.getParameter("extraAddr");
+		
+		String fullAddr = pastCode + " " + roadAddr + " " + jibunAddr
+						+ " " + detailAddr + extraAddr;
 		
 		MemberVO vo = new MemberVO();
 		
@@ -29,7 +37,7 @@ public class MemberJoin implements DbCommand {
 		vo.setName(name);
 		vo.setPasswd(pwd);
 		vo.setPhone(phone);
-		vo.setAddress(addr);
+		vo.setAddress(fullAddr);
 		vo.setMail(mail);
 		
 		MemberService serivce = new MemberServiceImpl();

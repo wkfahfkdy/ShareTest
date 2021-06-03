@@ -15,7 +15,6 @@ public class MemberInfoCheck implements DbCommand {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		String referer = request.getHeader("referer");
-		System.out.println("referer : " + referer);
 		
 		String getID = request.getParameter("memberId");
 		String getPwd = request.getParameter("memberPwd");
