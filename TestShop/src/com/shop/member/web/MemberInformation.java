@@ -14,7 +14,7 @@ public class MemberInformation implements DbCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-		// MemberUpdate.java 파일이랑 같은데? 모듈화 안 되나??
+		// MemberUpdate.java 파일이랑 같은데? 모듈화 안 되나??  ~> referer 경로 때문에 안 될 것 같다.
 		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");

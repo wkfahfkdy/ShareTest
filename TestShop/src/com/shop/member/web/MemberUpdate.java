@@ -20,8 +20,10 @@ public class MemberUpdate implements DbCommand {
 		MemberService service = new MemberServiceImpl();
 		MemberVO vo = service.selectMember(id);
 		
-		request.setAttribute("vo", vo);
-		return "member/memberUpdate.tiles";
+		session.setAttribute("userInfo", vo);
+		// 경로 수정 전에는 MemberInformation.java와 달리 request.setAttribute()로 만족됐었는데, 경로 수정 이후로는 안 됨. session 써야 함.
+		
+		return "member/memberCheck.tiles";
 	}
 
 }

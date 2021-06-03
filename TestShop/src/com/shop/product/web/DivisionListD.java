@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.shop.common.DbCommand;
 import com.shop.product.service.ProductService;
@@ -15,20 +14,33 @@ public class DivisionListD implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		HttpSession session = request.getSession();
-		
-		ProductVO cateD = (ProductVO) session.getAttribute("cateD");		
-		String id = request.getParameter("id");
-		
+
+		// 분류 : 음료
+
+		ProductVO vo = new ProductVO();
+		vo.setDivision("음료");
+
 		ProductService service = new ProductServiceImpl();
-		List<ProductVO> list = service.selectCategory(cateD);
-		
-		request.setAttribute("cateD", cateD);
+		List<ProductVO> list = service.selectCategory(vo);
+
 		request.setAttribute("list", list);
-		request.setAttribute("id", id);
-		
+
 		return "product/divisionListD.tiles";
+		
+//		session 수정 전
+//		HttpSession session = request.getSession();
+//
+//		ProductVO cateD = (ProductVO) session.getAttribute("cateD");
+//		String id = request.getParameter("id");
+//
+//		ProductService service = new ProductServiceImpl();
+//		List<ProductVO> list = service.selectCategory(cateD);
+//
+//		request.setAttribute("cateD", cateD);
+//		request.setAttribute("list", list);
+//		request.setAttribute("id", id);
+//		
+//		return "product/divisionListD.tiles";
 	}
 
 }

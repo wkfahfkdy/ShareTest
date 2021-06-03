@@ -13,15 +13,10 @@ public class MemberInfoCheck implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
+		String referer = request.getHeader("referer");
+		System.out.println("referer : " + referer);
 		
-		String uri = request.getRequestURI();
-		String cPath = request.getContextPath();
-		String wPath = uri.substring(cPath.length());
-		String refer = request.getHeader("referer");
-		System.out.println("uri : " + uri);
-		System.out.println("cPath : " + cPath);
-		System.out.println("wpath : " + wPath);
-		System.out.println("referer : " + refer);
 		String getID = request.getParameter("memberId");
 		String getPwd = request.getParameter("memberPwd");
 
@@ -33,9 +28,14 @@ public class MemberInfoCheck implements DbCommand {
 		
 		String path = "";
 		
-		if(getID.equals(id) && getPwd.equals(userInfo.getPasswd())) {
+		if(getID.equals(id) && getPwd.equals(userInfo.getPasswd()) && !referer.contains("Update")) {
 			
 			path = "member/memberDelete.tiles";
+			
+		} else if(getID.equals(id) && getPwd.equals(userInfo.getPasswd()) && referer.contains("Update")) {
+			
+			session.setAttribute("vo", userInfo);
+			path = "member/memberUpdate.tiles";
 			
 		} else {
 			
