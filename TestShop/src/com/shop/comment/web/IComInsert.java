@@ -16,9 +16,13 @@ public class IComInsert implements DbCommand {
 		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
+		String replytext = request.getParameter("replytext");
+		String bno = request.getParameter("bno");
 		
 		CommentVO vo = new CommentVO();
 		vo.setId(id);
+		vo.setComment(replytext);
+		vo.setBno(Integer.parseInt(bno));
 		
 		CommentService service = new CommentServiceImpl();
 		service.insertComment(vo);

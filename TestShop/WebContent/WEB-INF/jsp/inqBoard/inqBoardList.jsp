@@ -34,7 +34,7 @@
 <body>
 	<h3>문의</h3>
 	<form id="frm" action="inqBoardSelect.do" method="POST">
-		<input type="hidden" id="id" name="id">
+		<input type="hidden" id="id" name="bno">
 	</form>
 	<div align="center">
 		<div style="width: 80%">

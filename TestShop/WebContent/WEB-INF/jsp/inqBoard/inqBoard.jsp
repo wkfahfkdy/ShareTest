@@ -30,9 +30,10 @@
 		});
 	}
 	
-	$("#btnReply").click(function() {
+	function btnReply() {
 		var replytext=$("#replytext").val();
-		var bno=$("#id").val(); // 게시물 번호
+		var bno=$("#bid").val(); // 게시물 번호
+		console.log(bno);
 		
 		$.ajax({
 			url: "icomInsert.do",
@@ -48,10 +49,10 @@
 				console.log(err);
 			}
 		});
-	});
+	};
 	
 	function listReply() {
-		var bno=$("#id").val();
+		var bno=$("#bid").val();
 		
 		$.ajax({
 			url: "icomList.do",
@@ -74,7 +75,7 @@
 		<table border = "1">
 			<tr>
 				<th>순번</th>
-				<td><input type = "hidden" name = "id" value = "${inqBoard.id }">${inqBoard.id }</td>
+				<td><input type = "hidden" id = "bid" name = "id" value = "${inqBoard.id }">${inqBoard.id }</td>
 				<th>작성일</th>
 				<td>${inqBoard.regDate }</td>
 				<th>작성자</th>
@@ -111,10 +112,12 @@
 			<c:if test="${id != null }">
 				<textarea rows="6" cols="90" id="replytext" placeholder="댓글 작성란"></textarea>
 				<br>
-				<button type="button" id="btnReply">댓글쓰기</button>
+				<button type="button" onclick="btnReply()">댓글 작성</button>
 			</c:if>
 		</div>
-		<div id="listReply"></div>
+		<div id="listReply">
+			<button type="button" onclick="listReply()"></button>
+		</div>
 		
 		<br>
 		<div>

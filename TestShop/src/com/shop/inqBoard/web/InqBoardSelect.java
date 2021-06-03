@@ -14,7 +14,7 @@ public class InqBoardSelect implements DbCommand {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 문의 하나(내용) 조회
 		
-		String id = request.getParameter("id");
+		String id = request.getParameter("bno");
 		
 		InqBoardVO vo = new InqBoardVO();
 		vo.setId(Integer.parseInt(id));

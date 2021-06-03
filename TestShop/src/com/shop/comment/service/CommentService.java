@@ -6,7 +6,7 @@ import com.shop.comment.vo.CommentVO;
 
 public interface CommentService {
 
-	List<CommentVO> commnetList();
+	List<CommentVO> commentList(int bno);
 	CommentVO selectComment(String id);
 	public int insertComment(CommentVO vo);
 	public int updateComment(CommentVO vo);
