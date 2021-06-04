@@ -115,13 +115,13 @@
 			
 			alert('비번이 같지 않다.');
 			frm.iPwd.focus();
-			checkPwd = "unChecked";
+			frm.pwdCheck.value = "unChecked";
 			return;
 			
-		} else if(emailWrite != "" && emailSelect == '선택'){
+		} else if (checkPwd == "unChecked"){
 			
-			alert('이메일 주소 선택해라');
-			frm.mail.focus();
+			alert("비번 한 번 더 체크해라");
+			frm.iPwd.focus();
 			return;
 			
 		} else if((frontNumber != "" || backNumber != "") && (frontNumber.length < 4 || backNumber.length < 4)){
@@ -130,6 +130,12 @@
 			frm.phoneNumber1.focus();
 			return;
 		
+		} else if(emailWrite != "" && emailSelect == '선택'){
+			
+			alert('이메일 주소 선택해라');
+			frm.mail.focus();
+			return;
+			
 		} else {
 			
 			alert('수정됨');	// 안 돼도 됐다고 함.
