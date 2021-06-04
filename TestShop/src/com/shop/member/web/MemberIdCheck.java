@@ -23,9 +23,12 @@ public class MemberIdCheck extends HttpServlet {
 		
 		int cnt = 0;
 		
-		if(service.idCheck(id)) {
-			cnt = 1;
-		};
+//		if(service.idCheck(id)) {
+//			cnt = 1;
+//		};
+		
+		boolean implResult = service.idCheck(id);
+		if(implResult == true) cnt = 1;
 		
 		response.getWriter().print(cnt);
 		

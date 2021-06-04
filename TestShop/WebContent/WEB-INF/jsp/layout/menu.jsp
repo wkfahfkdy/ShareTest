@@ -25,9 +25,9 @@
                         <li class="nav-item"><a class="nav-link" href="inqBoardList.do">문의</a></li>
                     </ul>
                     <form class="d-flex" action = "cartList.do" type="post"><!-- id로 장바구니 조회 ~> cartList.do -->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                       <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 							<span class="navbar-toggler-icon"></span>
-						</button>
+						</button> -->
 						<div class="collapse navbar-collapse" id="collapsibleNavbar">
 							<ul class="navbar-nav">
 								<c:if test = "${id eq 'admin' }">

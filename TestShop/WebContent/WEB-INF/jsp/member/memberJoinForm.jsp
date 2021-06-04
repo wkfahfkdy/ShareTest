@@ -8,31 +8,56 @@
 	 -->
 	 
 <script>
+
+	var identified_ID = null;	// 확인받은 아이디. (체크 버튼 이후로 값이 바뀌었는지 확인하기 위함.)
+	var idReg = /^\w{4,12}$/;	// 영문자 또는 숫자, 4~12자로. (한글 제외를 위한 로직.)
+	
+	//<button type="button" id="idCheck" value="unChecked">중복 체크</button>
+
 	$(function () {
 		// ID 빈칸 확인
 		$('#idCheck').click(function() {
+			
 			if($('#memberId').val() == "") {
+				
 				alert('아이디를 입력하시오');
 				$('#memberId').focus();
 				return;
-			} 
-			console.log($('#memberId'));
+				
+			} else if (!idReg.test(memberId.value)){
+
+				alert('조건 맞지 않다');
+				memberId.focus();
+				return;
+				
+			} else {
+				
+				idCheck.value = "Checked";
+			}
+
 			// ID 중복 체크
-			
 			$.ajax({
 				url: 'memberIdCheck',
 				data: {id: $('#memberId').val()},
 				type: 'post',
-				success: function(data){
-					console.log(data);
-					if(data > 0) {
+				success: function(resp){
+					
+					if(resp != 0){
+						
 						alert('아이디가 존재합니다. 다른 아이디를 입력하시오');
-						$('memberId').val("");
+						
+						//$('memberId').val("");
 						$('memberId').focus();
+						idCheck.value = "unChecked";
+
 					} else {
+						
 						alert('사용 가능한 아이디입니다');
+						
+						identified_ID = memberId.value;
 						$('#idCheck').val('checked')
-						$('#memberId').focus();
+						memberName.focus();
+						
 					}
 				},
 				error: function(err) {
@@ -58,31 +83,53 @@
 	function formCheck() {
 		
 		// 아이디 관련 체크
-		if(frm.memberId.value == "") {
+		if(memberId.value == "") {
+			
 			alert("아이디를 입력하시오");
+			
 			frm.memberId.focus();
 			return false;
-		} else if(frm.idCheck.value == "unChecked"){
+			
+		} else if(idCheck.value == "unChecked"){
+			
 			alert("아이디 중복 체크를 하시오");
+			
+			memberId.focus();
 			return false;
+			
+		} else if (identified_ID != memberId.value){
+			
+			alert('아이디가 달라졌다.');
+			
+			memberId.focus();
+			idCheck.value = "unChecked";
+			
+			return;
+			
+		} else {
+			
+			idCheck.value = "Checked";
 		}
 		
 		// 비밀번호 관련 체크
-		if(frm.memberPwd.value == "") {
+		if(memberPwd.value == "") {
 			
 			alert("비밀번호를 입력하시오");
+			
 			frm.memberPwd.focus();
 			return false;
 			
-		} else if (frm.pwdCheck.value == 'nonChecked') {
+		} else if (pwdCheck.value == 'nonChecked') {
 			
 			alert('비밀번호 확인해 봐라.');
-			frm.memberPwd2.focus();
+			
+			memberPwd2.focus();
 			return;
 			
 		} else if ( memberPwd.value != memberPwd2.value ) {
 			
 			alert('비번이 같지 않다.');
+			
 			memberPwd2.focus();
 			pwdCheck.value = "nonChecked";
 			
@@ -90,6 +137,7 @@
 			
 		} else {
 			
+			alert('가입됨');
 			frm.submit();
 		}
 		
@@ -175,7 +223,7 @@
 					<tr>
 						<th width="150">아이디 : </th>
 						<td width="330">
-							<input type="text" id="memberId" name="memberId">
+							<input type="text" id="memberId" name="memberId" placeholder = "영문+숫자, 4~12글자" maxlength = "12">
 							<button type="button" id="idCheck" value="unChecked">중복 체크</button>
 						</td>
 					</tr>
@@ -199,7 +247,9 @@
 					</tr>
 					<tr>
 						<th width="150">이메일 : </th>
-						<td width="330"><input type="text" id="memberMail" name="memberMail">
+						<td width="330">
+							<input type="email" id="memberMail" name="memberMail"><br>
+							<button id = "emailCheck" onclick = "emailSend()">인증 번호 받기</button>
 						</td>
 					</tr>
 					<tr>

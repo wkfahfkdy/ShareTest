@@ -25,9 +25,6 @@ public class MemberInfoCheck implements DbCommand {
 		MemberService checkID = new MemberServiceImpl();
 		MemberVO userInfo = checkID.selectMember(id);
 		
-		System.out.println(userInfo);
-		System.out.println(userInfo.toString());
-		
 		String path = "";
 		
 		if(getID.equals(id) && getPwd.equals(userInfo.getPasswd()) && !referer.contains("Update")) {

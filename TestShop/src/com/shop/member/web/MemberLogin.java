@@ -27,13 +27,12 @@ public class MemberLogin implements DbCommand {
 		
 		if(rvo == null) {
 			session.setAttribute("id", null);
-			return "index.do";
 		} else {
 			session.setAttribute("id", rvo.getId());
 			session.setAttribute("vo", rvo);
-			return "index.do";
 		}
 		
+		return "index.do";
 	}
 
 }

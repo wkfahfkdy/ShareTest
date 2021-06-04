@@ -27,20 +27,6 @@ public class DivisionListD implements DbCommand {
 
 		return "product/divisionListD.tiles";
 		
-//		session 수정 전
-//		HttpSession session = request.getSession();
-//
-//		ProductVO cateD = (ProductVO) session.getAttribute("cateD");
-//		String id = request.getParameter("id");
-//
-//		ProductService service = new ProductServiceImpl();
-//		List<ProductVO> list = service.selectCategory(cateD);
-//
-//		request.setAttribute("cateD", cateD);
-//		request.setAttribute("list", list);
-//		request.setAttribute("id", id);
-//		
-//		return "product/divisionListD.tiles";
 	}
 
 }
