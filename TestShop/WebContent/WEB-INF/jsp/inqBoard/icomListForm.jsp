@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach items="list" var="vo">
-		${vo.rno }
-		<h3>${vo.comment }</h3>
-	</c:forEach>
+	<div>
+		<c:forEach items="${list }" var="vo">
+			${vo.rno }
+			<h3>${vo.comment }</h3>
+		</c:forEach>
+	</div>
 </body>
 </html>

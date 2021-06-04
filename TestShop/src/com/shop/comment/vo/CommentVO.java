@@ -3,14 +3,23 @@ package com.shop.comment.vo;
 import java.util.Date;
 
 public class CommentVO {
-	private int rno;
 	private int bno;
-	private String id;
-	private String comment;
+	private int rno;
+	private int rnoch;
+	private String writer; 
+	private String content;
+	private int depth;
 	private Date regdate;
 	private Date upddate;
-	private String secret_com;
+	private String dele;
 	
+	
+	public int getRnoch() {
+		return rnoch;
+	}
+	public void setRnoch(int rnoch) {
+		this.rnoch = rnoch;
+	}
 	public int getRno() {
 		return rno;
 	}
@@ -23,17 +32,23 @@ public class CommentVO {
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-	public String getId() {
-		return id;
+	public String getWriter() {
+		return writer;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
-	public String getComment() {
-		return comment;
+	public String getContent() {
+		return content;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -47,16 +62,17 @@ public class CommentVO {
 	public void setUpddate(Date upddate) {
 		this.upddate = upddate;
 	}
-	public String getSecret_com() {
-		return secret_com;
+	public String getDele() {
+		return dele;
 	}
-	public void setSecret_com(String secret_com) {
-		this.secret_com = secret_com;
-	}
-	@Override
-	public String toString() {
-		return "CommentVO [rno=" + rno + ", bno=" + bno + ", id=" + id + ", comment=" + comment + ", regdate=" + regdate
-				+ ", upddate=" + upddate + ", secret_com=" + secret_com + "]";
+	public void setDele(String dele) {
+		this.dele = dele;
 	}
 	
+	@Override
+	public String toString() {
+		return "CommentVO [bno=" + bno + ", rno=" + rno + ", rnoch=" + rnoch + ", writer=" + writer + ", content="
+				+ content + ", depth=" + depth + ", regdate=" + regdate + ", upddate=" + upddate + ", dele=" + dele
+				+ "]";
+	}
 }

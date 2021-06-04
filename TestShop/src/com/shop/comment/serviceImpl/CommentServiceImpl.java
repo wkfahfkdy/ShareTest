@@ -19,7 +19,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 	@Override
 	public List<CommentVO> commentList(int bno) {
 		
-		sql = "select * from inq_Comment where bno = ? order by rno";
+		sql = "select * from inq_reply where bno = ? order by rno";
 		List<CommentVO> list = new ArrayList<>();
 		
 		try {
@@ -30,11 +30,12 @@ public class CommentServiceImpl extends DAO implements CommentService {
 			while(rs.next()) {
 				CommentVO vo = new CommentVO();
 				vo.setBno(rs.getInt("bno"));
-				vo.setComment(rs.getString("content"));
-				vo.setId(rs.getString("id"));
-				vo.setRegdate(rs.getDate("regdate"));
 				vo.setRno(rs.getInt("rno"));
+				vo.setWriter(rs.getString("writer"));
+				vo.setContent(rs.getString("content"));
+				vo.setRegdate(rs.getDate("regdate"));
 				vo.setUpddate(rs.getDate("upddate"));
+				vo.setDele(rs.getString("dele"));
 				
 				list.add(vo);
 			}
@@ -53,20 +54,48 @@ public class CommentServiceImpl extends DAO implements CommentService {
 		return null;
 	}
 
+	
+	// 댓글
 	@Override
 	public int insertComment(CommentVO vo) {
 		
-		sql = "insert into inq_Comment (rno, bno, id, content) values(icom_seq.nextval, ?, ?, ?)";
+		sql = "insert into inq_reply (rno, bno, writer, content) values(inq_reply_seq.nextval, ?, ?, ?)";
 		int r = 0;
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, vo.getBno());
-			psmt.setString(2, vo.getId());
-			psmt.setString(3, vo.getComment());
+			psmt.setString(2, vo.getWriter());
+			psmt.setString(3, vo.getContent());
 			r = psmt.executeUpdate();
 			
-			System.out.println(r + "건 입력");
+			System.out.println(r + "건 댓글 입력");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return r;
+	}
+	
+	// 대댓글
+	@Override
+	public int insertCommentNested(CommentVO vo) {
+		
+		sql = "insert into inq_Comment (rno, bno, writer, content, depth) values(inq_reply_seq.nextval, ?, ?, ?, ?)";
+		int r = 0;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getBno());
+			psmt.setString(2, vo.getWriter());
+			psmt.setString(3, vo.getContent());
+			psmt.setInt(4, vo.getDepth() +1);
+			r = psmt.executeUpdate();
+			
+			System.out.println(r + "건 대댓글 입력");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,7 +117,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	public void close() {
 
 		try {

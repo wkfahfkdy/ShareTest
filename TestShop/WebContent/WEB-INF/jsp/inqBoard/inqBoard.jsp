@@ -1,3 +1,7 @@
+<%@page import="com.shop.comment.vo.CommentVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.shop.comment.serviceImpl.CommentServiceImpl"%>
+<%@page import="com.shop.comment.service.CommentService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -43,7 +47,8 @@
 			},
 			success: function() {
 				alert("댓글 등록ㅇ");
-				listReply();
+				//listReply();
+				
 				location.reload;
 			},
 			error: function(err) {
@@ -52,7 +57,7 @@
 		});
 	};
 	
-	function listReply() {
+	/* function listReply() {
 		var bno=$("#bid").val();
 		
 		$.ajax({
@@ -68,7 +73,23 @@
 				console.log(err);
 			}
 		});
+	} */
+	
+	
+	
+	function NestedForm(){
+		
+		//"<textarea rows="2" cols="106" id="replytext" placeholder="댓글 작성란"></textarea></td><td><button type="button" onclick="()">댓글 작성</button>')"
 	}
+	
+	$('.Nest').click(function(e){
+		console.log(e);
+		$('.Nest').html(
+			'<textarea rows="2" cols="50" id="replytext" placeholder="댓글 작성란"></textarea></td><td><button type="button" onclick="()">댓글 작성</button>'
+		);
+	});
+
+	
 </script>
 
 
@@ -111,16 +132,28 @@
 				</td>
 			</tr>
 		</table>
-		
+		<br>
+		<div>
+			<h4>댓글</h4>
+		</div>
 		<!-- 댓글 입력할 곳 만들어야함 -->
 		<div style="width=804.5px; text-align:center;">
 			<c:if test="${id != null }">
-				<textarea rows="2" cols="117" id="replytext" placeholder="댓글 작성란"></textarea>
-				<br>
-				<button type="button" onclick="btnReply()">댓글 작성</button>
+				<table align="center">
+					<tr>
+						<td><textarea rows="2" cols="106" id="replytext" placeholder="댓글 작성란"></textarea></td><td><button type="button" onclick="btnReply()">댓글 작성</button></td>
+					</tr>
+				</table>
 			</c:if>
 		</div>
 		<div id="listReply">
+			<table border="1">
+				<c:forEach items="${list }" var="list">
+					<tr>
+						<td width="100px">${list.writer }</td><td width="650px" class="Nest" onclick="NestedForm()">${list.content }</td><td width="100px">${list.regdate }</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 		
 		<br>
@@ -131,5 +164,6 @@
 				<button type = "button" onclick = "inqDelete()">삭제</button>
 			</c:if>
 		</div>
+		
 	</form>
 </div>

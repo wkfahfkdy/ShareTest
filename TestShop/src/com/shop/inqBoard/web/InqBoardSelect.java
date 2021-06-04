@@ -1,8 +1,13 @@
 package com.shop.inqBoard.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.comment.service.CommentService;
+import com.shop.comment.serviceImpl.CommentServiceImpl;
+import com.shop.comment.vo.CommentVO;
 import com.shop.common.DbCommand;
 import com.shop.inqBoard.service.InqBoardService;
 import com.shop.inqBoard.serviceImpl.InqBoardServiceImpl;
@@ -23,6 +28,15 @@ public class InqBoardSelect implements DbCommand {
 		serv.selectInqBoard(vo);
 		
 		request.setAttribute("inqBoard", vo);
+		
+		// 댓글 부르기
+		
+		String bno = request.getParameter("bno");
+		
+		CommentService service = new CommentServiceImpl();
+		List<CommentVO> list = service.commentList(Integer.parseInt(bno));
+		
+		request.setAttribute("list", list);
 		
 		return "inqBoard/inqBoard.tiles";
 	}

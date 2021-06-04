@@ -20,8 +20,8 @@ public class IComInsert implements DbCommand {
 		String bno = request.getParameter("bno");
 		
 		CommentVO vo = new CommentVO();
-		vo.setId(id);
-		vo.setComment(replytext);
+		vo.setWriter(id);
+		vo.setContent(replytext);
 		vo.setBno(Integer.parseInt(bno));
 		
 		CommentService service = new CommentServiceImpl();
