@@ -53,5 +53,10 @@ public class CommentVO {
 	public void setSecret_com(String secret_com) {
 		this.secret_com = secret_com;
 	}
+	@Override
+	public String toString() {
+		return "CommentVO [rno=" + rno + ", bno=" + bno + ", id=" + id + ", comment=" + comment + ", regdate=" + regdate
+				+ ", upddate=" + upddate + ", secret_com=" + secret_com + "]";
+	}
 	
 }

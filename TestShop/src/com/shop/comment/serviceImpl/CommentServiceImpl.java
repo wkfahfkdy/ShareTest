@@ -19,7 +19,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 	@Override
 	public List<CommentVO> commentList(int bno) {
 		
-		sql = "select * from inq_Comment where bno = ?";
+		sql = "select * from inq_Comment where bno = ? order by rno";
 		List<CommentVO> list = new ArrayList<>();
 		
 		try {

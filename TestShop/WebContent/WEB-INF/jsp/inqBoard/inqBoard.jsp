@@ -61,8 +61,11 @@
 				bno: bno
 			},
 			success: function(result) {
-				$("#listReply").html(result.list);
+				$("#listReply").html(result);
 				location.reload;
+			},
+			error: function(err){
+				console.log(err);
 			}
 		});
 	}
@@ -112,7 +115,7 @@
 		<!-- 댓글 입력할 곳 만들어야함 -->
 		<div style="width=804.5px; text-align:center;">
 			<c:if test="${id != null }">
-				<textarea rows="6" cols="90" id="replytext" placeholder="댓글 작성란"></textarea>
+				<textarea rows="2" cols="117" id="replytext" placeholder="댓글 작성란"></textarea>
 				<br>
 				<button type="button" onclick="btnReply()">댓글 작성</button>
 			</c:if>

@@ -21,11 +21,12 @@ public class IComList implements DbCommand {
 		
 		
 		CommentService service = new CommentServiceImpl();
-		List<CommentVO> list = (List<CommentVO>) service.commentList(Integer.parseInt(bno));
+		List<CommentVO> list = service.commentList(Integer.parseInt(bno));
 		
 		request.setAttribute("list", list);
 		
-		return "inqBoardSelect.do";
+		System.out.println(list);
+		return "inqBoard/icomListForm.tiles";
 	}
 
 }
