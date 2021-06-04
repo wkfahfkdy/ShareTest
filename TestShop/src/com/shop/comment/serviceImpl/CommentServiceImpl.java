@@ -19,7 +19,11 @@ public class CommentServiceImpl extends DAO implements CommentService {
 	@Override
 	public List<CommentVO> commentList(int bno) {
 		
-		sql = "select * from inq_reply where bno = ? order by rno";
+		sql = "select  A.*, level\r\n"
+				+ "from inq_reply A\r\n"
+				+ "where bno = ?\r\n"
+				+ "start with rnoch = 0\r\n"
+				+ "connect by prior rno = rnoch";
 		List<CommentVO> list = new ArrayList<>();
 		
 		try {
@@ -36,6 +40,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 				vo.setRegdate(rs.getDate("regdate"));
 				vo.setUpddate(rs.getDate("upddate"));
 				vo.setDele(rs.getString("dele"));
+				vo.setRnoch(rs.getInt("rnoch"));
 				
 				list.add(vo);
 			}
