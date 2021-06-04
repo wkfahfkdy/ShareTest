@@ -37,7 +37,7 @@ public class InqBoardSelect implements DbCommand {
 		List<CommentVO> list = service.commentList(Integer.parseInt(bno));
 		
 		request.setAttribute("list", list);
-		
+		System.out.println(list);
 		return "inqBoard/inqBoard.tiles";
 	}
 

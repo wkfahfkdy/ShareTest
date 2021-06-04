@@ -19,7 +19,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 	@Override
 	public List<CommentVO> commentList(int bno) {
 		
-		sql = "select  A.*, level\r\n"
+		sql = "select  A.BNO, A.RNO, A.RNOCH, A.WRITER, LPAD(' ', 2*(level-1)) || A.content as content, A.DEPTH, A.REGDATE, A.UPDDATE, A.DELE, level\r\n"
 				+ "from inq_reply A\r\n"
 				+ "where bno = ?\r\n"
 				+ "start with rnoch = 0\r\n"
@@ -41,6 +41,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 				vo.setUpddate(rs.getDate("upddate"));
 				vo.setDele(rs.getString("dele"));
 				vo.setRnoch(rs.getInt("rnoch"));
+				vo.setDepth(rs.getInt("depth"));
 				
 				list.add(vo);
 			}
@@ -89,7 +90,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 	@Override
 	public int insertCommentNested(CommentVO vo) {
 		
-		sql = "insert into inq_Comment (rno, bno, writer, content, depth) values(inq_reply_seq.nextval, ?, ?, ?, ?)";
+		sql = "insert into inq_reply (rno, bno, writer, content, depth, rnoch) values(inq_reply_seq.nextval, ?, ?, ?, ? +1, ?)";
 		int r = 0;
 		
 		try {
@@ -97,7 +98,8 @@ public class CommentServiceImpl extends DAO implements CommentService {
 			psmt.setInt(1, vo.getBno());
 			psmt.setString(2, vo.getWriter());
 			psmt.setString(3, vo.getContent());
-			psmt.setInt(4, vo.getDepth() +1);
+			psmt.setInt(4, vo.getDepth());
+			psmt.setInt(5, vo.getRno());
 			r = psmt.executeUpdate();
 			
 			System.out.println(r + "건 대댓글 입력");

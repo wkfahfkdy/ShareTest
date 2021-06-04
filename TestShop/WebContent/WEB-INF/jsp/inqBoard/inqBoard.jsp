@@ -51,7 +51,7 @@
 				alert("댓글 등록ㅇ");
 				//listReply();
 
-				location.reload;
+				location.reload();
 			},
 			error: function (err) {
 				console.log(err);
@@ -77,29 +77,34 @@
 		});
 	} */
 
-	function btnNest() {
+	function btnNest(e) {
 		var replytext = $("#nesttext").val();
 		var bno = $("#bid").val(); // 게시물 번호
-		var depth = $("#depth").val();
+		var depth = $(".depth").val();
+		var rno = $(".rno").val();
 		
-		console.log(depth);
-
-		$.ajax({
+		console.log(rno + "," + depth + "," + bno + "," + replytext);
+		//console.log(e);
+		
+		/* $.ajax({
 			url: "nestInsert.do",
 			data: {
 				replytext: replytext,
-				bno: bno
+				bno: bno,
+				depth: depth,
+				rno: rno
 			},
 			success: function () {
 				alert("댓글 등록ㅇ");
 				//listReply();
 
-				location.reload;
+				//location.reload();
+
 			},
 			error: function (err) {
 				console.log(err);
 			}
-		});
+		}); */
 	}
 
 	function nestedForm(e, value) {
@@ -118,7 +123,7 @@
 			return;
 		} else {
 			$(e.target).append(
-				'<textarea rows="1" cols="50" class="tq" id="nesttext" placeholder="댓글 작성란"></textarea><button type="button" onclick="btnNest()">댓글 작성</button>'
+				'<textarea rows="1" cols="50" class="tq" id="nesttext" placeholder="댓글 작성란"></textarea><button type="button" onclick="btnNest(event)">댓글 작성</button>'
 			);
 		}
 		
@@ -194,10 +199,9 @@
 			<table border="1">
 				<c:forEach items="${list }" var="list">
 					<tr class="checkTr">
-						
 						<td width="100px">${list.writer }</td>
 						<td width="650px" class="Nest" onclick="nestedForm(event, '${list.content }')">
-							${list.content }<input type="hidden" id="depth" name="depth" value="${list.depth }">
+							${list.content }<input type="hidden" class="depth" value="${list.depth }"><input type="hidden" class="rno" value="${list.rno }">
 						</td>
 						<td width="100px">${list.regdate }</td>
 					</tr>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.cart.web.cartList;
 import com.shop.comment.web.IComInsert;
 import com.shop.comment.web.IComList;
+import com.shop.comment.web.NestInsert;
 import com.shop.inqBoard.web.InqBoardForm;
 import com.shop.inqBoard.web.InqBoardList;
 import com.shop.inqBoard.web.InqBoardInsert;
@@ -99,6 +100,7 @@ public class FrontController extends HttpServlet {
 		map.put("/inqBoardInsert.do", new InqBoardInsert());
 		map.put("/inqBoardUpdate.do", new InqBoardUpdate());
 		map.put("/icomInsert.do", new IComInsert());
+		map.put("/nestInsert.do", new NestInsert());
 		map.put("/icomList.do", new IComList());
 		map.put("/icomListForm.do", new IComListForm());
 	}
