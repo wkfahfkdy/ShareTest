@@ -24,7 +24,6 @@
 			return false;
 		}
 		
-		// 틀린 정보 입력 시 화면에 띄우기 = 보류
 		$.ajax({
 			url: 'memberIdCheck',
 			data : {
@@ -34,14 +33,15 @@
 			type: 'post',
 			success: function(resp){
 				
-				if(resp != 0){
+				if(resp == "null"){
 					
-					frm.submit();
-				} else {
 					alert('틀렸다');
 					memberPwd.value = null;
 					memberId.focus();
 					
+				} else { 
+					
+					frm.submit();
 				}
 			},
 			error : function(err){

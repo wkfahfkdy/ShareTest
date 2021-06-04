@@ -143,6 +143,12 @@
 		
 	}
 	
+	function emailSend(){
+		
+		alert("미구현");
+		return;
+	}
+	
 	// 주소 api ~>> http://postcode.map.daum.net/guide
 	function findPostCode(){
 		

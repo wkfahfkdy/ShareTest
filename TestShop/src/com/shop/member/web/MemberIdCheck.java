@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.shop.member.serviceImpl.MemberServiceImpl;
 import com.shop.member.vo.MemberVO;
@@ -20,8 +19,6 @@ public class MemberIdCheck extends HttpServlet {
 		
 		String referer = request.getHeader("referer");
 		
-		System.out.println("어디서 왔냐 :" + referer);
-		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		
@@ -29,27 +26,22 @@ public class MemberIdCheck extends HttpServlet {
 		
 		int cnt = 0;
 		
-//		if(service.idCheck(id)) {
-//			cnt = 1;
-//		};
-		MemberVO vo = new MemberVO();
-		if (referer.contains("index")) {
+		if (!referer.contains("Join")) {	// 리퍼럴에 'Join'이 포함되지 않을 시 작동. 즉 로그인 회원 정보 확인.
 			
+			MemberVO vo = new MemberVO();
 			vo.setId(id);
 			vo.setPasswd(pwd);
+				
+			MemberVO rvo = service.loginCheck(vo);
 			
-			vo = service.loginCheck(vo);
-			
-			response.getWriter().print(vo);
-		}
+			response.getWriter().print(rvo);
 		
-		if (referer.contains("Join")) {
+		} else {	// 회원 가입
 			
 			boolean implResult = service.idCheck(id);
 			if(implResult == true) cnt = 1;
 			
 			response.getWriter().print(cnt);
-			
 		}
 	}
 
