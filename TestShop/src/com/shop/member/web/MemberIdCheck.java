@@ -18,7 +18,13 @@ public class MemberIdCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		String referer = request.getHeader("referer");
+		
+		System.out.println("어디서 왔냐 :" + referer);
+		
 		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
 		MemberServiceImpl service = new MemberServiceImpl();
 		
 		int cnt = 0;
@@ -26,12 +32,25 @@ public class MemberIdCheck extends HttpServlet {
 //		if(service.idCheck(id)) {
 //			cnt = 1;
 //		};
+		MemberVO vo = new MemberVO();
+		if (referer.contains("index")) {
+			
+			vo.setId(id);
+			vo.setPasswd(pwd);
+			
+			vo = service.loginCheck(vo);
+			
+			response.getWriter().print(vo);
+		}
 		
-		boolean implResult = service.idCheck(id);
-		if(implResult == true) cnt = 1;
-		
-		response.getWriter().print(cnt);
-		
+		if (referer.contains("Join")) {
+			
+			boolean implResult = service.idCheck(id);
+			if(implResult == true) cnt = 1;
+			
+			response.getWriter().print(cnt);
+			
+		}
 	}
 
 }

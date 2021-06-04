@@ -212,6 +212,36 @@
 		}).open();
 	}
 </script>
+
+<style>
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+	
+	th {
+		background-color: #FDF5E6;
+		width: 150px;
+		height: 150px;
+		text-align : center;
+	}
+	
+	th, td {
+		border : 1px solid #FFE4B5;
+		padding : 20px;
+	}
+	
+	strong {
+		color : #DCAD67;
+	}
+	
+	.asdf {
+		width: 900px;
+		text-align: left;
+	}
+	
+</style>
+
 </head>
 	<div align="center">
 		<h2> 회원 가입 </h2>
@@ -221,39 +251,41 @@
 			<div>
 				<table>
 					<tr>
-						<th width="150">아이디 : </th>
-						<td width="330">
+						<th>아이디 : </th>
+						<td>
 							<input type="text" id="memberId" name="memberId" placeholder = "영문+숫자, 4~12글자" maxlength = "12">
 							<button type="button" id="idCheck" value="unChecked">중복 체크</button>
 						</td>
 					</tr>
 					<tr>
-						<th width="150">이름 : </th>
-						<td width="330"><input type="text" id="memberName" name="memberName">
+						<th>이름 : </th>
+						<td><input type="text" id="memberName" name="memberName">
 						</td>
 					</tr>
 					<tr>
-						<th width="150">비밀번호 : </th>
-						<td width="330"><input type="password" id="memberPwd" name="memberPwd"></td>
-						<th width="150">비밀번호 재확인 : </th>
-						<td width="330"><input type="password" id="memberPwd2" name="memberPwd2">
-						<button type="button" id="pwdCheck" value="nonChecked">확인</button>
+						<th>비밀번호 : </th>
+						<td>
+							<input type="password" id="memberPwd" name="memberPwd">
+						
+							비밀번호 재확인 :
+							<input type="password" id="memberPwd2" name="memberPwd2">
+							<button type="button" id="pwdCheck" value="nonChecked">확인</button>
 						</td>
 					</tr>
 					<tr>
-						<th width="150">연락처 : </th>
-						<td width="330"><input type="text" id="memberPhone" name="memberPhone">
+						<th>연락처 : </th>
+						<td><input type="text" id="memberPhone" name="memberPhone">
 						</td>
 					</tr>
 					<tr>
-						<th width="150">이메일 : </th>
-						<td width="330">
+						<th>이메일 : </th>
+						<td>
 							<input type="email" id="memberMail" name="memberMail"><br>
 							<button id = "emailCheck" onclick = "emailSend()">인증 번호 받기</button>
 						</td>
 					</tr>
 					<tr>
-						<th width="150">주소 : </th>
+						<th>주소 : </th>
 						<td><!-- <input type="text" id="memberAddr" name="memberAddr"> -->
 							<input type = "text" id = "postCode" name = "postCode" placeholder = "우편번호">
 							<input type = "button" onclick = "findPostCode()" value = "우편번호 찾기"><br>

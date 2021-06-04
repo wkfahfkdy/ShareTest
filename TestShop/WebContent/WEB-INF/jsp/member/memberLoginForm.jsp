@@ -13,19 +13,41 @@
 <script>
 	function formcheck() {
 		
-		if(frm.memberId.value == "") {
+		if(memberId.value == "") {
 			alert("아이디를 입력하시오");
-			frm.memberId.focus();
+			memberId.focus();
 			return false;
 		}
-		if(frm.memberPwd.value == "") {
+		if(memberPwd.value == "") {
 			alert("비밀번호를 입력하시오");
-			frm.memberPwd.focus();
+			memberPwd.focus();
 			return false;
 		}
 		
 		// 틀린 정보 입력 시 화면에 띄우기 = 보류
-		frm.submit();
+		$.ajax({
+			url: 'memberIdCheck',
+			data : {
+				id : memberId.value,
+				pwd : memberPwd.value
+			},
+			type: 'post',
+			success: function(resp){
+				
+				if(resp != 0){
+					
+					frm.submit();
+				} else {
+					alert('틀렸다');
+					memberPwd.value = null;
+					memberId.focus();
+					
+				}
+			},
+			error : function(err){
+				console.log(err);
+			}
+		});
 	}
 </script>
 </head>
