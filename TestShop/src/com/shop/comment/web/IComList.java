@@ -5,8 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.velocity.runtime.directive.Parse;
-
 import com.shop.comment.service.CommentService;
 import com.shop.comment.serviceImpl.CommentServiceImpl;
 import com.shop.comment.vo.CommentVO;
