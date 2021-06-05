@@ -10,7 +10,7 @@
 <script>
 
 	var identified_ID = null;	// 확인받은 아이디. (체크 버튼 이후로 값이 바뀌었는지 확인하기 위함.)
-	var idReg = /^\w{4,12}$/;	// 영문자 또는 숫자, 4~12자로. (한글 제외를 위한 로직.)
+	var idReg = /^\w{4,12}$/;	// 영문자 또는 숫자, 4~12자로. (한글 제외를 위한 로직. 특수문자나 언더바 또한 미포함.)
 	
 	//<button type="button" id="idCheck" value="unChecked">중복 체크</button>
 
@@ -287,7 +287,7 @@
 						<th>이메일 : </th>
 						<td>
 							<input type="email" id="memberMail" name="memberMail"><br>
-							<button id = "emailCheck" onclick = "emailSend()">인증 번호 받기</button>
+							<button type = "button" id = "emailCheck" onclick = "emailSend()">인증 번호 받기</button>
 						</td>
 					</tr>
 					<tr>

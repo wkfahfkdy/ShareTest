@@ -49,7 +49,7 @@
 				<c:forEach items="${inqBoardList }" var="vo">
 					<tr>
 						<td>${vo.id }</td>
-						<td onclick="formSubmit(${vo.id})">${vo.title }</td>
+						<td onclick="formSubmit('${vo.id}')">${vo.title }</td>
 						<td>${vo.writer }</td>
 						<td>${vo.regDate }</td>
 						<td>${vo.hit }</td>
