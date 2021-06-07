@@ -83,10 +83,10 @@
 		var depth = $(".depth").val();
 		var rno = $(".rno").val();
 		
-		console.log(rno + "," + depth + "," + bno + "," + replytext);
+		//console.log(rno + "," + depth + "," + bno + "," + replytext);
 		//console.log(e);
 		
-		/* $.ajax({
+		$.ajax({
 			url: "nestInsert.do",
 			data: {
 				replytext: replytext,
@@ -98,13 +98,13 @@
 				alert("댓글 등록ㅇ");
 				//listReply();
 
-				//location.reload();
+				location.reload();
 
 			},
 			error: function (err) {
 				console.log(err);
 			}
-		}); */
+		}); 
 	}
 
 	function nestedForm(e, value) {
