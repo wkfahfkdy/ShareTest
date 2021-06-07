@@ -59,7 +59,7 @@
 							<!-- Y/N 선택지 -->
 						</tr>
 						<tr>
-							<td>Sale_Price  </td><td><input type="number" name="salePrice"  value="${vo.salePrice }"> Y : 100% / N : 80% 가격 입력</td> 
+							<td>Sale_Price  </td><td><input type="number" name="salePrice"  value="${vo.salePrice }"></td> 
 							 <!-- Y 할거라면 80% 가격 N면 100% 가격 입력 -->
 						</tr>
 						<tr>
