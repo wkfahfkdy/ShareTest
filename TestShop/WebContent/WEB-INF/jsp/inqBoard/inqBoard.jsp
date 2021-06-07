@@ -123,7 +123,7 @@
 			return;
 		} else {
 			$(e.target).append(
-				'<textarea rows="1" cols="50" class="tq" id="nesttext" placeholder="댓글 작성란"></textarea><button type="button" onclick="btnNest(event)">댓글 작성</button>'
+				'<textarea rows="1" cols="50" class="tq" id="nesttext" placeholder="댓글 작성란"></textarea><button class="btn btn-outline-dark mt-auto" type="button" onclick="btnNest(event)">댓글 작성</button>'
 			);
 		}
 		
@@ -190,7 +190,7 @@
 				<table align="center">
 					<tr>
 						<td><textarea rows="2" cols="106" id="replytext" placeholder="댓글 작성란"></textarea></td>
-						<td><button type="button" onclick="btnReply()">댓글 작성</button></td>
+						<td><button class="btn btn-outline-dark mt-auto" type="button" onclick="btnReply()">댓글 작성</button></td>
 					</tr>
 				</table>
 			</c:if>
@@ -211,10 +211,10 @@
 
 		<br>
 		<div>
-			<button type="button" onclick="location.href = 'inqBoardList.do'">돌아가기</button>
+			<button class="btn btn-outline-dark mt-auto" type="button" onclick="location.href = 'inqBoardList.do'">돌아가기</button>
 			<c:if test="${id eq inqBoard.writer || id eq 'admin' }">
-				<button type="submit">수정</button>
-				<button type="button" onclick="inqDelete()">삭제</button>
+				<button class="btn btn-outline-dark mt-auto" type="submit">수정</button>
+				<button class="btn btn-outline-dark mt-auto" type="button" onclick="inqDelete()">삭제</button>
 			</c:if>
 		</div>
 

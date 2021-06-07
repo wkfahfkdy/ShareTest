@@ -70,12 +70,12 @@
 					</c:if>
 				</td>
 			</tr>
-		</table>
+		</table><br>
 		<div>
-			<button type = "button" onclick = "location.href = 'revBoardList.do'">목록 보기</button>
+			<button class="btn btn-outline-dark mt-auto" type = "button" onclick = "location.href = 'revBoardList.do'">목록 보기</button>
 			<c:if test = "${id eq revBoard.writer || id eq 'admin' }">
-				<button type = "submit">수정</button>
-				<button type = "button" onclick = "revDelete()">삭제</button>
+				<button class="btn btn-outline-dark mt-auto" type = "submit">수정</button>
+				<button class="btn btn-outline-dark mt-auto" type = "button" onclick = "revDelete()">삭제</button>
 			</c:if>
 		</div>
 	</form>
