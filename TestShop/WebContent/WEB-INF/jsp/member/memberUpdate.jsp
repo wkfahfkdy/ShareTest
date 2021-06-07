@@ -118,7 +118,7 @@
 			frm.pwdCheck.value = "unChecked";
 			return;
 			
-		} else if (checkPwd == "unChecked"){
+		} else if (modiPwd != frm.iPwd.value && checkPwd == "unChecked"){
 			
 			alert("비번 한 번 더 체크해라");
 			frm.iPwd.focus();
@@ -138,7 +138,7 @@
 			
 		} else {
 			
-			alert('수정됨');	// 안 돼도 됐다고 함.
+			alert('수정됨\n미입력 정보는 기존값으로 넣어짐');	// 안 돼도 됐다고 함.
 			frm.submit();
 			
 		}
