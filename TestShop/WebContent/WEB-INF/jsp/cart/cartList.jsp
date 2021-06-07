@@ -102,7 +102,7 @@
 					<tr>
 						<td width="100px"><img src = "upload/${list.itemImage }" alt = "..." width = "50px" height = "50px" /></td>
 						<td width="100px" onclick="formSubmit('${list.itemCode}')">${list.itemName }</td>
-						<td width="100px"><input type="number" value="${list.qtySum }" style="width:30px;"></td>
+						<td width="100px"><input type="number" value="${list.qtySum }" style="width:40px;"></td>
 						<td width="100px"><fmt:formatNumber value="${list.price }" type="currency"></fmt:formatNumber></td>
 						<td width="100px"><fmt:formatNumber value="${list.salePrice }" type="currency"></fmt:formatNumber></td>
 						<td width="100px"><fmt:formatNumber value="${list.priceSum }" type="currency"></fmt:formatNumber></td>
