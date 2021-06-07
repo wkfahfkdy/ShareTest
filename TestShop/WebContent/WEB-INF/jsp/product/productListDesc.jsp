@@ -49,15 +49,6 @@
 					<p class="lead">
 						${vo.itemDesc } <br>
 						<!-- 설명 늘릴려고 적은것. 나중에 지우기 -->
-						safsdafdfsafsa <br>
-						sdafsfsf <br>
-						sdaf <br>
-						sdaf <br>
-						safsdafsdafsdaf <br>
-						sdafsdafsafsfsdafsdaf <br>
-						sdfsafafdf <br>
-						sdafsdafasdfsdafsdafsafsdafsdafsdafsdafsdafsfsfsdafsdfsdafsafd <br>
-						safsdafsdfsdafsdafsdafsafaadsf <br>
 					</p>
 					<div class="d-flex">
 						<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem">
