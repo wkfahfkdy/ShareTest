@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.cart.web.CartDelete;
 import com.shop.cart.web.cartList;
 import com.shop.comment.web.IComInsert;
 import com.shop.comment.web.IComList;
+import com.shop.comment.web.IComListForm;
 import com.shop.comment.web.NestInsert;
 import com.shop.inqBoard.web.InqBoardForm;
 import com.shop.inqBoard.web.InqBoardList;
@@ -85,6 +87,8 @@ public class FrontController extends HttpServlet {
 		// CART
 		map.put("/addCart.do", new AddCart());
 		map.put("/cartList.do", new cartList());
+		map.put("/cartDelete.do", new CartDelete());
+		map.put("/cartUpdate", new CartUpdate());
 		
 		// REVIEW
 		map.put("/revBoardList.do", new RevBoardList());

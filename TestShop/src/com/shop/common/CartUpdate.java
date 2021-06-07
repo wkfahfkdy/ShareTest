@@ -3,12 +3,12 @@ package com.shop.common;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IComListForm implements DbCommand {
+public class CartUpdate implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		return "inqBoard/icomListForm.tiles";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

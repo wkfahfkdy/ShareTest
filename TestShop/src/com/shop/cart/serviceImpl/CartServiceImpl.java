@@ -252,14 +252,15 @@ public class CartServiceImpl extends DAO implements CartService {
 	public int deleteCart(CartVO vo) {
 		// TODO 장바구니 삭제
 
-		sql = "delete from cart where user_id = ?";
+		sql = "delete from cart where item_code = ? and user_id = ?";
 		
 		int result = 0;
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, vo.getUserID());
+			psmt.setString(1, vo.getItemCode());
+			psmt.setString(2, vo.getUserID());
 			
 			result = psmt.executeUpdate();
 			

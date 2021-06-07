@@ -21,7 +21,7 @@ public class goDesc implements DbCommand {
 		
 		session.setAttribute("vo", vo);
 		
-		return "productList.do";
+		return "productListDesc.do";
 	}
 
 }
