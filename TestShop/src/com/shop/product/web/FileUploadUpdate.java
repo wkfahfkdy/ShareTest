@@ -19,9 +19,9 @@ public class FileUploadUpdate implements DbCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		//ServletContext context = request.getServletContext();
-		//String path = context.getRealPath("upload");				// 
-		String path = "D:\\ShareTest\\TestShop\\WebContent\\upload";
+		ServletContext context = request.getServletContext();
+		String path = context.getRealPath("upload");				// 
+		//String path = "D:\\ShareTest\\TestShop\\WebContent\\upload";
 		//System.out.println("경로 : " + path);
 		
 		try {
