@@ -58,12 +58,10 @@
 				<div>
 					<table>
 						<tr>
-							<th>ID </th>
-							<td><input type="text" id="memberId" name="memberId"></td>
+							<td><input type="text" id="memberId" name="memberId" placeholder = "ID"></td>
 						</tr>
 						<tr>
-							<th>PW </th>
-							<td><input type="password" id="memberPwd" name="memberPwd"></td>
+							<td><input type="password" id="memberPwd" name="memberPwd" placeholder = "Password"></td>
 						</tr>
 					</table>
 				</div>
