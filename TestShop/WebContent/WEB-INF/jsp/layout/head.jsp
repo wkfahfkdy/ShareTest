@@ -17,8 +17,7 @@
 </style>
 <header>
 	<div class="container px-4 px-lg-5 my-5">
-		<div class="text-center" id = "asd">
-			<h1>Food</h1>
+		<div class="text-center" id = "asd" style="height:250px">
 		</div>
 	</div>
 </header>
