@@ -90,7 +90,7 @@ public class CommentServiceImpl extends DAO implements CommentService {
 	@Override
 	public int insertCommentNested(CommentVO vo) {
 		
-		sql = "insert into inq_reply (rno, bno, writer, content, depth, rnoch) values(inq_reply_seq.nextval, ?, ?, 'ㄴ' || ?, ? +1, ?)";
+		sql = "insert into inq_reply (rno, bno, writer, content, depth, rnoch) values(inq_reply_seq.nextval, ?, ?, '<img src = \"upload/up.png\" width = \"15px\" height = \"15px\" />' || ?, ? +1, ?)";
 		int r = 0;
 		
 		try {

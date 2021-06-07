@@ -107,7 +107,7 @@
 		}); 
 	}
 
-	function nestedForm(e, value) {
+	function nestedForm(e) {
 		$('.checkTr').each(function () {
 			//console.log(e);
 			//console.log(e.target);
@@ -200,7 +200,7 @@
 				<c:forEach items="${list }" var="list">
 					<tr class="checkTr">
 						<td width="100px">${list.writer }</td>
-						<td width="650px" class="Nest" onclick="nestedForm(event, '${list.content }')">
+						<td width="650px" class="Nest" onclick="nestedForm(event)">
 							${list.content }<input type="hidden" class="depth" value="${list.depth }"><input type="hidden" class="rno" value="${list.rno }">
 						</td>
 						<td width="100px">${list.regdate }</td>
