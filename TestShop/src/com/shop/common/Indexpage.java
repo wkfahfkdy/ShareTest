@@ -28,6 +28,7 @@ public class Indexpage implements DbCommand {
 			return "member/memberLoginSuccess.tiles";
 		}
 		
+		//return "layout/head2.tiles";
 	}
 
 }
