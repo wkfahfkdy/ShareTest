@@ -69,7 +69,7 @@
 					</table>
 				</div>
 				<div class = "buttonCollect">
-					<button type = "button" onclick = "formCheck()">확인</button>
+					<button class="btn btn-outline-dark mt-auto" type = "button" onclick = "formCheck()">확인</button>
 				</div>
 			</form>
 		</div>

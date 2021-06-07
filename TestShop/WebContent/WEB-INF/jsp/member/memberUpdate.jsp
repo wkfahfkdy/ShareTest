@@ -249,7 +249,7 @@
 						<input type = "password" name = "mPwd" placeholder = "수정할 비밀번호 입력" maxlength = "20">
 						<p><br>
 							<input type = "password" name = "iPwd" placeholder = "비밀번호 재입력"  maxlength = "20">
-							<button type = "button" name = "pwdCheck" onclick = "checkThePwd()" value = "unChecked">확인</button>
+							<button class="btn btn-outline-dark mt-auto" type = "button" name = "pwdCheck" onclick = "checkThePwd()" value = "unChecked">확인</button>
 						</p>
 					</td>
 				</tr>
@@ -295,7 +295,7 @@
 						${vo.address}
 						<p><br><!-- <p><br><input type = "text" name = "addr" maxlength = "30"></p> -->
 							<input type = "text" id = "postCode" name = "postCode" placeholder = "우편번호">
-							<input type = "button" onclick = "findPostCode()" value = "우편번호 찾기"><br>
+							<input class="btn btn-outline-dark mt-auto" type = "button" onclick = "findPostCode()" value = "우편번호 찾기"><br>
 							<input type = "text" id = "roadAddr" name = "roadAddr" placeholder = "도로명 주소">
 							<input type = "text" id = "bunAddr" name = "bunAddr" placeholder = "지번 주소">
 							<span id = "guide" style = "color:#999; display:none"></span>
@@ -306,7 +306,7 @@
 				</tr>
 			</table>
 			<div class = "btn_group">
-				<input type = "button" value = "수정" onclick = "submitBtn()">
+				<input class="btn btn-outline-dark mt-auto" type = "button" value = "수정" onclick = "submitBtn()">
 			</div>
 		</form>
 	</div>

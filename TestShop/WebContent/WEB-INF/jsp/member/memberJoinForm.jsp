@@ -260,7 +260,7 @@
 						<th>아이디 : </th>
 						<td>
 							<input type="text" id="memberId" name="memberId" placeholder = "영문+숫자, 4~12글자" maxlength = "12">
-							<button type="button" id="idCheck" value="unChecked">중복 체크</button>
+							<button class="btn btn-outline-dark mt-auto" type="button" id="idCheck" value="unChecked">중복 체크</button>
 						</td>
 					</tr>
 					<tr>
@@ -275,7 +275,7 @@
 						
 							비밀번호 재확인 :
 							<input type="password" id="memberPwd2" name="memberPwd2">
-							<button type="button" id="pwdCheck" value="nonChecked">확인</button>
+							<button class="btn btn-outline-dark mt-auto" type="button" id="pwdCheck" value="nonChecked">확인</button>
 						</td>
 					</tr>
 					<tr>
@@ -287,14 +287,14 @@
 						<th>이메일 : </th>
 						<td>
 							<input type="email" id="memberMail" name="memberMail"><br>
-							<button type = "button" id = "emailCheck" onclick = "emailSend()">인증 번호 받기</button>
+							<button class="btn btn-outline-dark mt-auto" type = "button" id = "emailCheck" onclick = "emailSend()">인증 번호 받기</button>
 						</td>
 					</tr>
 					<tr>
 						<th>주소 : </th>
 						<td><!-- <input type="text" id="memberAddr" name="memberAddr"> -->
 							<input type = "text" id = "postCode" name = "postCode" placeholder = "우편번호">
-							<input type = "button" onclick = "findPostCode()" value = "우편번호 찾기"><br>
+							<input class="btn btn-outline-dark mt-auto" type = "button" onclick = "findPostCode()" value = "우편번호 찾기"><br>
 							<input type = "text" id = "roadAddr" name = "roadAddr" placeholder = "도로명 주소">
 							<input type = "text" id = "bunAddr" name = "bunAddr" placeholder = "지번 주소">
 							<span id = "guide" style = "color:#999; display:none"></span>
@@ -304,9 +304,10 @@
 					</tr>
 				</table>
 			</div>
+			<br>
 			<div>
-				<button type="button" onclick="formCheck()">회원가입</button>
-				<button type="button" onclick="location.href='index.do'">메인화면</button>
+				<button class="btn btn-outline-dark mt-auto" type="button" onclick="formCheck()">회원가입</button>
+				<button class="btn btn-outline-dark mt-auto" type="button" onclick="location.href='index.do'">메인화면</button>
 			</div>
 		</form>
 	</div>

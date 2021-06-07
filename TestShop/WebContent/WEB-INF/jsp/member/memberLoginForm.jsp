@@ -68,12 +68,12 @@
 					</table>
 				</div>
 				<div>
-					<button type="button" onclick="formcheck()">로그인</button>
+					<button class="btn btn-outline-dark mt-auto" type="button" onclick="formcheck()">로그인</button>
 				</div>
 			</form>
 			<form id = "frm2" action="memberJoinForm.do" method="post">
 				<div>
-					<button type="submit">회원 가입</button>
+					<button class="btn btn-outline-dark mt-auto" type="submit">회원 가입</button>
 				</div>
 			</form>
 		</div>
